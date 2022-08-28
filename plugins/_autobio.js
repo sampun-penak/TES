@@ -1,6 +1,5 @@
-export async function all(m) {
+export async function before(m) {
 	let setting = global.db.data.settings[this.user.jid]
-
 	if (new Date() * 1 - setting.status > 1000) {
 		let _uptime = process.uptime() * 1000
 		let uptime = clockString(_uptime);

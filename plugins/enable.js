@@ -27,6 +27,7 @@ let em = res.emoji
 	{title: `${htjava} Anti Satir ${em.getRandom()}`, rowId: `${usedPrefix + command} antisatir`},
 	{title: `${htjava} Auto Levelup ${em.getRandom()}`, rowId: `${usedPrefix + command} autolevelup`},
 	{title: `${htjava} Auto Vn ${em.getRandom()}`, rowId: `${usedPrefix + command} autovn`},
+	{title: `${htjava} Auto Presence ${em.getRandom()}`, rowId: `${usedPrefix + command} autoresence`},
 	{title: `${htjava} Auto DelVn ${em.getRandom()}`, rowId: `${usedPrefix + command} autodelvn`},
 	{title: `${htjava} Auto Sticker ${em.getRandom()}`, rowId: `${usedPrefix + command} autosticker`},
 	{title: `${htjava} Auto Up News ${em.getRandom()}`, rowId: `${usedPrefix + command} autoupnews`},
@@ -244,6 +245,13 @@ const listMessage = {
           throw false
         }
       chat.autoVn = isEnable
+      break
+      case 'autoresence':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoPesence = isEnable
       break
       case 'autosticker':
         if (!isROwner) {

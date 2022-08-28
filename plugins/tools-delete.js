@@ -1,7 +1,7 @@
-let handler = async (m, { conn, args, usedPrefix, command }) => {
+let handler = async (m) => {
 try {
     let { chat, fromMe, isBaileys } = m.quoted
-    await conn.sendMessage(chat, { delete: m.quoted.vM.key })
+    return this.sendMessage(chat, { delete: m.quoted.vM.key })
  } catch {
  let key = {}
  try {
@@ -12,7 +12,7 @@ try {
  } catch (e) {
  	console.error(e)
  }
- conn.sendMessage(m.chat, { delete: key })
+ return this.sendMessage(m.chat, { delete: key })
  }
 }
 handler.help = ['del', 'delete']
