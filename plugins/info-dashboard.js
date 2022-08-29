@@ -1,6 +1,6 @@
 
 let handler = async (m, { conn }) => {
-  let stats = Object.entries(db.data.stats).map(([key, val]) => {
+  let stats = Object.entries(global.db.data.stats).map(([key, val]) => {
     let name = Array.isArray(plugins[key]?.help) ? plugins[key]?.help?.join('\n• ') : plugins[key]?.help || key 
     if (/exec/.test(name)) return
     return { name, ...val }

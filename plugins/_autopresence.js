@@ -1,10 +1,10 @@
-export async function before(m) {
+export async function before(m, { conn }) => {
 	let ran = ['unavailable', 'available', 'composing', 'recording', 'paused']
 	let chat = global.db.data.chats[m.chat]
 	if (chat.autoPesence) {
     if (m.text) {
     /* Mengetik */
-	return this.sendPresenceUpdate(ran.getRandom(), m.chat)
+	return conn.sendPresenceUpdate(ran.getRandom(), m.chat)
     }
   }
 }

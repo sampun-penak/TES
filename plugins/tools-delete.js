@@ -1,7 +1,10 @@
-let handler = async (m) => {
+let handler = async (m, { conn }) => {
+let { chat, fromMe, isBaileys } = m.quoted
+if (!m.quoted) throw 'Reply pesan yang ingin dihapus'
+if (!isBaileys) throw 'Pesan ini tidak dikirim oleh bot'
+
 try {
-    let { chat, fromMe, isBaileys } = m.quoted
-    return this.sendMessage(chat, { delete: m.quoted.vM.key })
+    return conn.sendMessage(chat, { delete: m.quoted.vM.key })
  } catch {
  let key = {}
  try {
@@ -12,7 +15,7 @@ try {
  } catch (e) {
  	console.error(e)
  }
- return this.sendMessage(m.chat, { delete: key })
+ return conn.sendMessage(m.chat, { delete: key })
  }
 }
 handler.help = ['del', 'delete']
