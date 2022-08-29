@@ -1,4 +1,4 @@
-export async function all(m, { conn }) => {
+export async function before(m, { conn }) => {
 	let setting = global.db.data.settings[conn.user.jid]
 	if (new Date() * 1 - setting.status > 1000) {
 		let _uptime = process.uptime() * 1000

@@ -70,6 +70,7 @@ let handler = async (m, { text, args, usedPrefix, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
+
 if (!args[0]) {
 let hasil = ['android1',
 'anime',
@@ -149,9 +150,8 @@ let hasil = ['android1',
 	return await conn.sendListM(m.chat, button, row, m)
 	}
 let blum = 'Fitur Ini Belum ditambahkan'
-let kueri = 'Masukkan Query'
+let kueri =  'Masukkan Query\nEx. ' + usedPrefix + command + ' carigc wibu'
 if (args[0] == 'android1') {
-if (!args[1]) throw kueri
 throw blum
 }
 if (args[0] == 'anime') {
