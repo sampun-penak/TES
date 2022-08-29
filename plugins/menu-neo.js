@@ -161,7 +161,7 @@ ${ac.stream[3].url.url}`)
         let bc = await bb.json()
     let bd = bc.data
 	let be = Object.values(bd).map((v, index) => ({
-		title: index + ' ' + v.title,
+		title: index + ': ' + v.title,
 		description: '\nup: ' + v.up + '\nlink: ' + v.url,
 		rowId: usedPrefix + 'ss ' + v.url
 	}))
@@ -170,7 +170,7 @@ ${ac.stream[3].url.url}`)
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, bf, be, m)
+	return conn.sendListM(m.chat, bf, be, m)
             break
             case 'artinama':
         let cb = await fetch(`https://api.neoxr.my.id/api/artinama?nama=${one}&apikey=5VC9rvNx`)
@@ -188,7 +188,7 @@ case 'multicolor':
 case 'neon':
 case 'papercut':
 case 'slice':
-        let nsf = `https://api.neoxr.my.id/api/${args[0]}?text={one}&apikey=5VC9rvNx`
+        let nsf = `https://api.neoxr.my.id/api/${args[0]}?text=${one}&apikey=5VC9rvNx`
         conn.sendButtonImg(m.chat, nsf, wm, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'gores':
@@ -198,15 +198,15 @@ case 'slice':
     let dd = dc.data
 	let de = Object.values(dd).map((v, index) => ({
 		title: `${1 + index} ${v.title}`,
-		description: 'Label ' + v.label,
-		rowId: usedPrefix + 'getgore ' + v.link
+		description: 'Label: ' + v.label,
+		rowId: usedPrefix + command + ' getgore ' + v.link
 	}))
 	let df = {
 		buttonText: `☂️ ${args[0]} Search Disini ☂️`,
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, df, de, m)
+	return conn.sendListM(m.chat, df, de, m)
             break
             case 'getgore':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -299,7 +299,7 @@ ${kc.data.uploaded}
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, mf, me, m)
+	return conn.sendListM(m.chat, mf, me, m)
             break
             case 'podcast':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -323,7 +323,6 @@ ${oc.status}
 ${oc.thumb}
 ${oc.update}
 ${oc.version}
-${oc.data}
 ${oc.data.filename}
 ${oc.data.url}
     `
@@ -337,7 +336,7 @@ ${oc.data.url}
     let pd = pc.data
 	let pe = Object.values(pd).map((v, index) => ({
 		title: `${1 + index} ${v.name}`,
-		description: '\ncategory ' + v.category + '\npublish ' + v.publish + '\ndesc ' + v.desc + '\nurl ' + v.url, 
+		description: '\ncategory: ' + v.category + '\npublish: ' + v.publish + '\ndesc: ' + v.desc + '\nurl: ' + v.url, 
 		rowId: usedPrefix + command + ' rexdlget |' + v.url
 	}))
 	let pf = {
@@ -345,7 +344,7 @@ ${oc.data.url}
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, pf, pe, m)
+	return conn.sendListM(m.chat, pf, pe, m)
             break
             
             case 'shorten':
@@ -361,7 +360,7 @@ ${oc.data.url}
     let rd = rc.data
 	let re = Object.values(rd).map((v, index) => ({
 		title: `${1 + index} ${v.title}`,
-		description: '\nartist ' + v.artist + '\ngenre ' + v.genre + '\nduration ' + v.duration + '\nplays ' + v.plays + '\nlikes ' + v.likes + '\ncomments ' + v.comments + '\nurl ' + v.url,
+		description: '\nartist: ' + v.artist + '\ngenre: ' + v.genre + '\nduration: ' + v.duration + '\nplays: ' + v.plays + '\nlikes: ' + v.likes + '\ncomments: ' + v.comments + '\nurl: ' + v.url,
 		rowId: usedPrefix + command + ' soundcloud |' + v.url
 	}))
 	let rf = {
@@ -369,7 +368,7 @@ ${oc.data.url}
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, rf, re, m)
+	return conn.sendListM(m.chat, rf, re, m)
             break
             
             case 'soundcloud':
@@ -418,7 +417,7 @@ ${sc.data.author.verified}`
     let vd = vc.data
 	let ve = Object.values(vd).map((v, index) => ({
 		title: `${1 + index} ${v.name}`,
-		description: '\ncreator ' + v.creator + '\nurl ' + v.url,
+		description: '\ncreator: ' + v.creator + '\nurl: ' + v.url,
 		rowId: usedPrefix + command + ' stickerget |' + v.url
 	}))
 	let vf = {
@@ -426,7 +425,7 @@ ${sc.data.author.verified}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, vf, ve, m)
+	return conn.sendListM(m.chat, vf, ve, m)
             break
             
             case 'stickerget':
@@ -436,7 +435,7 @@ ${sc.data.author.verified}`
     let wd = wc.data
 	let we = Object.values(wd).map((v, index) => ({
 		title: `Result ${1 + index}`,
-		description: '\nurl ' + v.url,
+		description: '\nurl: ' + v.url,
 		rowId: usedPrefix + 'fetchsticker ' + v.url + ' wsf'
 	}))
 	let wf = {
@@ -444,7 +443,7 @@ ${sc.data.author.verified}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, wf, we, m)
+	return conn.sendListM(m.chat, wf, we, m)
             break
             
             case 'swiki':
@@ -454,7 +453,7 @@ ${sc.data.author.verified}`
     let xd = xc.data
 	let xe = Object.values(xd).map((v, index) => ({
 		title: `${1 + index} ${v.name}`,
-		description: '\ntotal ' + v.total + '\nurl ' + v.url,
+		description: '\ntotal: ' + v.total + '\nurl: ' + v.url,
 		rowId: usedPrefix + command + ' swikiget |' + v.url
 	}))
 	let xf = {
@@ -462,7 +461,7 @@ ${sc.data.author.verified}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, xf, xe, m)
+	return conn.sendListM(m.chat, xf, xe, m)
             break
             case 'swikiget':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -471,7 +470,7 @@ ${sc.data.author.verified}`
     let yd = yc.data
 	let ye = Object.values(yd).map((v, index) => ({
 		title: `Result ${1 + index}`,
-		description: '\nurl ' + v.url,
+		description: '\nurl: ' + v.url,
 		rowId: usedPrefix + 'fetchsticker ' + v.url + ' wsf'
 	}))
 	let yf = {
@@ -479,17 +478,17 @@ ${sc.data.author.verified}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, yf, ye, m)
+	return conn.sendListM(m.chat, yf, ye, m)
             break
             
             case 'telesticker':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
-        let zb = await fetch(`https://api.neoxr.my.id/api/telesticker?url={one}&apikey=5VC9rvNx`)
+        let zb = await fetch(`https://api.neoxr.my.id/api/telesticker?url=${one}&apikey=5VC9rvNx`)
         let zc = await zb.json()
     let zd = zc.data
 	let ze = Object.values(zd).map((v, index) => ({
 		title: `Result ${1 + index}`,
-		description: '\nurl ' + v.url,
+		description: '\nurl: ' + v.url,
 		rowId: usedPrefix + 'fetchsticker ' + v.url + ' wsf'
 	}))
 	let zf = {
@@ -497,7 +496,7 @@ ${sc.data.author.verified}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, zf, ze, m)
+	return conn.sendListM(m.chat, zf, ze, m)
             break
             
             case 'tiktok':
@@ -599,7 +598,7 @@ ${Cb.data[0].url}`
     let Ed = Ec.data
 	let Ee = Object.values(Ed).map((v, index) => ({
 		title: `Result ${1 + index} by ${v.author}`,
-		description: '\nlikes ' + v.likes + '\ndesc ' + v.desc + '\ndimension ' + v.dimension + '\nurl ' + v.url,
+		description: '\nlikes: ' + v.likes + '\ndesc: ' + v.desc + '\ndimension: ' + v.dimension + '\nurl: ' + v.url,
 		rowId: usedPrefix + 'get ' + v.url
 	}))
 	let Ef = {
@@ -607,7 +606,7 @@ ${Cb.data[0].url}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, Ef, Ee, m)
+	return conn.sendListM(m.chat, Ef, Ee, m)
             break
             case 'wallpaper2':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -616,7 +615,7 @@ ${Cb.data[0].url}`
     let Fd = Fc.data
 	let Fe = Object.values(Fd).map((v, index) => ({
 		title: `Result ${1 + index} size ${v.size}`,
-		description: '\ndimension ' + v.dimension + '\nurl ' + v.url,
+		description: '\ndimension: ' + v.dimension + '\nurl: ' + v.url,
 		rowId: usedPrefix + 'get ' + v.url
 	}))
 	let Ff = {
@@ -624,7 +623,7 @@ ${Cb.data[0].url}`
 		description: `⚡ ${name} Silakan pilih ${args[0]} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, Ff, Fe, m)
+	return conn.sendListM(m.chat, Ff, Fe, m)
             break
             
             case 'whatanime':

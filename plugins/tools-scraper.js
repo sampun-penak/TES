@@ -638,6 +638,6 @@ throw blum
 }
 
 }
-handler.command = ['scrap']
+handler.command = /^scr(ap(e[rs]?)?|p)$/i
 
 export default handler

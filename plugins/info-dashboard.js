@@ -22,7 +22,7 @@ ${getTime(last)}
 }
 handler.help = ['dashboard']
 handler.tags = ['info']
-handler.command = /^(db|dashboard)$/i
+handler.command = /^^d(as(hbo(ard?|r)|bo(ard?|r))|b)$/i
 
 export default handler
 
