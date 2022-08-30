@@ -4,59 +4,23 @@ import fs from 'fs'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let imgr = flaaa.getRandom()
-let url
-try {
-url = 'https://api-reysekha.herokuapp.com/api/wallpaper/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://api-reysekha.herokuapp.com/api/wallpaper/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://api-reysekha.herokuapp.com/api/wallpaper/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://server-api-rey.herokuapp.com/api/random/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://server-api-rey.herokuapp.com/api/random/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://server-api-rey.herokuapp.com/api/random/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://sekha.me/api/nsfw/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://sekha.me/api/nsfw/' + command + '?apikey=apirey'
-} catch {
-try {
-url = 'https://sekha.me/api/nsfw/' + command + '?apikey=apirey'
-} catch {
-throw 'Yahh..'
-}}}}}}}}}
-
-let haha = await conn.getFile(url)
-await conn.sendButton(m.chat, `Nahh Udah Jadi *${command}*`.trim(), wm, haha.data, [['🔄 Next 🔄', `/${command}`]], m, { quoted: fakes })
-if (command == 'ppcouple') {
-let hi = await fetch(url)
-let sul = await hi.json()
-await conn.sendButton(m.chat, `Nahh Udah Jadi *${command}*`.trim(), wm, sul.result.male, [['🔄 Next 🔄', `/${command}`]], m, fdoc)
-await conn.sendButton(m.chat, `Nahh Udah Jadi *${command}*`.trim(), wm, sul.result.female, [['🔄 Next 🔄', `/${command}`]], m, fdoc)
-}
-
+        let jb = await fetch('https://raw.githubusercontent.com/AyGemuy/RESTAPI/master/data/' + command + '.json')
+        let jc = await jb.json()
+        return conn.sendButtonImg(m.chat, jc.getRandom(), author, 'Nih.jpg', '🔄 Next 🔄', `/${command}`, fakes, adReply)
 }
 handler.command = handler.help = ["aesthetic",
 "ahegao",
 "akira",
 "akiyama",
 "ana",
-"anime",
 "anjing",
 "ass",
 "asuna",
 "ayuzawa",
 "bdsm",
+"blackpink",
 "blowjob",
+"boneka",
 "boruto",
 "cecan",
 "cecan2",
@@ -69,6 +33,8 @@ handler.command = handler.help = ["aesthetic",
 "cogan",
 "cogan2",
 "cosplay",
+"cosplayloli",
+"cosplaysagiri",
 "cuckold",
 "cum",
 "cyberspace",
@@ -81,6 +47,7 @@ handler.command = handler.help = ["aesthetic",
 "erza",
 "femdom",
 "foot",
+"gamewallp",
 "gaming",
 "gangbang",
 "gifs",
@@ -91,7 +58,7 @@ handler.command = handler.help = ["aesthetic",
 "hestia",
 "hinata",
 "inori",
-"islami",
+"Islamic",
 "isuzu",
 "itachi",
 "itori",
@@ -101,15 +68,16 @@ handler.command = handler.help = ["aesthetic",
 "justina",
 "kaga",
 "kagura",
+"kakasih",
 "kaori",
 "kartun",
 "katakata",
 "keneki",
-"korea",
 "kotori",
 "kpop",
 "kucing",
 "kurumi",
+"lisa",
 "loli",
 "madara",
 "manga",
@@ -124,6 +92,7 @@ handler.command = handler.help = ["aesthetic",
 "naruto",
 "neko",
 "neko2",
+"nekonime",
 "nezuko",
 "nsfwloli",
 "onepiece",
@@ -133,6 +102,7 @@ handler.command = handler.help = ["aesthetic",
 "pokemon",
 "ppcouple",
 "programing",
+"profilwa",
 "pubg",
 "pussy",
 "rize",
@@ -149,19 +119,17 @@ handler.command = handler.help = ["aesthetic",
 "shota",
 "tatasurya",
 "tejina",
-"teknologi",
+"technology",
 "tentacles",
-"thailand",
 "thighs",
 "toukachan",
-"trans",
 "tsunade",
-"vietnam",
 "waifu",
 "waifu2",
 "wallhp",
 "yotsuba",
 "yuki",
+"yulibocil",
 "yumeko",
 "yuri",
 "zettai",
