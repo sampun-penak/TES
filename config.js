@@ -49,7 +49,7 @@ global.APIs = {
 
 /*Apikey*/
 global.APIKeys = {
- 'https://api.neoxr.my.id' : 'JeJU827J',
+ 'https://api.neoxr.my.id' : '5VC9rvNx',
  'https://api.lolhuman.xyz' : 'bukanitucuy14315195',
  'https://api.xteam.xyz' : 'NezukoTachibana281207',
  'https://api.zeks.xyz' : 'apivinz',
@@ -72,9 +72,13 @@ global.xteamkey = 'NezukoTachibana281207'
 /*Xcoders*/
 global.xckey = 'BOhjM2hUVn'
 
-/*List Lolkey
+/*List Key
+-Lolhuman-
 '327a6596e4c4baa20c756132'
 'bukanitucuy14315195'
+
+-Neoxr-
+'5VC9rvNx'
 */
 
 /*Number*/

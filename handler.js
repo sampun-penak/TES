@@ -931,7 +931,7 @@ export async function handler(chatUpdate) {
                 if (!('jadibot' in settings)) settings.jadibot = false
                 if (!('autorestart' in settings)) settings.autorestart = true
                 if (!('restartDB' in settings)) settings.restartDB = 0
-                if (!('status' in settings)) settings.status = ''
+                if (!('status' in settings)) settings.status = 0
              
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
@@ -940,7 +940,7 @@ export async function handler(chatUpdate) {
                 restrict: true,
                 autorestart: true,
                 restartDB: 0,
-                status: ''
+                status: 0
             }
         } catch (e) {
             console.error(e)
