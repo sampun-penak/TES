@@ -199,7 +199,7 @@ case 'slice':
 	let de = Object.values(dd).map((v, index) => ({
 		title: `${1 + index} ${v.title}`,
 		description: 'Label: ' + v.label,
-		rowId: usedPrefix + command + ' getgore ' + v.link
+		rowId: usedPrefix + command + ' getgore |' + v.link
 	}))
 	let df = {
 		buttonText: `☂️ ${args[0]} Search Disini ☂️`,
