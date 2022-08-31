@@ -42,8 +42,8 @@ let name = await conn.getName(who)
 "Restrict",
 "Simi",
 "SwOnly",
-"WhiteListMyContact",
-"Welcome"]
+"Welcome",
+"WhiteListMyContact"]
 
 let idop = ["anticall",
 "antidelete",
@@ -120,12 +120,12 @@ let desop = ["Memblokir user jika menelpon bot",
 "Restrict",
 "Simi",
 "SwOnly",
-"WhiteListMyContact",
-"Welcome"]
+"Welcome",
+"WhiteListMyContact"]
 
 let row = Object.keys(namop, desop, idop).map((v, index) => ({
-		title: `${1 + index} ${namop[v]}`,
-		description: `\n ${desop[v]}`,
+		title: `${htki} ${command} ${namop[v]} ${htka}`,
+		description: `\nNo.${1 + index}\n${htjava}${desop[v]}\n${dmenuf}`,
 		rowId: usedPrefix + command + ' ' + idop[v]
 	}))
 	let button = {

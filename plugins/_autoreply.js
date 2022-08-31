@@ -13,6 +13,7 @@ export async function all(m) {
     let setting = global.db.data.settings
     let user = global.db.data.users[m.sender]
     
+
     if (chat.autoReply) {
     // ketika ada yang kirim anu
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
@@ -59,7 +60,17 @@ await this.reply(nomorown + '@s.whatsapp.net', `Ada Yang Mau Nyulik nih :v \n\nd
     
     // bot
     if (/^(aktif|w(ey|oi)|bot|ha[iy]|we|oy|p)$/i.test(m.text)) {
-        let caption = `Apa sih kak *${name} @${who.split("@")[0]}* 🗿`
+    let apsih = ["Kenapa dah",
+"Ada apa",
+"Naon meng",
+"Iya, bot disini",
+"Luwak white coffe passwordnya",
+"Hmmm, kenapa",
+"Apasih",
+"Okey bot sudah aktif",
+"2, 3 tutup botol",
+"Bot aktif"]
+        let caption = `${apsih.getRandom()} kak *${name} @${who.split("@")[0]}* 🗿`
     this.sendButton(m.chat, caption, wm, null, [[user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '/owner' : '/menu']], m, { mentions: this.parseMention(caption) })
         }
     }
