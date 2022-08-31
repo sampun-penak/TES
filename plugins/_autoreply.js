@@ -4,7 +4,7 @@ import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import knights from 'knights-canvas'
 export async function all(m) {
-	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 	let name = await this.getName(who)
 	let chat = global.db.data.chats[m.chat]
     let { isBanned } = global.db.data.chats[m.chat]
@@ -58,8 +58,8 @@ await this.reply(nomorown + '@s.whatsapp.net', `Ada Yang Mau Nyulik nih :v \n\nd
         }
     
     // bot
-    if (/^bot$/i.test(m.text)) {
-        let caption = `Bot Aktif kak *${name} @${who.split("@")[0]}*`
+    if (/^(aktif|w(ey|oi)|bot|ha[iy]|we|oy|p)$/i.test(m.text)) {
+        let caption = `Apa sih kak *${name} @${who.split("@")[0]}* 🗿`
     this.sendButton(m.chat, caption, wm, null, [[user.banned ? 'Pemilik Bot' : 'Menu', user.banned ? '/owner' : '/menu']], m, { mentions: this.parseMention(caption) })
         }
     }
