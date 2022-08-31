@@ -42,7 +42,7 @@ let urls = ['https://violetics.pw/api/canvas/quotes?apikey=beta&text=' + teks + 
             let row = Object.keys(urls, lisn).map((v, index) => ({
 		title: htjava + ' ' + lisn[v] + ' Sticker',
 		description: 'By ' + wm,
-		rowId: usedPrefix + 'fetchsticker ' + urls[v] + ' lib'
+		rowId: usedPrefix + 'get ' + urls[v]
 	}))
 	let button = {
 		buttonText: `☂️ Tema Disini ☂️`,

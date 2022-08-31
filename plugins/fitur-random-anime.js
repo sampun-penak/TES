@@ -5,7 +5,9 @@ import fs from 'fs'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let imgr = flaaa.getRandom()
 let chat = global.db.data.chats[m.chat]
-if (chat.nsfw) {
+if (chat.nsfw == false && m.isGroup) {
+conn.sendButton(m.chat, '❗ ᴏᴘᴛɪᴏɴs ɴsғᴡ ᴅɪᴄʜᴀᴛ ɪɴɪ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴏʟᴇʜ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ', botdate, null, [['ᴇɴᴀʙʟᴇ', '.on nsfw']], m)
+} else if (chat.nsfw == true && m.isGroup) {
         let jb = await fetch('https://raw.githubusercontent.com/AyGemuy/RESTAPI/master/data/' + command + '.json')
         let jc = await jb.json()
         return conn.sendButtonImg(m.chat, jc.getRandom(), author, 'Nih.jpg', '🔄 Next 🔄', `/${command}`, fakes, adReply)
@@ -50,8 +52,6 @@ handler.command = handler.help = ["aesthetic",
 "erza",
 "femdom",
 "foot",
-"gamewallp",
-"gaming",
 "gangbang",
 "gifs",
 "glasses",
