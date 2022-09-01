@@ -1,7 +1,10 @@
 let handler = async(m, { conn }) => {
-let pc = Object.keys(await conn.chats)
-const groups = Object.keys(await conn.groupFetchAllParticipating())
-conn.reply(m.chat, 'List Chat private:\n\n' + `Total: ${pc == undefined ? '*0* Chat private' : '*' + `${pc.length - groups.length}` + '* Chat private'}\n` + pc.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: pc })
+let pc = Object.entries(await conn.chats)
+let niorg = pc.filter(([jid]) => jid.endsWith('@s.whatsapp.net'))
+let txt = ''
+    for (let [jid] of niorg)
+txt += `${htjava} ${await conn.getName(jid)}\n${dmenub} ${'@' + jid.replace(/@.+/, '')}\n${dmenuf}\n\n`
+return conn.sendButton(m.chat, htki + ' *Private Chat* ' + htka + '\n' + '*Total:* ' + niorg.length + '\n\n' + txt.trim(), wm, null, [['Menu', '/menu']], m, { mentions: conn.parseMention(txt) })
 }
 handler.help = ['listpc']
 handler.tags = ['owner']
