@@ -58,6 +58,15 @@ await this.reply(nomorown + '@s.whatsapp.net', `Ada Yang Mau Nyulik nih :v \n\nd
           }})
         }
     
+    // ketika ada yang kirim anu
+    if (m.text === '🗿') {
+    this.sendMessage(m.chat, {
+          react: {
+            text: '🗿',
+            key: m.key
+          }})
+        }
+    
     // bot
     if (/^(aktif|w(ey|oi)|bot|ha[iy]|we|oy|p)$/i.test(m.text)) {
     let apsih = ["Kenapa dah",
