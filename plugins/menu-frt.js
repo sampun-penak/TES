@@ -109,8 +109,8 @@ await conn.sendButton(m.chat, caption, wm, null, [
             }
             
 if (command) {
+try {
 switch (template) {
-
         
             case 'alkitabsearch':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -262,6 +262,9 @@ case 'toxic':
         conn.sendButtonImg(m.chat, wnt, wm, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
+}
+} catch {
+throw eror
 }
 }
 }

@@ -203,6 +203,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             }
             
 if (command) {
+try {
 switch (template) {
 
         
@@ -523,6 +524,9 @@ case 'yuri':
   })
             break
             
+}
+} catch {
+throw eror
 }
 }
 }

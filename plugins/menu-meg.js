@@ -50,6 +50,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
             }
             
 if (command) {
+try {
 switch (template) {
             case 'gimg':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -128,6 +129,9 @@ switch (template) {
 	}
 	return await conn.sendListM(m.chat, sf, se, m)
             break
+}
+} catch {
+throw eror
 }
 }
 }

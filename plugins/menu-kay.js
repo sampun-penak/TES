@@ -32,8 +32,8 @@ await conn.sendButtonImg(m.chat, logo, caption, author, 'M E N U', '.menu', fpay
             }
             
 if (command) {
+try {
 switch (template) {
-
         
             case 'img':
             if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query
@@ -133,6 +133,9 @@ switch (template) {
         await conn.sendButtonImg(m.chat, vpx, vpnn, author, 'To Sticker', '.s', fpayment, adReply)
             break
             
+}
+} catch {
+throw eror
 }
 }
 }

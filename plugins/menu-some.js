@@ -60,6 +60,7 @@ await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist
             }
             
 if (command) {
+try {
 switch (template) {
 case 'animal':
 if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -81,7 +82,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         return m.reply(ec.binary)
             break
             case 'token':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let fb = await fetch(`https://some-random-api.ml/token`)
         let fc = await fb.json()
         return m.reply(fc.token)
@@ -108,7 +108,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
             case 'joke':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let jb = await fetch(`https://some-random-api.ml/joke`)
         let jc = await jb.json()
         return m.reply(jc.joke)
@@ -179,6 +178,9 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         return conn.sendButtonImg(m.chat, wnt, wm, 'Nih.jpg', 'Sticker', '.s', fakes, adReply)
             break
             
+}
+} catch {
+throw eror
 }
 }
 }

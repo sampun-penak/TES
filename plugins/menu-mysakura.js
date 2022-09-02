@@ -94,6 +94,7 @@ conn.sendButton(m.chat, caption, wm, null, [
             }
             
 if (command) {
+try {
 switch (template) {
             //Hadi
         case 'attp':
@@ -374,6 +375,9 @@ ${xabk.Time}
             ], m, fdoc)
             break
             
+          }
+          } catch {
+          throw eror
           }
      }
 }

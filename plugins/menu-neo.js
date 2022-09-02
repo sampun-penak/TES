@@ -75,6 +75,7 @@ await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist
             }
             
 if (command) {
+try {
 switch (template) {
 
         
@@ -646,6 +647,9 @@ ${Gd.similarity}`
         conn.sendButtonImg(m.chat, Gd.image, Ge, 'Nih.jpg', 'VIDEO', '.get ' + Gd.video, fakes, adReply)
             break
             
+}
+} catch {
+throw eror
 }
 }
 }
