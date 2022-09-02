@@ -39,7 +39,7 @@
     },
     "license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "*",
+        "@adiwajshing/baileys": "github:DenpaDev/Baileys",
         "@bochilteam/scraper": "*",
         "@deepgram/sdk": "*",
         "@ibaraki-douji/pixivts": "*",
