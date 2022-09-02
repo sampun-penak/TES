@@ -1,8 +1,7 @@
-import { didyoumean3 } from 'didyoumean3'
-// or
-import similarity from 'similarity'
+import didyoumean3 from 'didyoumean3'
 
 export async function before(m, { match, usedPrefix, command}) {
+
 	if ((usedPrefix = (match[0] || '')[0])) {
 		let noPrefix = m.text.replace(usedPrefix, '')
 		let args = noPrefix.trim().split` `.slice(1)
@@ -10,11 +9,10 @@ export async function before(m, { match, usedPrefix, command}) {
 		let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
 		if (help.includes(noPrefix)) return
 		let mean = didyoumean3(noPrefix, help)
-		let mean2 = similarity(noPrefix, help)
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
-    let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\nAkurat: *${mean2}%*`
-		if (mean) this.sendButton(m.chat, caption, author, null, [['✅ Iya', `${usedPrefix + mean} ${text}`], ['❌ Bukan', usedPrefix + '?']], m, { mentions: this.parseMention(caption) })
+    let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\n`
+		if (mean) this.sendButton(m.chat, caption, wm, null, [['✅ Iya', `${usedPrefix + mean} ${text}`], ['❌ Bukan', usedPrefix + '?']], m, { mentions: this.parseMention(caption) })
 	}
 }
 export const disabled = false
