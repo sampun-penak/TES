@@ -17,7 +17,7 @@ import { spawn } from 'child_process'
   
   export default handler
   
-  let tmp = path.join(__dirname, '../tmp/')
+  let tmp = path.join(__dirname, './tmp/')
   function running(img, duration = 10, fps = 60) {
     return new Promise((resolve, reject) => {
       let layers = [
