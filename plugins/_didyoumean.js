@@ -1,5 +1,6 @@
 import didyoumean from 'didyoumean'
-export async function before(m, { match, usedPrefix, command}) {
+import similarity from 'similarity'
+export async function before(m, { match, usedPrefix, command }) {
 	if ((usedPrefix = (match[0] || '')[0])) {
 		let noPrefix = m.text.replace(usedPrefix, '')
 		let args = noPrefix.trim().split` `.slice(1)
@@ -7,7 +8,7 @@ export async function before(m, { match, usedPrefix, command}) {
 		let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
 		if (help.includes(noPrefix)) return
 		let mean = didyoumean(noPrefix, help)
-		let sim = didyoumean.threshold(noPrefix, help)
+		let sim = similarity(m.text, mean)
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
     let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\nSimilarity: *${sim}%*`
