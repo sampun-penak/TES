@@ -7,7 +7,6 @@ export async function before(m, { match, usedPrefix, command }) {
 		let text = args.join` `
 		let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
 		let mean = didyoumean(noPrefix, help)
-		if (mean.includes(noPrefix)) return
 		let sim = similarity(noPrefix, mean)
 		let som = sim * 100
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender

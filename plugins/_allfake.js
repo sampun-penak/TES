@@ -77,29 +77,31 @@ handler.all = async function (m) {
 			global.faketik = {
 				contextInfo: {
 					externalAdReply: {
-						showAdAttribution: true,
-						mediaUrl: snh,
-						mediaType: 'VIDEO',
-						description: 'Follow: ' + snh,
-						title: '👋 Hay Kak :> ' + name,
-						body: botdate,
-						thumbnailUrl: await (await fetch(pp)).buffer(),
-						sourceUrl: snh
-					}
+    body: botdate,
+    containsAutoReply: true,
+    mediaType: 2, 
+    mediaUrl: snh,
+    showAdAttribution: true,
+    sourceUrl: snh,
+    thumbnailUrl: await (await fetch(pp)).buffer(),
+    renderLargerThumbnail: true,
+    title: '👋 Hay Kak :> ' + name,
+     }
 				}
 			}
 			global.fakeyt = {
 				contextInfo: {
 					externalAdReply: {
-						showAdAttribution: true,
-						mediaUrl: syt,
-						mediaType: 'VIDEO',
-						description: 'Follow: ' + syt,
-						title: '👋 Hay Kak :> ' + name,
-						body: botdate,
-						thumbnailUrl: await (await fetch(pp)).buffer(),
-						sourceUrl: syt
-					}
+    body: botdate,
+    containsAutoReply: true,
+    mediaType: 2, 
+    mediaUrl: syt,
+    showAdAttribution: true,
+    sourceUrl: syt,
+    thumbnailUrl: await (await fetch(pp)).buffer(),
+    renderLargerThumbnail: true,
+    title: '👋 Hay Kak :> ' + name,
+     }
 				}
 			}
 			// Fake
