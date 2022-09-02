@@ -38,23 +38,17 @@ let name = await conn.getName(who)
 
 *L O A D I N G. . .*
 `.trim(), m)
-  if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', `
-*${htki} YOUTUBE ${htka}*
-
-*${htjava} Title:* ${title}
-*${htjava} Type:* mp3
-*${htjava} Filesize:* ${audio.fileSizeH}
-
-*L O A D I N G. . .*
-`.trim(), m, null, { fileLength: fsizedoc, seconds: fsizedoc, mimetype: 'audio/mp4', contextInfo: {
+  if (!isLimit) await conn.sendFile(m.chat, source, title + '.mp3', '', fakes, null, { fileLength: fsizedoc, seconds: fsizedoc, mimetype: 'audio/mp4', contextInfo: {
           externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(thumbnail)).buffer(),
-    sourceUrl: source
+    body: 'Size: ' + audio.fileSizeH,
+    containsAutoReply: true,
+    mediaType: 2, 
+    mediaUrl: args[0],
+    showAdAttribution: true,
+    sourceUrl: args[0],
+    thumbnailUrl: thumbnail,
+    renderLargerThumbnail: true,
+    title: 'Nihh Kak, ' + name,
      }}
   })
 }

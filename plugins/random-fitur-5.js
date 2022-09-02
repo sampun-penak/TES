@@ -30,9 +30,9 @@ let q = m.quoted ? m.quoted : m
 let f = await fetch(`https://api.lolhuman.xyz/api/read-qr?apikey=${global.lolkey}&img=${url}`)
 let x = await f.json()
 let caption = `🤠 *Hasil:* ${x.result}`
-await conn.sendButton(m.chat, caption, wm, null, [
-                ['To Qr', `${usedPrefix}qr ${x.result}`]
-            ], m)
+await conn.sendHydrated(m.chat, caption, botdate, null, 'https://www.whatsapp.com/otp/copy/' + x.result, 'C O P Y', null, null, [
+      [null, null]
+    ], m)
 }
 
 if (command == 'animechan') {

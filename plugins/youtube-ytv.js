@@ -49,13 +49,15 @@ try {
             jpegThumbnail: Buffer.alloc(0), contextInfo: {
             mimetype: 'video/mp4',
           externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(thumbnail)).buffer(),
-    sourceUrl: link
+    body: 'Size: ' + video.fileSizeH,
+    containsAutoReply: true,
+    mediaType: 2, 
+    mediaUrl: args[0],
+    showAdAttribution: true,
+    sourceUrl: args[0],
+    thumbnailUrl: thumbnail,
+    renderLargerThumbnail: true,
+    title: 'Nihh Kak, ' + name,
      }}
   })
   } catch {
@@ -89,6 +91,7 @@ await conn.sendButton(m.chat, caption, wm, v.result.thumb, [
                 ['Mp4', `${usedPrefix}get ${v.result.link}`],
                 ['Mp3', `${usedPrefix}get ${v.result.mp3}`]
             ], m)
+  }
   }
 }
 handler.help = ['mp4', 'v', ''].map(v => 'yt' + v + ` <url> <without message>`)
