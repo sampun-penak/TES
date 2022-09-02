@@ -59,7 +59,7 @@ await this.reply(nomorown + '@s.whatsapp.net', `Ada Yang Mau Nyulik nih :v \n\nd
         }
     
     // ketika ada yang kirim anu
-    if (m.text === '🗿') {
+    if (m.text.includes('🗿')) {
     this.sendMessage(m.chat, {
           react: {
             text: '🗿',

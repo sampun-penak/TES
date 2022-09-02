@@ -55,7 +55,7 @@ handler.all = async function (m) {
 						description: 'Follow: ' + sig,
 						title: '👋 Hay Kak :> ' + name,
 						body: botdate,
-						thumbnailUrl: await (await fetch(pp)).buffer(),
+						thumbnailUrl: pp,
 						sourceUrl: sgc
 					}
 				}
@@ -69,7 +69,7 @@ handler.all = async function (m) {
 						description: 'Follow: ' + sfb,
 						title: '👋 Hay Kak :> ' + name,
 						body: botdate,
-						thumbnailUrl: await (await fetch(pp)).buffer(),
+						thumbnailUrl: pp,
 						sourceUrl: sfb
 					}
 				}
@@ -77,33 +77,32 @@ handler.all = async function (m) {
 			global.faketik = {
 				contextInfo: {
 					externalAdReply: {
-    body: botdate,
-    containsAutoReply: true,
-    mediaType: 2, 
-    mediaUrl: snh,
-    showAdAttribution: true,
-    sourceUrl: snh,
-    thumbnailUrl: await (await fetch(pp)).buffer(),
-    renderLargerThumbnail: true,
-    title: '👋 Hay Kak :> ' + name,
-     }
+						showAdAttribution: true,
+						mediaUrl: snh,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + snh,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: pp,
+						sourceUrl: snh
+					}
 				}
 			}
 			global.fakeyt = {
 				contextInfo: {
 					externalAdReply: {
-    body: botdate,
-    containsAutoReply: true,
-    mediaType: 2, 
-    mediaUrl: syt,
-    showAdAttribution: true,
-    sourceUrl: syt,
-    thumbnailUrl: await (await fetch(pp)).buffer(),
-    renderLargerThumbnail: true,
-    title: '👋 Hay Kak :> ' + name,
-     }
+						showAdAttribution: true,
+						mediaUrl: syt,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + syt,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: pp,
+						sourceUrl: syt
+					}
 				}
 			}
+			
 			// Fake
 		global.fpayment = {
 				key: {
