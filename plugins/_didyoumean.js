@@ -6,12 +6,12 @@ export async function before(m, { match, usedPrefix, command }) {
 		let args = noPrefix.trim().split` `.slice(1)
 		let text = args.join` `
 		let help = Object.values(plugins).filter(v => v.help && !v.disabled).map(v => v.help).flat(1)
-		if (help.includes(noPrefix)) return
 		let mean = didyoumean(noPrefix, help)
-		let sim = similarity(m.text, mean)
+		if (mean.includes(noPrefix)) return
+		let sim = similarity(noPrefix, mean)
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
-    let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\nSimilarity: *${sim}%*`
+    let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\nSimilarity: *${sim * 100}%*`
 		if (mean) this.sendButton(m.chat, caption, wm, null, [['✅ Iya', `${usedPrefix + mean} ${text}`], ['❌ Bukan', usedPrefix + '?']], m, { mentions: this.parseMention(caption) })
 	}
 }
