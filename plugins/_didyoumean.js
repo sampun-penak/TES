@@ -9,7 +9,6 @@ export async function before(m, { match, usedPrefix, command}) {
 		if (help.includes(noPrefix)) return
 		let mean = didyoumean(noPrefix, help)
 		let akurat = similarity(noPrefix, help)
-            m.reply(`*Dikit Lagi!*`)
 		let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
     let name = await conn.getName(who)
     let caption = `👋 Hai *${name} @${who.split("@")[0]}*, Apakah yang kamu maksud: *${usedPrefix + mean}*\n\nAkurat: *${akurat}%*`
