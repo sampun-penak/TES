@@ -7,8 +7,6 @@ import jimp from 'jimp'
 
 let toM = a => '@' + a.split('@')[0]
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
-let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 if (command == 'twittdl') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} https://twitter.com/PassengersMovie/status/821025484150423557`
@@ -19,7 +17,7 @@ await conn.sendButton(m.chat, caption, wm, x.result.thumb, [
                 ['Get SD', `${usedPrefix}get ${x.result.SD}`],
                 ['Get HD', `${usedPrefix}get ${x.result.HD}`],
                 ['Mp3', `${usedPrefix}get ${x.result.audio}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'otaku') {
@@ -42,11 +40,11 @@ let caption = `*judul:* ${x.judul}
 *sinopsis:* ${x.sinopsis}`
 await conn.sendButton(m.chat, caption, wm, x.thumb, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'darkjokes') {
-let f = await fetch(`https://yuzzu-api.herokuapp.com/api/darkjokes`)
+let f = await fetch('https://yuzzu-api.herokuapp.com/api/darkjokes')
 let c = await f.json()
 let x = c.result
 let caption = `Nihh banh ${command} nya`
@@ -54,19 +52,19 @@ await conn.sendHydrated(m.chat, caption, wm, x.result, null, null, null, null, [
       ['Meme', usedPrefix + 'randommeme'],
       ['Meme ID', usedPrefix + 'memeindo'],
       ['Darkjoke', usedPrefix + 'darkjoke']
-    ], m, fdoc)
+    ], m, { quoted: fakes })
 }
 
 if (command == 'cewekracing') {
-let pe = await fetch(`https://mysakura.herokuapp.com/api/cewek/racing?apikey=sakura404`)
+let pe = await fetch('https://mysakura.herokuapp.com/api/cewek/racing?apikey=sakura404')
 let x = await pe.json()
-  await conn.sendButton(m.chat, `*Nih*`, wm, x.url, [
+  await conn.sendButton(m.chat, '*Nih*', wm, x.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'mainslot') {
-let f = await fetch(`https://mysakura.herokuapp.com/api/slot?apikey=sakura404`)
+let f = await fetch('https://mysakura.herokuapp.com/api/slot?apikey=sakura404')
 let x = await f.json()
 let rep = x.score
 let skor = rep * 10
@@ -81,7 +79,7 @@ let caption = `${x.slot}
 *+ Money:* ${mony}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'imdb') {
@@ -113,7 +111,7 @@ let caption = `*Title:* ${x.title}
 *imdburl:* ${x.imdburl}`
 await conn.sendButton(m.chat, caption, wm, x.poster, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popss') {
@@ -122,7 +120,7 @@ let img = `https://api.popcat.xyz/screenshot?url=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popcolor') {
@@ -138,7 +136,7 @@ let caption = `*hex:* ${x.hex}
 `
 await conn.sendButton(m.chat, caption, wm, x.color_image, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popcolor2') {
@@ -148,7 +146,7 @@ let caption = `*hex:* ${x.hex}
 *name:* ${x.name}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popsong') {
@@ -162,7 +160,7 @@ let caption = `*title:* ${x.title}
 *lyrics:* ${x.lyrics}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popsteam') {
@@ -180,7 +178,7 @@ let caption = `*type:* ${x.type}
 *controller_support:* ${x.controller_support}`
 await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'sadcat') {
@@ -189,7 +187,7 @@ let img = `https://api.popcat.xyz/sadcat?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'oogway') {
@@ -198,7 +196,7 @@ let img = `https://api.popcat.xyz/oogway?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popcar') {
@@ -208,7 +206,7 @@ let x = await f.json()
 let caption = `*title:* ${x.title}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popgit') {
@@ -233,7 +231,7 @@ let caption = `*url:* ${x.url}
 *updated_at:* ${x.updated_at}`
 await conn.sendButton(m.chat, caption, wm, x.avatar, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popship') {
@@ -263,7 +261,7 @@ let img = `https://api.popcat.xyz/biden?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'poppika') {
@@ -272,7 +270,7 @@ let img = `https://api.popcat.xyz/pikachu?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popmeme') {
@@ -284,7 +282,7 @@ let caption = `*title:* ${x.title}
 *comments:* ${x.comments}`
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popdrip') {
@@ -373,7 +371,7 @@ let caption = `*url:* ${x.url}
 *genre:* ${x.genre}`
 await conn.sendButton(m.chat, caption, wm, x.thumbnail, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'poptext') {
@@ -399,7 +397,7 @@ let img = `https://api.popcat.xyz/alert?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 if (command == 'popcaution') {
@@ -408,7 +406,7 @@ let img = `https://api.popcat.xyz/caution?text=${text}`
 let caption = `*Result:* ${text}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command} ${text}`]
-            ], m, fdoc)
+            ], m, { quoted: fakes })
 }
 
 }
