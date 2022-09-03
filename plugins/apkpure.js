@@ -1,17 +1,23 @@
 import { sandroid1 } from '../lib/scrape.js'
 import fetch from 'node-fetch'
-let handler = async(m, { conn, text }) => {
+let handler = async(m, { conn, text, usedPrefix, command }) => {
 
   if (!text) return conn.reply(m.chat, 'Harap Masukan Query', m)
 
   await m.reply('Searching...')
     let res = await sandroid1(text)
-    let pes = await res.json()
-    let data = pes.result
-    let thumb = data.thumb
-    let hasil = `*APK PURE*\n\nJudul: ${data.judul}\nRating: ${data.rating}\nLink: ${data.link}`
-
-    conn.sendFile(m.chat, thumb, 'apkpure.jpg', hasil, m)
+    let dapet = res.result.data
+	let row = Object.values(dapet).map((v, index) => ({
+		title: v.judul,
+		description: '\n⌚ dev: ' + v.dev + '\n⏲️ rating: ' + v.rating + '\n👁️ thumb: ' + v.thumb + '\n📎 link: ' + v.link,
+		rowId: usedPrefix + 'ss ' + v.link
+	}))
+	let button = {
+		buttonText: `☂️ apkpure Search Disini ☂️`,
+		description: `⚡ Silakan pilih apkpure Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 handler.help = ['apkpure'].map(v => v + ' <query>')
 handler.tags = ['tools']
