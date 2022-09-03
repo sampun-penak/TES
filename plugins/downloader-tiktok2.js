@@ -1,5 +1,5 @@
 import { tiktokdl } from '@bochilteam/scraper'
-import { aiovideodl } from './lib/tiktokdl.js'
+import { aiovideodl } from '../lib/tiktokdl.js'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {

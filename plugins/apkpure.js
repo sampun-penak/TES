@@ -1,11 +1,11 @@
-import android1 from '../lib/scrape.js'
+import sandroid1 from '../lib/scrape.js'
 import fetch from 'node-fetch'
 let handler = async(m, { conn, text }) => {
 
   if (!text) return conn.reply(m.chat, 'Harap Masukan Query', m)
 
   await m.reply('Searching...')
-    let res = await android1(text)
+    let res = await sandroid1(text)
     let pes = await res.json()
     let data = pes.result
     let thumb = data.thumb
