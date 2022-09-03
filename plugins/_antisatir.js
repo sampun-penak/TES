@@ -1,4 +1,4 @@
-const isSatir = /Banh|Gwejh|Mgak|Okgey|Bimsa|Ava|Siava|Kavan|Pedo|Tumlul|Amsu/i // tambahin sendiri
+const isSatir = /(([Kk]enao|[Bb]ims|[Aa]v)a|tumlul|Tumlul|[Gg]wejh|[Oo]kgey|[Ss]iava|[Kk]avan|tenan|[Aa](msu|f[ah])|[Mm]gak|lmao|[Pp]edo|([Bb]an|hoo)h|[Kk]nf)/i // tambahin sendiri
 
 export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBotAdmin }) {
     if (m.isBaileys && m.fromMe)
