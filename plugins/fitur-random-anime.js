@@ -1,17 +1,14 @@
-import axios from "axios"
 import fetch from 'node-fetch'
-import fs from 'fs'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
-let imgr = flaaa.getRandom()
 let chat = global.db.data.chats[m.chat]
-if (chat.nsfw == false && m.isGroup) {
-conn.sendButton(m.chat, '❗ ᴏᴘᴛɪᴏɴs ɴsғᴡ ᴅɪᴄʜᴀᴛ ɪɴɪ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴏʟᴇʜ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ', botdate, null, [['ᴇɴᴀʙʟᴇ', '.on nsfw']], m)
-} else if (chat.nsfw == true && m.isGroup) {
+if (chat.nsfw == false) {
+return conn.sendButton(m.chat, '❗ ᴏᴘᴛɪᴏɴs ɴsғᴡ ᴅɪᴄʜᴀᴛ ɪɴɪ ʙᴇʟᴜᴍ ᴅɪɴʏᴀʟᴀᴋᴀɴ ᴏʟᴇʜ ᴀᴅᴍɪɴ ɢʀᴏᴜᴘ', botdate, null, [['ᴇɴᴀʙʟᴇ', '.on nsfw']], m)
+} else if (chat.nsfw == true) {
 try {
-        let jb = await fetch('https://raw.githubusercontent.com/AyGemuy/RESTAPI/master/data/' + command + '.json')
-        let jc = await jb.json()
-        return conn.sendButtonImg(m.chat, jc.getRandom(), author, 'Nih.jpg', '🔄 Next 🔄', `/${command}`, fakes, adReply)
+        let ani = await fetch('https://raw.githubusercontent.com/AyGemuy/RESTAPI/master/data/' + command + '.json')
+        let mek = await ani.json()
+        return conn.sendButtonImg(m.chat, mek.getRandom(), author, 'Nih.jpg', '🔄 Next 🔄', `/${command}`, fakes, adReply)
         } catch {
         throw eror
         }

@@ -1,55 +1,47 @@
 import fetch from 'node-fetch'
-
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} https://s.id`
+if (!args[0]) throw `Contoh  ${usedPrefix + command} https://s.id`
 
-if (args[0]) {
-let lis = ['https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=tablet&full=on',
-'https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=tablet&full=off',
-'https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=desktop&full=on',
-'https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=desktop&full=off',
-'https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=phone&full=on',
-'https://hadi-api.herokuapp.com/api/ssweb?url=' + text + '&device=phone&full=off',
-'https://hadi-api.herokuapp.com/api/ssweb2?url=' + text,
-'https://nurutomo.herokuapp.com/api/ssweb?url' +text,
-'https://shot.screenshotapi.net/screenshot?url=' + text + '&full_page=true&fresh=true&output=image&file_type=png&wait_for_event=load'
+	let lis = [
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=tablet&full=on',
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=tablet&full=off',
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=desktop&full=on',
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=desktop&full=off',
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=phone&full=on',
+'https://hadi-api.herokuapp.com/api/ssweb?url=' + args[0] + '&device=phone&full=off',
+'https://hadi-api.herokuapp.com/api/ssweb2?url=' + args[0],
+'https://nurutomo.herokuapp.com/api/ssweb?url=' + args[0],
+'https://shot.screenshotapi.net/screenshot?token=WCCYKR0-X5CMMV0-JB4G5Z5-P6SPC8R&url=' + args[0] + '&full_page=true&fresh=true&output=image&file_type=jpg',
+'https://api.popcat.xyz/screenshot?url=' + args[0],
+'https://api.apiflash.com/v1/urltoimage?access_key=7eea5c14db5041ecb528f68062a7ab5d&wait_until=page_loaded&url=' + args[0]
 ]
-let liss = ['tablet full on',
-'tablet full off',
-'desktop full on',
-'desktop full off',
-'phone full on',
-'phone full off',
-'original',
-'nuru',
-'shot']
+let liss = [
+'hadi-api tablet full on',
+'hadi-api tablet full off',
+'hadi-api desktop full on',
+'hadi-api desktop full off',
+'hadi-api phone full on',
+'hadi-api phone full off',
+'hadi-api original',
+'nurutomo',
+'shot.screenshotapi',
+'api.popcat',
+'api.apiflash'
+]
 let row = Object.keys(lis, liss).map((v, index) => ({
-		title: 'Screenshoot by ' + liss[v],
+		title: 'By ' + liss[v],
 		description: 'Bot ' + author,
-		rowId: usedPrefix + 'ssweb ' + lis[v] + ' get'
+		rowId: usedPrefix + 'get ' + lis[v]
 	}))
 	let button = {
 		buttonText: `☂️ Tema Disini ☂️`,
 		description: `⚡ Silakan pilih tema di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
 		footerText: wm
 	}
-	return await conn.sendListM(m.chat, button, row, m)
-	}
-if (args[1] == 'get') {
-try {
-let ss = await (await fetch(args[1]).buffer()
-let caption = `Nihh banh ${command} ke 1 nya`
-return conn.sendFile(m.chat, ss, wm, caption, fakes )
-} catch {
-let ss = args[1]
-let caption = `Nihh banh ${command} ke 2 nya`
-return conn.sendFile(m.chat, ss, wm, caption, fakes )
+	return conn.sendListM(m.chat, button, row, m)
 }
-} 
-
-}
-handler.help = ['ssweb url']
-handler.command = ['ss', 'ssweb', 'ssf']
-handler.tags = ['tools']
+handler.help = ['ssweb']
+handler.tags = ['internet']
+handler.command = /^ss(web)?|scre?e?nshu?o?t|sswebdown$/i
 
 export default handler

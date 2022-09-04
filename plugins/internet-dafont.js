@@ -4,7 +4,6 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, text, usedPrefix, command }) => {
   if (!text) throw 'Harap Masukan Query'
   if (command == 'dafonts') {
-  await m.reply('Searching...')
     let res = await dafontSearch(text)
 	let row = Object.values(res).map((v, index) => ({
 		title: v.judul,
