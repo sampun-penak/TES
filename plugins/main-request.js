@@ -1,30 +1,15 @@
 let handler = async (m, { conn, text, command }) => {
-
-  if (/^(re(quest)|req)$/.test(command)) {
-    if (!text) return m.reply("what do you report?")
-
-  var caption = `*REQUEST|PERMINTAAN*
-
-*Dari:* @${m.sender.split(`@`)[0]}
-*Pesan:* ${text}
-`.trim()
-
-conn.reply(nomorown + "@s.whatsapp.com", caption, m.quoted ? caption + m.quoted.text : caption, { mentions: conn.parseMention(caption) })
-
-   } else if (/^(re(port)|bug)$/.test(command)) {
-   if (!text) return m.reply("what do you report?")
-   
-  var caption2 = `*REPORT|LAPORAN*
-
-*Dari:* @${m.sender.split(`@`)[0]}
-*Pesan:* ${text}
-`.trim()
-
-conn.reply(nomorown + "@s.whatsapp.com", caption2, m.quoted ? caption2 + m.quoted.text : caption2, { mentions: conn.parseMention(caption2) })
-  }
+    if (!text) return m.reply("Request Apa?")
+  let teks = `*${command.toUpperCase()}!*\n\nDari : *@${m.sender.split`@`[0]}*\n\nPesan : ${text}\n`
+    conn.reply(global.nomorown + '@s.whatsapp.net', m.quoted ? teks + m.quoted.text : teks, null, {
+        contextInfo: {
+            mentionedJid: [m.sender]
+        }
+    })
+    m.reply(`_Pesan terkirim kepemilik bot, jika ${command.toLowerCase()} hanya main-main tidak akan ditanggapi._`)
 }
-handler.help = ['request', 'report'].map(v => v + ' [teks]')
+handler.help = ['request'].map(v => v + ' [teks]')
 handler.tags = ['main']
-handler.command = /^(re(quest|port)|req|bug)$/i
+handler.command = /^req(uest?)?$/i
 
 export default handler
