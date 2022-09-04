@@ -25,11 +25,11 @@ Contoh Penggunaan: ${usedPrefix + command} pesan untuknya
 Contoh: ${usedPrefix + command} hai`
 
 if (!q) {
-await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https://wa.me/'+ pengirim.split("@s.whatsapp.net")[0], 'BALAS', null, null, [
+await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https://wa.me/' + pengirim.split("@s.whatsapp.net")[0], 'KIRIM PESAN', null, null, [
       [null, null]
     ], null)
     } else {
-    await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https://wa.me/'+ pengirim.split("@s.whatsapp.net")[0], 'BALAS', null, null, [
+    await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https://wa.me/' + pengirim.split("@s.whatsapp.net")[0], 'KIRIM PESAN', null, null, [
       [null, null]
     ], null)
    let media = q ? await m.getQuotedObj() : false || m
