@@ -13,35 +13,35 @@ let name = await conn.getName(who)
    var a = await instagramdl(args[0])
    let urla = a[0].url
    let urlshort = await(await axios.get(`https://tinyurl.com/api-create.php?url=${urla}`)).data
-   for(let { thumbnail, url } of a)
+   for ( let { thumbnail, url } of a)
    conn.sendMedia(m.chat, url, null, {mentions: [m.sender], jpegThumbnail: await(await fetch(thumbnail)).buffer(), caption: `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${url}`)).data}`})
   } catch {
    try {
    var b = await instagramdlv2(args[0])
    let urlb = b[0].url
    let urlshort = await(await axios.get(`https://tinyurl.com/api-create.php?url=${urlb}`)).data
-   for(let { thumbnail, url } of b)
+   for ( let { thumbnail, url } of b)
    conn.sendMedia(m.chat, url, null, {mentions: [m.sender], jpegThumbnail: await(await fetch(thumbnail)).buffer(), caption: `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${url}`)).data}`})
   } catch {
    try {
    var c = await instagramdlv3(args[0])
    let urlc = c[0].url
    let urlshort = await(await axios.get(`https://tinyurl.com/api-create.php?url=${urlc}`)).data
-   for(let { thumbnail, url } of c)
+   for ( let { thumbnail, url } of c)
    conn.sendMedia(m.chat, url, null, {mentions: [m.sender], jpegThumbnail: await(await fetch(thumbnail)).buffer(), caption: `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${url}`)).data}`})
   } catch {
    try {
    var d = await instagramdlv4(args[0])
    let urld = d[0].url
    let urlshort = await(await axios.get(`https://tinyurl.com/api-create.php?url=${urld}`)).data
-   for(let { thumbnail, url } of d)
+   for ( let { thumbnail, url } of d)
    conn.sendMedia(m.chat, url, null, {mentions: [m.sender], jpegThumbnail: await(await fetch(thumbnail)).buffer(), caption: `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${url}`)).data}`})
   } catch {
    try {
-   var e = igdl(args[0])
+   var e = await igdl(args[0])
    let urle = e[0].url
    let urlshort = await(await axios.get(`https://tinyurl.com/api-create.php?url=${urle}`)).data
-   for (let { type, fileType, url, downloadUrl, preview } of e) 
+   for ( let { type, fileType, url, downloadUrl, preview } of e) 
    conn.sendMedia(m.chat, url, null, {mentions: [m.sender], jpegThumbnail: await(await fetch(preview)).buffer(), caption: `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${url}`)).data}`})
   } catch {
   try {
@@ -66,6 +66,7 @@ let dapet = json.result.url
     }
    }
   }
+ }
  }
 }
 handler.help = ['instagram'].map(v => v + ' <url>')

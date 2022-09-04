@@ -12,9 +12,9 @@ let name = await conn.getName(who)
 let stiker = false
 let [atas, bawah] = text.split`|`
     let q = m.quoted ? m.quoted : m
-    let mime = (q.msg || q).mimetype || q.mediaType || q.mtype || ''
-    let img = await q.download?.()
-    if (!img) throw `Reply Media dengan perintah\n\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>|<${bawah ? bawah : 'teks bawah'}>`
+    let mime = (q.msg || q).mimetype || ''
+    if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>|<${bawah ? bawah : 'teks bawah'}>`
+    let img = await q.download()
     let stek = new Sticker(img, { pack: packname, author: author, type: StickerTypes.FULL })
     let buffer = await stek.toBuffer()
     let out
@@ -28,10 +28,10 @@ let [atas, bawah] = text.split`|`
       } catch (e) {
         console.error(e)
       } finally {
-    var meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${out}`
+    let meme = `https://api.memegen.link/images/custom/${encodeURIComponent(atas ? atas : '')}/${encodeURIComponent(bawah ? bawah : '')}.png?background=${out}`
     stiker = await sticker(false, meme, global.packname, global.author)
-    if (stiker) conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, fakefb)
-    else throw throw `Reply Media dengan perintah\n\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>|<${bawah ? bawah : 'teks bawah'}>`
+    if (stiker) await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, fakefb)
+    else m.reply(`Reply Media dengan perintah\n\n${usedPrefix + command} <${atas ? atas : 'teks atas'}>|<${bawah ? bawah : 'teks bawah'}>`)
     }
 }
 //lo mau apa??
