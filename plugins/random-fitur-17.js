@@ -34,22 +34,21 @@ return m.reply('Error kan')
 }
 
 if (command == 'hmtai') {
-if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} nsfw/sfw`
+
 let links = 'https://hmtai.herokuapp.com/'
 try {
   let gas = await fetch(links + 'endpoints')
-    let json = await gas.json()
-	let row = Object.keys(json['/' + args[0]]).map((v, index) => ({
-		title: index + json[v],
-		description: '',
-		rowId: usedPrefix + 'gethmtai ' + links + args[0] + '/' + json[v]
-	}))
-	let button = {
-		buttonText: `☂️ ${command} Disini ☂️`,
-		description: `⚡ ${name} Silakan pilih ${command} di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
-		footerText: wm
-	}
-	return await conn.sendListM(m.chat, button, row, m)
+let listSections = []
+let json = await gas.json()
+let xfw = json['/sfw']
+let nxfw = json['/nsfw']
+	Object.keys(xfw, nxfw).map((v, index) => {
+	listSections.push(['HMTAI ' + index, [
+          ['SFW ' + xfw[v], usedPrefix + 'gethmtai ' + links + 'sfw/' + xfw[v]],
+          ['NSFW ' + nxfw[v], usedPrefix + 'gethmtai ' + links + 'nsfw/' + nxfw[v]]
+        ]])
+	})
+	return conn.sendList(m.chat, htki + ' 📺 HMTAI Search 🔎 ' + htka, `⚡ Silakan pilih HMTAI Search di tombol di bawah...`, author, `☂️ HMTAI Search Disini ☂️`, listSections, m)
 } catch (e) {
 return m.reply('Error kan')
 }
@@ -60,13 +59,17 @@ if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} url`
 let gas = await fetch(args[0])
 let json = await gas.json()
 try {
+try {
 let stiker = await sticker(null, json.url, global.packname, global.author)
   if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', fakes, adReply, { asSticker: true })
   throw stiker.toString()
 							} catch {
-				const stek = new Sticker(json.url), { pack: packname, author: author, type: StickerTypes.FULL })
+				const stek = new Sticker(json.url, { pack: packname, author: author, type: StickerTypes.FULL })
 				const buffer = await stek.toBuffer()
 				conn.sendFile(m.chat, buffer, 'sticker.webp', '', fakes, adReply, { asSticker: true })
+			}
+			} catch {
+			throw eror
 			}
 }
 
