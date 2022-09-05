@@ -43,10 +43,10 @@ let res = await mediafiredl(one)
             
 case 'tiktok':
 if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
-            const { author: { nickname }, video, description } = await tiktokdl(one).catch(async _ => await tiktokdlv3(one))
-    const url = video.no_watermark || video.no_watermark2 || video.no_watermark_raw 
-    if (!url) throw 'Can\'t download video!'
-    conn.sendFile(m.chat, url, 'tiktok.mp4', author, m)
+    const { author: { nickname }, video, description } = await tiktokdl(one).catch(async _ => await tiktokdlv3(one))
+    let urls = video.no_watermark || video.no_watermark2 || video.no_watermark_raw 
+    if (!urls) throw 'Can\'t download video!'
+    conn.sendFile(m.chat, urls, 'tiktok.mp4', author, m)
             break
 }
 } catch {

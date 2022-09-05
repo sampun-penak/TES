@@ -2,7 +2,7 @@ import xfar from 'xfarr-api'
 import { stickerTelegram } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import axios from 'axios'
-let handler = async (m, { conn, args }) => {
+let handler = async (m, { conn, text, command, usedPrefix, args }) => {
 try {
 	if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
 		let ras = await xfar.Telesticker(args[0])

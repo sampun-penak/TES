@@ -24,7 +24,7 @@ Contoh Penggunaan: ${usedPrefix + command} pesan untuknya
 
 Contoh: ${usedPrefix + command} hai`
 
-if (!q) {
+if (!m.quoted) {
 await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https://wa.me/' + pengirim.split("@s.whatsapp.net")[0], 'KIRIM PESAN', null, null, [
       [null, null]
     ], null)
@@ -36,7 +36,7 @@ await conn.sendHydrated(mention, tujuan, cap, thumbnailUrl.getRandom(), 'https:/
   await conn.copyNForward(mention, media, true).catch(_ => _)
     }
     
- let suks = `Mengirim Pesan *${mime}*
+ let suks = `Mengirim Pesan *${mime ? mime : 'Teks'}*
 👥 Dari : wa.me/${pengirim.split("@s.whatsapp.net")[0]}
 
 ${htki} 💌 Pesan ${htka}
