@@ -1,22 +1,17 @@
+import moment from 'moment-timezone'
 let handler = async (m, { conn }) => {
-  if (!m.quoted) throw 'Reply pesan!'
-  if (!m.quoted.fromMe) throw false
-  let members = m.quoted.chat.endsWith('g.us') ? (await conn.groupMetadata(m.quoted.chat)).participants.length - 1 : m.quoted.chat.endsWith('@broadcast') ? -1 : 1
-  let { reads, deliveries } = await conn.pushMessage(m.quoted)
-  let txt = `
-*Read by:*
-${reads.sort((a, b) => b.t - a.t).map(({ jid, t }) => `@${jid.split`@`[0]}\n_${formatDate(t * 1000)}_`).join('\n')}
-${members > 1 ? `${members - reads.length} remaining` : ''}
-
-*Delivered to:*
-${deliveries.sort((a, b) => b.t - a.t).map(({ jid, t }) => `wa.me/${jid.split`@`[0]}\n_${formatDate(t * 1000)}_`).join('\n')}
-${members > 1 ? `${members - reads.length - deliveries.length} remaining` : ''}
-`.trim()
-  m.reply(txt, null, {
-    contextInfo: {
-      mentionedJid: conn.parseMention(txt)
-    }
-  })
+  if (!m.quoted) m.reply('*Reply message*')
+                let msg = await conn.serializeM(await m.getQuotedObj())
+                if (!m.quoted.isBaileys) throw '*The message was not sent by a bot!*'
+                let teks = ''
+                for (let i of msg.userReceipt) {
+                    let read = i.readTimestamp
+                    let unread = i.receiptTimestamp
+                    let waktu = read ? read : unread
+                    teks += `> @${i.userJid.split('@')[0]}\n`
+                    teks += ` ┗━> *TIME :* ${moment(waktu * 1000).format('DD/MM/YY HH:mm:ss')} > *STATUS :* ${read ? 'READ' : 'SENT'}\n\n`
+                }
+                await conn.reply(m.chat, teks, m)
 }
 handler.help = ['sider']
 handler.tags = ['group']
