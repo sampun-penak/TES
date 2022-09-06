@@ -14,27 +14,25 @@ export async function all(m) {
 	} catch(e) {
 		pp = hwaifu.getRandom()
 	} finally {
-		// Module 
+	
+	// Begin
 		global.fetch =
 			import('node-fetch')
 		global.bochil =
 			import('@bochilteam/scraper')
-			// Ini untuk command crator/owner
 		global.kontak2 = [
 				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
 				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
 			]
-			// ucapan ini mah
 		global.ucapan = ucapan()
-			// pesan sementara
-		global.ephemeral = '86400' // 86400 = 24jam, kalo ingin di hilangkan ganti '86400' jadi 'null' atau ''
-			// externalAdReply atau text with thumbnail. gatau bahasa Inggris? coba translate!
+		global.ephemeral = '86400'
+		
+		// Fake adReply
 		global.adReply = {
 		fileLength: fsizedoc, seconds: fsizedoc,
 			contextInfo: {
 				forwardingScore: fsizedoc,
-			//isForwarded: true, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
-				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
+				externalAdReply: {
 					showAdAttribution: true,
 					title: global.ucapan,
 					body: '👋 Hay Kak :> ' + name,
@@ -107,7 +105,7 @@ export async function all(m) {
 				}
 			}
 			
-			// Fake
+	// Fake Reply
 		global.fpayment = {
 				key: {
 					remoteJid: '0@s.whatsapp.net',
@@ -134,7 +132,6 @@ export async function all(m) {
 					}
 				}
 			}
-			// Fake
 		global.ftroli = {
 			key: {
 				participant: '0@s.whatsapp.net'
@@ -235,9 +232,11 @@ export async function all(m) {
 					product: {
 						productImage: {
 							mimetype: 'image/jpeg',
-							jpegThumbnail: fs.readFileSync('./thumbnail.jpg') //Gambarnye
+							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+							//Gambarnye
 						},
-						title: '👋 Hay Kak :> ' + name, //Kasih namalu 
+						title: '👋 Hay Kak :> ' + name,
+						//Kasih namalu 
 						description: bottime,
 						currencyCode: 'IDR',
 						priceAmount1000: fsizedoc,
@@ -319,10 +318,10 @@ export async function all(m) {
 					}
 				}
 			}
-			// Fake Random
+	// Fake Random
 		let pft = [global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
-			// Fake Knights
+	// Fake Knights
 		let imagea = await new knights.Jo().setImage(pp).toBuild();
 		let dataa = imagea.toBuffer();
 		let imageb = await new knights.Patrick().setAvatar(pp).toAttachment();
@@ -332,11 +331,12 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
-			// FAKES
+	// Global Fake
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
-		global.tumhiho = await this.resize(global.thumbnailUrl.getRandom(), 300, 150)
+		global.tumhiho = await this.resize(thumbnailUrl.getRandom(), 300, 150)
+	// Ends
 	}
 }
 
