@@ -6,23 +6,14 @@ RUN apt-get update && \
   imagemagick \
   webp && \
   apt-get upgrade -y && \
-  useradd -m -d /home/container container && \
   rm -rf /var/lib/apt/lists/*
 
-USER        container
-ENV         USER=container HOME=/home/container
-WORKDIR     /home/container
+COPY package.json .
 
-COPY        ./entrypoint.sh /entrypoint.sh
+RUN npm install
 
-COPY        package.json .
+COPY . .
 
-RUN	     npm install
+EXPOSE 5000
 
-COPY        ./entrypoint.sh /entrypoint.sh
-
-CMD         [ "/bin/bash", "/entrypoint.sh" ]
-
-COPY        . .
-
-RUN	     npm start
+RUN npm start
