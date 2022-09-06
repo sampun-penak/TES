@@ -27,11 +27,7 @@ if (!text) throw `where is the path?\n\nexample:\n${usedPrefix + command} plugin
     }
     
 if (command == 'cekfake') {
-try {
- await conn.reply(m.chat, '*Sukses cek fake*' + args[0], args[0], fakeyt)
-            } catch {
-            throw 'Errrr....'
-            }
+ await conn.reply(m.chat, '*Sukses cek fake* ' + args[0], args[0], fakeyt)
     }
     
   }
