@@ -88,10 +88,122 @@ let teks = `*Name :* ${xx[1][0].name}
             ], m)
 }
 
+if (command == 'sfx4') {
+let hasil = ['Donasiku',
+'MenuYuki',
+'aku-ngakak',
+'anjay',
+'ara-ara-cowok',
+'ara-ara',
+'ara-ara2',
+'arigatou',
+'assalamualaikum',
+'asu',
+'ayank',
+'bacot',
+'bahagia-aku',
+'baka',
+'bansos',
+'beat-box',
+'beat-box2',
+'biasalah',
+'bidadari',
+'bot',
+'buka-pintu',
+'canda-anjing',
+'cepetan',
+'china',
+'cuekin-terus',
+'daisuki-dayo',
+'daisuki',
+'dengan-mu',
+'gaboleh-gitu',
+'gak-lucu',
+'gamau',
+'gay',
+'gelay',
+'gitar',
+'gomenasai',
+'hai-bot',
+'hampa',
+'hayo',
+'hp-iphone',
+'i-like-you',
+'ih-wibu',
+'india',
+'karna-lo-wibu',
+'kiss',
+'kontol',
+'ku-coba',
+'maju-wibu',
+'makasih',
+'mastah',
+'menu',
+'menuasli',
+'menuku',
+'nande-nande',
+'nani',
+'ngadi-ngadi',
+'nikah',
+'nuina',
+'onichan',
+'owner-sange',
+'ownerku',
+'pak-sapardi',
+'pale',
+'pantek',
+'pasi-pasi',
+'punten',
+'sayang',
+'siapa-sih',
+'sudah-biasa',
+'summertime',
+'tanya-bapak-lu',
+'to-the-bone',
+'wajib',
+'waku',
+'woi',
+'yamete',
+'yowaimo',
+'yoyowaimo']
+try {
+	let row = Object.keys(hasil).map((v, index) => ({
+		title: index + ' ' + hasil[v],
+		description: '\n*By:* ' + author,
+		rowId: usedPrefix + 'get https://raw.githubusercontent.com/AyGemuy/HAORI-API/main/audio/' + hasil[v] + '.mp3'
+	}))
+	let button = {
+		buttonText: `☂️ SFX Disini ☂️`,
+		description: `⚡ Silakan pilih SFX di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
+} catch (e) {
+return m.reply('Error kan')
+}
+}
 
+if (command == 'sfx5') {
+let hasil = Array(74).fill(1).map((n, i) => n + i)
+try {
+	let row = Object.keys(hasil).map((v, index) => ({
+		title: 'Sound ke- ' + hasil[v],
+		description: '\n*By:* ' + author,
+		rowId: usedPrefix + 'get https://raw.githubusercontent.com/AyGemuy/HAORI-API/main/sound/sound' + hasil[v] + '.mp3'
+	}))
+	let button = {
+		buttonText: `☂️ SFX Disini ☂️`,
+		description: `⚡ Silakan pilih SFX di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
+} catch (e) {
+return m.reply('Error kan')
+}
+}
 
 }
-handler.command = handler.help = ['sfx', 'sfx2', 'sfx3', 'smap']
+handler.command = handler.help = ['sfx', 'sfx2', 'sfx3', 'sfx4', 'sfx5', 'smap']
 handler.tags = ['audio']
 
 export default handler
