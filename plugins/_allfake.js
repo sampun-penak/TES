@@ -336,7 +336,7 @@ export async function all(m) {
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
-		global.tumhiho = await conn.resize(pp, 300, 150)
+		global.tumhiho = await this.resize(pp, 300, 150)
 	}
 }
 
