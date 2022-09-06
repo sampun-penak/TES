@@ -14,54 +14,128 @@ export async function all(m) {
 	} catch(e) {
 		pp = hwaifu.getRandom()
 	} finally {
-
- /* Modules */
+		/* Batas */
 		global.fetch =
 			import('node-fetch')
 		global.bochil =
 			import('@bochilteam/scraper')
-			 /* Batas Modules */
-			
-			/* Kontak */
 		global.kontak2 = [
-				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
-				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
-			]
-			/* Batas Kontak */
-			
-		/* Ucapan - Ephemeral - Thumbnail */
+			[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
+			[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
+		]
 		global.ucapan = ucapan()
 		global.ephemeral = '86400'
-		global.tumhiho = await this.resize(thumbnailUrl.getRandom(), 300, 150)
-		/* Batas Ucapan - Ephemeral - Thumbnail */
-		
-		/* Area Fake Reply */
-		global.fpayment = {
-				key: {
-					remoteJid: '0@s.whatsapp.net',
-					fromMe: false,
-					id: 'BAE595C600522C9C',
-					participant: '0@s.whatsapp.net'
-				},
-				message: {
-					requestPaymentMessage: {
-						currencyCodeIso4217: b,
-						amount1000: fsizedoc,
-						requestFrom: '0@s.whatsapp.net',
-						noteMessage: {
-							extendedTextMessage: {
-								text: '👋 Hay Kak :> ' + name
-							}
-						},
-						expiryTimestamp: fsizedoc,
-						amount: {
-							value: fsizedoc,
-							offset: fsizedoc,
-							currencyCode: b
-						}
+			/* Batas */
+			/* Batas */
+		global.adReply = {
+			fileLength: fsizedoc,
+			seconds: fsizedoc,
+			contextInfo: {
+				forwardingScore: fsizedoc,
+				externalAdReply: {
+					showAdAttribution: true,
+					title: global.ucapan,
+					body: '👋 Hay Kak :> ' + name,
+					mediaUrl: sgc,
+					description: botdate,
+					previewType: 'PHOTO',
+					thumbnail: await (await fetch(pp)).buffer(),
+					sourceUrl: sgh
+				}
+			}
+		}
+		global.fakeig = {
+			fileLength: fsizedoc,
+			seconds: fsizedoc,
+			contextInfo: {
+				externalAdReply: {
+					showAdAttribution: true,
+					mediaUrl: sig,
+					mediaType: 'VIDEO',
+					description: 'Follow: ' + sig,
+					title: '👋 Hay Kak :> ' + name,
+					body: botdate,
+					thumbnailUrl: logo,
+					sourceUrl: sgc
+				}
+			}
+		}
+		global.fakefb = {
+			fileLength: fsizedoc,
+			seconds: fsizedoc,
+			contextInfo: {
+				externalAdReply: {
+					showAdAttribution: true,
+					mediaUrl: sfb,
+					mediaType: 'VIDEO',
+					description: 'Follow: ' + sfb,
+					title: '👋 Hay Kak :> ' + name,
+					body: botdate,
+					thumbnailUrl: logo,
+					sourceUrl: sfb
+				}
+			}
+		}
+		global.faketik = {
+			fileLength: fsizedoc,
+			seconds: fsizedoc,
+			contextInfo: {
+				externalAdReply: {
+					showAdAttribution: true,
+					mediaUrl: snh,
+					mediaType: 'VIDEO',
+					description: 'Follow: ' + snh,
+					title: '👋 Hay Kak :> ' + name,
+					body: botdate,
+					thumbnailUrl: logo,
+					sourceUrl: snh
+				}
+			}
+		}
+		global.fakeyt = {
+				fileLength: fsizedoc,
+				seconds: fsizedoc,
+				contextInfo: {
+					externalAdReply: {
+						showAdAttribution: true,
+						mediaUrl: syt,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + syt,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: logo,
+						sourceUrl: syt
 					}
 				}
 			}
+			/* Batas */
+			/* Batas */
+		global.fpayment = {
+			key: {
+				remoteJid: '0@s.whatsapp.net',
+				fromMe: false,
+				id: 'BAE595C600522C9C',
+				participant: '0@s.whatsapp.net'
+			},
+			message: {
+				requestPaymentMessage: {
+					currencyCodeIso4217: b,
+					amount1000: fsizedoc,
+					requestFrom: '0@s.whatsapp.net',
+					noteMessage: {
+						extendedTextMessage: {
+							text: '👋 Hay Kak :> ' + name
+						}
+					},
+					expiryTimestamp: fsizedoc,
+					amount: {
+						value: fsizedoc,
+						offset: fsizedoc,
+						currencyCode: b
+					}
+				}
+			}
+		}
 		global.ftroli = {
 			key: {
 				participant: '0@s.whatsapp.net'
@@ -162,9 +236,9 @@ export async function all(m) {
 					product: {
 						productImage: {
 							mimetype: 'image/jpeg',
-							jpegThumbnail: fs.readFileSync('./thumbnail.jpg') //Gambarnye
+							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 						},
-						title: '👋 Hay Kak :> ' + name, //Kasih namalu 
+						title: '👋 Hay Kak :> ' + name,
 						description: bottime,
 						currencyCode: 'IDR',
 						priceAmount1000: fsizedoc,
@@ -246,16 +320,10 @@ export async function all(m) {
 					}
 				}
 			}
+			/* Batas */
+			/* Batas */
 		let pft = [global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
-		global.fakes = pft.getRandom()
-		/* Batas Area Fake Reply */
-		
-		/* Area Fake Mime */
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
-		global.doc = pdoc.getRandom()
-		/* Batas Area Fake Mime */
-		
-		/* Area Knights */
 		let imagea = await new knights.Jo().setImage(pp).toBuild();
 		let dataa = imagea.toBuffer();
 		let imageb = await new knights.Patrick().setAvatar(pp).toAttachment();
@@ -265,103 +333,13 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
+			/* Batas */
+			/* Batas */
+		global.doc = pdoc.getRandom()
+		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
-		/* Batas Area Knights */
-		
-		/* Area adReply */
-		global.adReply = {
-			quoted: fakes,
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				forwardingScore: fsizedoc,
-				//isForwarded: true, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
-				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
-					showAdAttribution: true,
-					title: global.ucapan,
-					body: '👋 Hay Kak :> ' + name,
-					mediaUrl: sgc,
-					description: botdate,
-					previewType: 'PHOTO',
-					thumbnail: await (await fetch(pp)).buffer(),
-					sourceUrl: sgh
-				}
-			}
-		}
-		global.fakeig = {
-			quoted: fakes,
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					body: '👋 Hay Kak :> ' + name,
-					containsAutoReply: true,
-					mediaType: 2,
-					mediaUrl: sig,
-					showAdAttribution: true,
-					sourceUrl: sig,
-					thumbnailUrl: logo,
-					renderLargerThumbnail: true,
-					title: ucapan
-				}
-			}
-		}
-		global.fakefb = {
-			quoted: fakes,
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					body: '👋 Hay Kak :> ' + name,
-					containsAutoReply: true,
-					mediaType: 2,
-					mediaUrl: sfb,
-					showAdAttribution: true,
-					sourceUrl: sfb,
-					thumbnailUrl: logo,
-					renderLargerThumbnail: true,
-					title: ucapan
-				}
-			}
-		}
-		global.faketik = {
-			quoted: fakes,
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					body: '👋 Hay Kak :> ' + name,
-					containsAutoReply: true,
-					mediaType: 2,
-					mediaUrl: snh,
-					showAdAttribution: true,
-					sourceUrl: snh,
-					thumbnailUrl: logo,
-					renderLargerThumbnail: true,
-					title: ucapan
-				}
-			}
-		}
-		global.fakeyt = {
-				quoted: fakes,
-			fileLength: fsizedoc,
-				seconds: fsizedoc,
-				contextInfo: {
-					externalAdReply: {
-						body: '👋 Hay Kak :> ' + name,
-						containsAutoReply: true,
-						mediaType: 2,
-						mediaUrl: syt,
-						showAdAttribution: true,
-						sourceUrl: syt,
-						thumbnailUrl: logo,
-						renderLargerThumbnail: true,
-						title: ucapan
-					}
-				}
-			}
-			/* Batas adReply */
-			
+		global.tumhiho = await this.resize(thumbnailUrl.getRandom(), 300, 150)
+			/* Batas */
 	}
 }
 
