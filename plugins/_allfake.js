@@ -12,15 +12,13 @@ export async function all(m) {
 	let pp
 	try {
 		pp = await this.profilePictureUrl(m.sender, 'image')
-	} catch(e) {
+	} catch {
 		pp = hwaifu.getRandom()
 	} finally {
 	
 	// Begin
-		global.fetch =
-			await import('node-fetch')
-		global.bochil =
-			await import('@bochilteam/scraper')
+		global.fetch = import('node-fetch')
+		global.bochil = import('@bochilteam/scraper')
 		global.kontak2 = [
 				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
 				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
@@ -332,11 +330,13 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
+	// jpegThumbnail
+		let situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
 	// Global Fake
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
-		global.tumhiho = await this.resize(thumbnailUrl.getRandom(), 300, 150)
+		global.tumhiho = situm
 	// Ends
 	}
 }

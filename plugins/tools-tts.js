@@ -23,19 +23,7 @@ let name = await conn.getName(who)
     if (!text) throw `Use example ${usedPrefix}${command} en hello world`
     res = await tts(text, defaultLang)
   } finally {
-    if (res) await conn.sendFile(m.chat, res, '', '', fakes, null, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
-          externalAdReply :{
-    body: author,
-    containsAutoReply: true,
-    mediaType: 2, 
-    mediaUrl: syt,
-    showAdAttribution: true,
-    sourceUrl: syt,
-    thumbnailUrl: pp,
-    renderLargerThumbnail: true,
-    title: 'Nihh Kak, ' + name,
-     }}
-  })
+    if (res) await conn.sendFile(m.chat, res, '', '', fakes, null, fakefb)
   }
 }
 handler.help = ['tts <lang> <teks>']
