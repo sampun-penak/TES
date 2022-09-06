@@ -6,6 +6,7 @@ import knights from 'knights-canvas'
 export async function all(m) {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 	let name = await this.getName(who)
+	let sap = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann']
 	let a = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
     let b = a[Math.floor(Math.random() * a.length)]
 	let pp
@@ -35,7 +36,7 @@ export async function all(m) {
 				externalAdReply: {
 					showAdAttribution: true,
 					title: global.ucapan,
-					body: '👋 Hay Kak :> ' + name,
+					body: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					mediaUrl: sgc,
 					description: botdate,
 					previewType: 'PHOTO',
@@ -52,7 +53,7 @@ export async function all(m) {
 						mediaUrl: sig,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + sig,
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: sgc
@@ -67,7 +68,7 @@ export async function all(m) {
 						mediaUrl: sfb,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + sfb,
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: sfb
@@ -82,7 +83,7 @@ export async function all(m) {
 						mediaUrl: snh,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + snh,
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: snh
@@ -97,7 +98,7 @@ export async function all(m) {
 						mediaUrl: syt,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + syt,
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: syt
@@ -182,7 +183,7 @@ export async function all(m) {
 					title: wm,
 					h: `Hmm`,
 					seconds: fsizedoc,
-					caption: '👋 Hay Kak :> ' + name,
+					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -193,7 +194,7 @@ export async function all(m) {
 			},
 			message: {
 				extendedTextMessage: {
-					text: '👋 Hay Kak :> ' + name,
+					text: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					title: bottime,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
@@ -205,8 +206,8 @@ export async function all(m) {
 			},
 			message: {
 				liveLocationMessage: {
-					caption: '👋 Hay Kak :> ' + name,
-					h: `${bottime}`,
+					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					h: bottime,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -217,7 +218,7 @@ export async function all(m) {
 			},
 			message: {
 				liveLocationMessage: {
-					title: '👋 Hay Kak :> ' + name,
+					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					h: bottime,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
@@ -235,7 +236,7 @@ export async function all(m) {
 							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 							//Gambarnye
 						},
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						//Kasih namalu 
 						description: bottime,
 						currencyCode: 'IDR',
@@ -267,7 +268,7 @@ export async function all(m) {
 					groupJid: '17608914335-1625305606@g.us',
 					inviteCode: null,
 					groupName: wm,
-					caption: '👋 Hay Kak :> ' + name,
+					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -278,7 +279,7 @@ export async function all(m) {
 			},
 			message: {
 				videoMessage: {
-					title: '👋 Hay Kak :> ' + name,
+					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					h: `Hmm`,
 					seconds: fsizedoc,
 					gifPlayback: true,
