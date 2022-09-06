@@ -341,7 +341,7 @@ export async function all(m) {
 	}
 }
 
-function ucapan() {
+async function ucapan() {
 	const time = moment.tz('Asia/Jakarta').format('HH')
 	let res = 'Selamat malam 🌙'
 	if(time >= 1) {
