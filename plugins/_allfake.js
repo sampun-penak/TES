@@ -6,33 +6,35 @@ import knights from 'knights-canvas'
 export async function all(m) {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
 	let name = await this.getName(who)
-	let a = ['AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BOV', 'BRL', 'BSD', 'BTN', 'BWP', 'BYR', 'BZD', 'CAD', 'CDF', 'CHE', 'CHF', 'CHW', 'CLF', 'CLP', 'CNY', 'COP', 'COU', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LTL', 'LVL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRO', 'MUR', 'MVR', 'MWK', 'MXN', 'MXV', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SRD', 'SSP', 'STD', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'USN', 'USS', 'UYI', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XAG', 'XAU', 'XBA', 'XBB', 'XBC', 'XBD', 'XCD', 'XDR', 'XFU', 'XOF', 'XPD', 'XPF', 'XPT', 'XTS', 'XXX', 'YER', 'ZAR', 'ZMW']
-	let b = a[Math.floor(Math.random() * a.length)]
+	let a = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
+    let b = a[Math.floor(Math.random() * a.length)]
 	let pp
 	try {
 		pp = await this.profilePictureUrl(m.sender, 'image')
 	} catch(e) {
 		pp = hwaifu.getRandom()
 	} finally {
-		/* Batas */
+		// Module 
 		global.fetch =
 			import('node-fetch')
 		global.bochil =
 			import('@bochilteam/scraper')
+			// Ini untuk command crator/owner
 		global.kontak2 = [
-			[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
-			[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
-		]
+				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
+				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
+			]
+			// ucapan ini mah
 		global.ucapan = ucapan()
-		global.ephemeral = '86400'
-			/* Batas */
-			/* Batas */
+			// pesan sementara
+		global.ephemeral = '86400' // 86400 = 24jam, kalo ingin di hilangkan ganti '86400' jadi 'null' atau ''
+			// externalAdReply atau text with thumbnail. gatau bahasa Inggris? coba translate!
 		global.adReply = {
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
+		fileLength: fsizedoc, seconds: fsizedoc,
 			contextInfo: {
 				forwardingScore: fsizedoc,
-				externalAdReply: {
+			//isForwarded: true, // ini biar ada tulisannya diteruskan berkali-kali, jika ingin di hilangkan ganti true menjadi false
+				externalAdReply: { // Bagian ini sesuka kalian berkreasi :'v
 					showAdAttribution: true,
 					title: global.ucapan,
 					body: '👋 Hay Kak :> ' + name,
@@ -45,56 +47,52 @@ export async function all(m) {
 			}
 		}
 		global.fakeig = {
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					showAdAttribution: true,
-					mediaUrl: sig,
-					mediaType: 'VIDEO',
-					description: 'Follow: ' + sig,
-					title: '👋 Hay Kak :> ' + name,
-					body: botdate,
-					thumbnailUrl: logo,
-					sourceUrl: sgc
+		fileLength: fsizedoc, seconds: fsizedoc,
+				contextInfo: {
+					externalAdReply: {
+						showAdAttribution: true,
+						mediaUrl: sig,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + sig,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: pp,
+						sourceUrl: sgc
+					}
 				}
 			}
-		}
-		global.fakefb = {
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					showAdAttribution: true,
-					mediaUrl: sfb,
-					mediaType: 'VIDEO',
-					description: 'Follow: ' + sfb,
-					title: '👋 Hay Kak :> ' + name,
-					body: botdate,
-					thumbnailUrl: logo,
-					sourceUrl: sfb
+			global.fakefb = {
+			fileLength: fsizedoc, seconds: fsizedoc,
+				contextInfo: {
+					externalAdReply: {
+						showAdAttribution: true,
+						mediaUrl: sfb,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + sfb,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: pp,
+						sourceUrl: sfb
+					}
 				}
 			}
-		}
-		global.faketik = {
-			fileLength: fsizedoc,
-			seconds: fsizedoc,
-			contextInfo: {
-				externalAdReply: {
-					showAdAttribution: true,
-					mediaUrl: snh,
-					mediaType: 'VIDEO',
-					description: 'Follow: ' + snh,
-					title: '👋 Hay Kak :> ' + name,
-					body: botdate,
-					thumbnailUrl: logo,
-					sourceUrl: snh
+			global.faketik = {
+			fileLength: fsizedoc, seconds: fsizedoc,
+				contextInfo: {
+					externalAdReply: {
+						showAdAttribution: true,
+						mediaUrl: snh,
+						mediaType: 'VIDEO',
+						description: 'Follow: ' + snh,
+						title: '👋 Hay Kak :> ' + name,
+						body: botdate,
+						thumbnailUrl: pp,
+						sourceUrl: snh
+					}
 				}
 			}
-		}
-		global.fakeyt = {
-				fileLength: fsizedoc,
-				seconds: fsizedoc,
+			global.fakeyt = {
+			fileLength: fsizedoc, seconds: fsizedoc,
 				contextInfo: {
 					externalAdReply: {
 						showAdAttribution: true,
@@ -103,39 +101,40 @@ export async function all(m) {
 						description: 'Follow: ' + syt,
 						title: '👋 Hay Kak :> ' + name,
 						body: botdate,
-						thumbnailUrl: logo,
+						thumbnailUrl: pp,
 						sourceUrl: syt
 					}
 				}
 			}
-			/* Batas */
-			/* Batas */
+			
+			// Fake
 		global.fpayment = {
-			key: {
-				remoteJid: '0@s.whatsapp.net',
-				fromMe: false,
-				id: 'BAE595C600522C9C',
-				participant: '0@s.whatsapp.net'
-			},
-			message: {
-				requestPaymentMessage: {
-					currencyCodeIso4217: b,
-					amount1000: fsizedoc,
-					requestFrom: '0@s.whatsapp.net',
-					noteMessage: {
-						extendedTextMessage: {
-							text: '👋 Hay Kak :> ' + name
+				key: {
+					remoteJid: '0@s.whatsapp.net',
+					fromMe: false,
+					id: 'BAE595C600522C9C',
+					participant: '0@s.whatsapp.net'
+				},
+				message: {
+					requestPaymentMessage: {
+						currencyCodeIso4217: b,
+						amount1000: fsizedoc,
+						requestFrom: '0@s.whatsapp.net',
+						noteMessage: {
+							extendedTextMessage: {
+								text: '👋 Hay Kak :> ' + name
+							}
+						},
+						expiryTimestamp: fsizedoc,
+						amount: {
+							value: fsizedoc,
+							offset: fsizedoc,
+							currencyCode: b
 						}
-					},
-					expiryTimestamp: fsizedoc,
-					amount: {
-						value: fsizedoc,
-						offset: fsizedoc,
-						currencyCode: b
 					}
 				}
 			}
-		}
+			// Fake
 		global.ftroli = {
 			key: {
 				participant: '0@s.whatsapp.net'
@@ -236,9 +235,9 @@ export async function all(m) {
 					product: {
 						productImage: {
 							mimetype: 'image/jpeg',
-							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+							jpegThumbnail: fs.readFileSync('./thumbnail.jpg') //Gambarnye
 						},
-						title: '👋 Hay Kak :> ' + name,
+						title: '👋 Hay Kak :> ' + name, //Kasih namalu 
 						description: bottime,
 						currencyCode: 'IDR',
 						priceAmount1000: fsizedoc,
@@ -320,10 +319,10 @@ export async function all(m) {
 					}
 				}
 			}
-			/* Batas */
-			/* Batas */
+			// Fake Random
 		let pft = [global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
+			// Fake Knights
 		let imagea = await new knights.Jo().setImage(pp).toBuild();
 		let dataa = imagea.toBuffer();
 		let imageb = await new knights.Patrick().setAvatar(pp).toAttachment();
@@ -333,13 +332,11 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
-			/* Batas */
-			/* Batas */
+			// FAKES
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
-		global.tumhiho = await this.resize(thumbnailUrl.getRandom(), 300, 150)
-			/* Batas */
+		global.tumhiho = await this.resize(global.thumbnailUrl.getRandom(), 300, 150)
 	}
 }
 
