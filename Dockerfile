@@ -9,8 +9,6 @@ RUN         apt update \
             libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
             libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
             ca-certificates fonts-liberation libnss3 lsb-release xdg-utils wget neofetch sudo tesseract-ocr chromium touch \
-	    && curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash && apt -y install speedtest \
-	    && speedtest --accept-license \
             && npm install -g npm@latest \
 	    && npm install -g pm2 \
 	    && npm install -g nodemon \
