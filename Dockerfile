@@ -15,8 +15,6 @@ WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
 
-RUN         npm install -g nodemon
-
 COPY        package.json .
 
 RUN	     npm install
@@ -27,4 +25,4 @@ CMD         [ "/bin/bash", "/entrypoint.sh" ]
 
 COPY        . .
 
-CMD         nodemon -x "node index.js --server || touch main.js --server" -e  "js, html, sh, py"
+RUN	     npm start
