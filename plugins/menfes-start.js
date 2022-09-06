@@ -2,11 +2,10 @@ import fetch from 'node-fetch'
 let handler = async(m, {
 	conn, text, usedPrefix, command, args
 }) => {
-	if (!args[0]) return conn.reply(m.chat, `Silahkan masukan pesannya\nContoh Penggunaan: ${usedPrefix + command} ${nomorown} pesan untuknya`, fakes, fakeyt)
-	let mention
-    if (m.isGroup) mention = m.mentionedJid[0] ? m.mentionedJid[0] : m.sender
-    else mention = m.sender
-	if (!mention) throw 'Tag salah satu lah'
+	if (!args || !args[0]) return conn.reply(m.chat, `Silahkan masukan pesannya\nContoh Penggunaan: ${usedPrefix + command} ${nomorown} pesan untuknya`, fakes, fakeyt)
+	if (['|'].includes(args[0])) throw 'Gunakan Spasi'
+    let mention = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : args[0] ? (args[0].replace(/[@ .+-]/g, '') + '@s.whatsapp.net') : ''
+    if (!mention) throw 'Tag salah satu lah'
 	let txt = (args.length > 1 ? args.slice(1).join(' ') : '') || ''
 	let q = m.quoted ? m.quoted : m
 	let mime = (q.msg || q).mimetype || ''

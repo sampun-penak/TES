@@ -43,7 +43,7 @@ if (args[1] == 'a') {
 	return conn.sendListM(m.chat, button, row, m)
 	} throw ma
 }
-handler.help = ['emoji <tipe> <emoji>']
+handler.help = ['emoji']
 handler.tags = ['sticker'] 
-handler.command = ['emoji', 'smoji', 'semoji']
+handler.command = /^(emo(jis|(ji)?)|se?moji)$/i
 export default handler

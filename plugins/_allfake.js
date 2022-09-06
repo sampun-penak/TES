@@ -18,9 +18,9 @@ export async function all(m) {
 	
 	// Begin
 		global.fetch =
-			import('node-fetch')
+			await import('node-fetch')
 		global.bochil =
-			import('@bochilteam/scraper')
+			await import('@bochilteam/scraper')
 		global.kontak2 = [
 				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
 				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
@@ -40,7 +40,7 @@ export async function all(m) {
 					mediaUrl: sgc,
 					description: botdate,
 					previewType: 'PHOTO',
-					thumbnail: await (await fetch(pp)).buffer(),
+					thumbnail: await(await fetch(pp)).buffer(),
 					sourceUrl: sgh
 				}
 			}
@@ -341,7 +341,7 @@ export async function all(m) {
 	}
 }
 
-async function ucapan() {
+function ucapan() {
 	const time = moment.tz('Asia/Jakarta').format('HH')
 	let res = 'Selamat malam 🌙'
 	if(time >= 1) {
