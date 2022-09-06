@@ -11,16 +11,12 @@ let handler = async(m, {conn, command, usedPrefix, text}) => {
     'title': title,
     'isi': isi
   }
- note.push(cttn)
-  conn.reply(m.chat, `Catatan berhasil dibuat!\nUntuk melihat note. Ketik: ${usedPrefix}lihatnote`, m, false, {
-    contextInfo: {
-      mentionedJid: conn.parseMention(text)
-    }
-  })
+  global.db.data.users[m.sender].note.push(cttn)
+  conn.sendButtonLoc(m.chat, 'https://telegra.ph/file/7989b4e60a9dedfcdbbec.jpg', `note berhasil dibuat!\nUntuk melihat note. Ketik: ${usedPrefix}lihatnote`, wm, 'Liat note', '.lihatnote', m)
 }
 
 handler.help = ['buatnote <title|isi>']
-handler.tags = ['note']
+handler.tags = ['tools']
 handler.command = /^buatnote$/i
 
 export default handler
