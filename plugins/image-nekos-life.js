@@ -17,11 +17,6 @@ let btn = [{
                                     url: sgh
                                 }
                             }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: nomorown
-                                }
-                            }, {
                                 quickReplyButton: {
                                     displayText: 'To Sticker',
                                     id: '.s'

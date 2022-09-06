@@ -45,7 +45,7 @@ let emm = rus.emoji
 
 const defaultMenu = {
   before: `
-Hai, *%name!* %ucapan
+Hai, %name! %ucapan
 
 *Tanggal:* %week, %date
 *Waktu:* %time
@@ -194,13 +194,8 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
     if (pilih == "ke1") {
     let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: sgh
-                                }
-                            }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: nomorown
+                                    displayText: 'Chat Owner',
+                                    url: 'https://wa.me/' + nomorown
                                 }
                             }, {
                                 quickReplyButton: {
@@ -212,11 +207,6 @@ let handler = async (m, { conn, groupMetadata, usedPrefix: _p, __dirname }) => {
                                     displayText: em.getRandom() + ' List Menu',
                                     id: _p + 'menulist'
                                 }  
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: '.sc'
-                                }
                             }]
         await conn.sendButtonGif(m.chat, text.trim(), wm, { url: global.giflogo }, btn, knimg)
         }

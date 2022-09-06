@@ -261,8 +261,8 @@ throw eror
 }
 }
 }
-handler.help = ['neo <command> <teks>']
+handler.help = ['mys <command> <teks>']
 handler.tags = ['tools'] 
-handler.command = /^neo$/i
+handler.command = /^mys$/i
 export default handler
 

@@ -21,72 +21,72 @@ let caption = `*Contoh Penggunaan*
 ${usedPrefix + command} attp teks
 
 *List Command*
-• ahegao
-• aneh
-• anime
-• anony
-• ass
-• attp
-• bdsm
-• bijak
-• blowjob
-• bonk
-• bucin
-• bully
-• cecans
-• chobay
-• chord
-• corohelp
-• cry
-• cuaca
-• cuckold
-• cuddle
-• cum
-• cuttly
-• dance
-• dare
-• darkjokes
-• detik
-• ero
-• femdom
-• font
-• font2
-• foot
-• gambar
-• gangbang
-• githubstalk
-• glasses
-• harley
-• hentai
-• hentaigif
-• hijaber
-• hug
-• islami
-• jahy
-• joker
-• lick
-• masturbation
-• megumin
-• motivasi
-• neko
-• nekonime
-• nulis
-• nulis2
-• orgy
-• panties
-• pantun
-• pat
-• pussy
-• shinobu
-• slap
-• smile
-• smug
-• thighs
-• trut
-• ttp
-• waifu
-• yeet
-• yuri
+• ${usedPrefix + command} ahegao
+• ${usedPrefix + command} aneh
+• ${usedPrefix + command} anime
+• ${usedPrefix + command} anony
+• ${usedPrefix + command} ass
+• ${usedPrefix + command} attp
+• ${usedPrefix + command} bdsm
+• ${usedPrefix + command} bijak
+• ${usedPrefix + command} blowjob
+• ${usedPrefix + command} bonk
+• ${usedPrefix + command} bucin
+• ${usedPrefix + command} bully
+• ${usedPrefix + command} cecans
+• ${usedPrefix + command} chobay
+• ${usedPrefix + command} chord
+• ${usedPrefix + command} corohelp
+• ${usedPrefix + command} cry
+• ${usedPrefix + command} cuaca
+• ${usedPrefix + command} cuckold
+• ${usedPrefix + command} cuddle
+• ${usedPrefix + command} cum
+• ${usedPrefix + command} cuttly
+• ${usedPrefix + command} dance
+• ${usedPrefix + command} dare
+• ${usedPrefix + command} darkjokes
+• ${usedPrefix + command} detik
+• ${usedPrefix + command} ero
+• ${usedPrefix + command} femdom
+• ${usedPrefix + command} font
+• ${usedPrefix + command} font2
+• ${usedPrefix + command} foot
+• ${usedPrefix + command} gambar
+• ${usedPrefix + command} gangbang
+• ${usedPrefix + command} githubstalk
+• ${usedPrefix + command} glasses
+• ${usedPrefix + command} harley
+• ${usedPrefix + command} hentai
+• ${usedPrefix + command} hentaigif
+• ${usedPrefix + command} hijaber
+• ${usedPrefix + command} hug
+• ${usedPrefix + command} islami
+• ${usedPrefix + command} jahy
+• ${usedPrefix + command} joker
+• ${usedPrefix + command} lick
+• ${usedPrefix + command} masturbation
+• ${usedPrefix + command} megumin
+• ${usedPrefix + command} motivasi
+• ${usedPrefix + command} neko
+• ${usedPrefix + command} nekonime
+• ${usedPrefix + command} nulis
+• ${usedPrefix + command} nulis2
+• ${usedPrefix + command} orgy
+• ${usedPrefix + command} panties
+• ${usedPrefix + command} pantun
+• ${usedPrefix + command} pat
+• ${usedPrefix + command} pussy
+• ${usedPrefix + command} shinobu
+• ${usedPrefix + command} slap
+• ${usedPrefix + command} smile
+• ${usedPrefix + command} smug
+• ${usedPrefix + command} thighs
+• ${usedPrefix + command} trut
+• ${usedPrefix + command} ttp
+• ${usedPrefix + command} waifu
+• ${usedPrefix + command} yeet
+• ${usedPrefix + command} yuri
 `
 conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]

@@ -37,7 +37,7 @@ let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
      let lin_ = ["https://www.youtube.com","https://www.instagram.com","https://www.facebook.com"]
      let cap = `*${htki} Information ${htka}*
 
-*🏷️ Nama:* *${name}*
+*🏷️ Nama:* ${name}
 *💲 Money:* *RP* ${money}
 *🏆 Level* ${level}
 *🎋 Role:* ${role}
@@ -51,13 +51,8 @@ let weem = `📮 *Note:* Jika menemukan bug, error atau kesulitan dalam pengguna
     if (pilih == "ke1") {
     let btn = [{
                                 urlButton: {
-                                    displayText: 'Source Code',
-                                    url: sgh
-                                }
-                            }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: nomorown
+                                    displayText: 'Chat Owner',
+                                    url: 'https://wa.me/' + nomorown
                                 }
                             }, {
                                 quickReplyButton: {
@@ -69,11 +64,6 @@ let weem = `📮 *Note:* Jika menemukan bug, error atau kesulitan dalam pengguna
                                     displayText: em.getRandom() + ' List Menu',
                                     id: usedPrefix + 'menulist'
                                 }  
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: '.sc'
-                                }
                             }]
         await conn.sendButtonGif(m.chat, cap, weem, { url: global.giflogo }, btn, knimg)
         }
