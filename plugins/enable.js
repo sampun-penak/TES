@@ -31,7 +31,6 @@ let name = await conn.getName(who)
 "Auto UpNews",
 "Auto Vn",
 "BcJoin",
-"Delete",
 "Detect",
 "Document",
 "GcOnly",
@@ -70,7 +69,6 @@ let idop = ["anticall",
 "autoupnime",
 "autovn",
 "bcjoin",
-"delete",
 "detect",
 "document",
 "gconly",
@@ -109,7 +107,6 @@ let desop = ["Memblokir user jika menelpon bot",
 "Bot Otomatis UpNews",
 "Bot Otomatis Vn",
 "BcJoin",
-"Delete",
 "Detect",
 "Document",
 "GcOnly",
@@ -165,15 +162,6 @@ let row = Object.keys(namop, desop, idop).map((v, index) => ({
        }
        chat.detect = isEnable
        break
-    case 'delete':
-      if (m.isGroup) {
-        if (!(isAdmin || isOwner)) {
-          global.dfail('admin', m, conn)
-          throw false
-        }
-      }
-      chat.delete = isEnable
-      break
     case 'antidelete':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
@@ -181,7 +169,7 @@ let row = Object.keys(namop, desop, idop).map((v, index) => ({
           throw false
         }
       }
-      chat.delete = !isEnable
+      chat.antiDelete = !isEnable
       break
      case 'autodelvn':
        if (m.isGroup) {

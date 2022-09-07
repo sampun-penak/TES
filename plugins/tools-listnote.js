@@ -7,35 +7,22 @@ let handler = async(m, {conn, command, usedPrefix, text}) => {
     i += 1
     txt += '⌜' + i + '⌟ ' + global.db.data.users[m.sender].catatan[ct].title + '\n'
   }
-  txt += `\nPenggunaan: ${usedPrefix}hapuscatatan 1`
-  if (text.length == 0) return m.reply(txt)
+  if (text.length == 0) return await conn.sendButtonLoc(m.chat, 'https://telegra.ph/file/15e31900512863624ed57.jpg', txt, 'Penggunaan: ${usedPrefix}lihatcatatan 1\nHapus catatan: ${usedPrefix}hapuscatatan 1', 'Okey', 'Ok', m)
   let catatan = global.db.data.users[m.sender].catatan
   let split = text.split('|')
   if (catatan.length == 0) return m.reply('Kamu belum memiliki catatan!')
   let n = Number(split[0]) - 1
-  if (catatan[n] == undefined) return m.reply('Catatan tidak ditemukan!')
-  let tmp = []
 
-  for (let ct in catatan) {
-    if(ct != n) {
-      tmp.push(catatan[ct])
-    } else {
-      continue
-    }
-  }
-
-  cdang = global.db.data.users[m.sender].catatan
-  global.db.data.users[m.sender].catatan = tmp
-
-conn.reply(m.chat, `Berhasil menghapus catatan!`, m, false, {
+  let isi = global.db.data.users[m.sender].catatan[n] != undefined ? global.db.data.users[m.sender].catatan[n].isi : 'Catatan tidak ditemukan!'
+conn.reply(m.chat, `${isi}`, m, false, {
     contextInfo: {
       mentionedJid: conn.parseMention(text)
     }
   })
 }
 
-handler.help = ['hapuscatatan title']
+handler.help = ['lihatcatatan <title>']
 handler.tags = ['tools']
-handler.command = /^hapuscatatan$/i
+handler.command = /^lihatcatatan$/i
 
 export default handler
