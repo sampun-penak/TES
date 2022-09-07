@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     if (!/sticker/.test(mime)) throw notStickerMessage
     let media = await q.download()
     let out = await webp2png(media).catch(_ => null) || Buffer.alloc(0)
-    await conn.sendFile(m.chat, out, 'out.png', '*DONE*', m)
+    await conn.sendFile(m.chat, out, 'out.png', '*DONE*', m, null, adReply)
 }
 handler.help = ['toimg2 (reply)']
 handler.tags = ['sticker']

@@ -3,20 +3,25 @@ import { stickerTelegram } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 import axios from 'axios'
 let handler = async (m, { conn, text, command, usedPrefix, args }) => {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+let name = await conn.getName(who)
+
 try {
 	if (args[0] && args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) {
-		let ras = await xfar.Telesticker(args[0])
+		let ras = await xfar.downloader.telesticker(args[0])
 		await m.reply(`Sending ${ras.length} stickers...`)
-		if (m.isGroup && ras.length > 30) {
-			await m.reply('Number of stickers more than 30, bot will send it in private chat.')
-			for (let i = 0; i < ras.length; i++) {
-				conn.sendMessage(m.sender, { sticker: { url: ras[i].url }})
-			}
-		} else {
-			for (let i = 0; i < ras.length; i++) {
-				conn.sendMessage(m.chat, { sticker: { url: ras[i].url }})
-			}
-		}
+	let row = Object.values(ras).map((v, index) => ({
+		title: `📌 Tele Sticker: ${1 + index}`,
+		description: '\nBy: ' + author,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ Hai ${name}, Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return conn.sendListM(m.chat, button, row, m)
 	} else if (args && args.join(' ')) {
 		let [query, page] = args.join(' ').split('|')
 		let ris = await stickerTelegram(query, page)
@@ -29,7 +34,7 @@ let ros = await axios('https://violetics.pw/api/downloader/telestiker?apikey=bet
 let json = ros.data
 let dapet = json.result.sticker
 	let row = Object.keys(dapet).map((v, index) => ({
-		title: `📌 Line Sticker: ${1 + index}`,
+		title: `📌 Tele Sticker: ${1 + index}`,
 		description: '\n⏲️ Name: ' + json.result.name + '\n⏲️ Title: ' + json.result.title,
 		rowId: usedPrefix + 'get ' + dapet[v]
 	}))

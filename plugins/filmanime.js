@@ -9,61 +9,32 @@ let name = await conn.getName(who)
 
 if (command == 'filmanime') {
     if (!text) return conn.reply(m.chat, 'Harap Masukan Nama Film Animenya', m)
-    try {
 	 let res = await fetch(`https://api.lolhuman.xyz/api/lk21?apikey=${global.lolkey}&query=${text}`)
 	 let jsons = await res.json()
 	 let x = jsons.result
-let hasil = `*${htki} ANIME-SEARCH ${htka}*\n\n📫 Film Dari : ${x.title}
-📮 Genre: : ${x.genre}
-📮 Views: : ${x.views}
-📮 Duration: : ${x.duration}
-📮 Tahun: : ${x.tahun}
-📮 Location: : ${x.location}
-📮 Rilis: : ${x.date_release}
-📮 Bahasa: : ${x.language}
-⭐ Rating : ${x.rating}
-
-🎥Link Movie : ${x.link_dl}
-Link : ${x.link}
-
-📖Sinopsis : ${x.desc}`
-    await conn.sendButton(m.chat, hasil, wm, await(await fetch(i[0].thumb)).buffer(), [[' Menu', '/menu']], m, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
-          externalAdReply :{
-          showAdAttribution: true,
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: i[0].link
-     }}
-  })
-  } catch {
-  throw eror
-  }
+let hasil = `*${htki} ANIME-SEARCH ${htka}*\n
+*title:* ${x.title}
+*link:* ${x.link}
+*thumbnail:* ${x.thumbnail}
+*genre:* ${x.genre}
+*views:* ${x.views}
+*duration:* ${x.duration}
+*tahun:* ${x.tahun}
+*rating:* ${x.rating}
+*desc:* ${x.desc}
+*actors:* ${Array.from(x.actors)}
+*location:* ${x.location}
+*date_release:* ${x.date_release}
+*language:* ${x.language}
+*link_dl:* ${x.link_dl}`
+    await conn.sendButton(m.chat, hasil, wm, await(await fetch(x.thumbnail)).buffer(), [[' Menu', '/menu']], m, fakefb)
     }
 if (command == 'film') {
     if (!args[0]) throw `Gunakan format: ${usedPrefix}${command} spiderman`
-    try {
-let i = await xfar.Film(args[0])
+let i = await xfar.search.film(args[0])
 let txt = `*${htki} FILM-SEARCH ${htka}*\n\n*📫 Judul :* ${i[0].judul}\n*🎞️  Tipe  :* ${i[0].type}\n*📟 Kualitas :* ${i[0].quality}\n*📮Upload :* ${i[0].upload}\n*🔗 Url :* ${await shortUrl(i[0].link)}\n-----------------------------------------------\n`
 
-await conn.sendButton(m.chat, txt, wm, await(await fetch(i[0].thumb)).buffer(), [[' Menu', '/menu']], m, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
-          externalAdReply :{
-          showAdAttribution: true,
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: i[0].link
-     }}
-  })
-  } catch {
-  throw eror
-  }
+await conn.sendButton(m.chat, txt, wm, await(await fetch(i[0].thumb)).buffer(), [[' Menu', '/menu']], m, fakefb)
   }
 
 }
