@@ -46,7 +46,7 @@ export async function handler(chatUpdate) {
               if (!('afkReason' in user)) user.afkReason = ''
               if (!('autolevelup' in user)) user.autolevelup = false
               if (!('banned' in user)) user.banned = false
-              if (!('note' in user)) user.note = ''
+              if (!('catatan' in user)) user.catatan = ''
               if (!('job' in user)) user.job = ''
               if (!('kingdom' in user)) user.kingdom = true
               if (!('misi' in user)) user.misi = ''
@@ -752,7 +752,7 @@ export async function handler(chatUpdate) {
                     net: 0,
                     nila: 0,
                     nilabakar: 0,
-                    note: '',
+                    catatan: '',
                     ojekk: 0,
                     oporayam: 0,
                     orca: 0,
@@ -873,12 +873,11 @@ export async function handler(chatUpdate) {
                 if (!('antiLink' in chat)) chat.antiLink = false
                 if (!('antiSticker' in chat)) chat.antiSticker = false
                 if (!('antiToxic' in chat)) chat.antiToxic = false
-                if (!('delete' in chat)) chat.delete = false
                 if (!('detect' in chat)) chat.detect = false
-                if (!('getmsg' in chat)) chat.getmsg = true
+                if (!('getmsg' in chat)) chat.getmsg = false
                 if (!('isBanned' in chat)) chat.isBanned = false
-                if (!('lastAnime' in chat)) chat.lastAnime = true
-                if (!('latestNews' in chat)) chat.latestNews = true
+                if (!('lastAnime' in chat)) chat.lastAnime = false
+                if (!('latestNews' in chat)) chat.latestNews = false
                 if (!('nsfw' in chat)) chat.nsfw = false
                 if (!('premium' in chat)) chat.premium = false
                 if (!('premiumTime' in chat)) chat.premiumTime = false
@@ -900,13 +899,12 @@ export async function handler(chatUpdate) {
 	                antiLink: false,
 	                antiSticker: false,
 	                antiToxic: false,
-	                delete: false,
 	                detect: false,
 	                expired: 0,
-	                getmsg: true,
+	                getmsg: false,
 	                isBanned: false,
-	                lastAnime: true,
-	                latestNews: true,
+	                lastAnime: false,
+	                latestNews: false,
 	                nsfw: false,
 	                premium: false,
 	                premiumTime: false,
@@ -926,19 +924,19 @@ export async function handler(chatUpdate) {
             if (typeof settings !== 'object') global.db.data.settings[this.user.jid] = {}
             if (settings) {
                 if (!('self' in settings)) settings.self = false
-                if (!('autoread' in settings)) settings.autoread = true
-                if (!('restrict' in settings)) settings.restrict = true
+                if (!('autoread' in settings)) settings.autoread = false
+                if (!('restrict' in settings)) settings.restrict = false
                 if (!('jadibot' in settings)) settings.jadibot = false
-                if (!('autorestart' in settings)) settings.autorestart = true
+                if (!('autorestart' in settings)) settings.autorestart = false
                 if (!('restartDB' in settings)) settings.restartDB = 0
                 if (!('status' in settings)) settings.status = 0
              
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
-                autoread: true,
+                autoread: false,
                 jadibot: false,
-                restrict: true,
-                autorestart: true,
+                restrict: false,
+                autorestart: false,
                 restartDB: 0,
                 status: 0
             }
@@ -1401,7 +1399,7 @@ export async function deleteUpdate(message) {
         if (!msg)
             return
         let chat = global.db.data.chats[msg.chat] || {}
-        if (chat.delete)
+        if (chat.antidelete)
             return
             this.send2ButtonDoc(msg.key.remoteJid, `Terdeteksi *@${participant.split`@`[0]}* telah menghapus pesan.
 Untuk mematikan fitur ini, ketik
