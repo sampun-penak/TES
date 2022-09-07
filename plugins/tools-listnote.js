@@ -5,9 +5,9 @@ let handler = async(m, {conn, command, usedPrefix, text}) => {
   let txt = '🗒️Daftar catatan\n\n'
   for (let ct in global.db.data.users[m.sender].catatan) {
     i += 1
-    txt += '⌜' + i + '⌟ ' + global.db.data.users[m.sender].catatan[ct].title + '\n'
+    txt += '*' + i + '.* ' + global.db.data.users[m.sender].catatan[ct].title + '\n'
   }
-  if (text.length == 0) return await conn.sendButtonLoc(m.chat, 'https://telegra.ph/file/15e31900512863624ed57.jpg', txt, 'Penggunaan: ${usedPrefix}lihatcatatan 1\nHapus catatan: ${usedPrefix}hapuscatatan 1', 'Okey', 'Ok', m)
+  if (text.length == 0) return await conn.sendButtonLoc(m.chat, 'https://telegra.ph/file/15e31900512863624ed57.jpg', txt, 'Penggunaan:\n' + usedPrefix + 'lihatcatatan 1\nHapus catatan:\n' + usedPrefix + 'hapuscatatan 1', 'Okey', 'Ok', m)
   let catatan = global.db.data.users[m.sender].catatan
   let split = text.split('|')
   if (catatan.length == 0) return m.reply('Kamu belum memiliki catatan!')
@@ -21,8 +21,8 @@ conn.reply(m.chat, `${isi}`, m, false, {
   })
 }
 
-handler.help = ['lihatcatatan <title>']
+handler.help = ['lihatcatatan']
 handler.tags = ['tools']
-handler.command = /^lihatcatatan$/i
+handler.command = /^(li(hat(c(atatan|tt)|note)|atnote)|bukac(atatan|tt))$/i
 
 export default handler

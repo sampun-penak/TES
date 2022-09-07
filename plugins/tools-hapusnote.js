@@ -5,9 +5,9 @@ let handler = async(m, {conn, command, usedPrefix, text}) => {
   let txt = '🗒️Daftar catatan\n\n'
   for (let ct in global.db.data.users[m.sender].catatan) {
     i += 1
-    txt += '⌜' + i + '⌟ ' + global.db.data.users[m.sender].catatan[ct].title + '\n'
+    txt += '*' + i +  '.* ' + global.db.data.users[m.sender].catatan[ct].title + '\n'
   }
-  txt += `\nPenggunaan: ${usedPrefix}hapuscatatan 1`
+  txt += '\nPenggunaan:\n' + usedPrefix + 'hapuscatatan 1'
   if (text.length == 0) return m.reply(txt)
   let catatan = global.db.data.users[m.sender].catatan
   let split = text.split('|')
@@ -34,8 +34,8 @@ conn.reply(m.chat, `Berhasil menghapus catatan!`, m, false, {
   })
 }
 
-handler.help = ['hapuscatatan title']
+handler.help = ['hapuscatatan']
 handler.tags = ['tools']
-handler.command = /^hapuscatatan$/i
+handler.command = /^(hapus(c(atatan|tt)|note)|del(c(atatan|tt)|note))$/i
 
 export default handler
