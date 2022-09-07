@@ -65,7 +65,6 @@ conn.sendButton(m.chat, caption, wm, null, [
             }
             
 if (command) {
-try {
 switch (template) {
 
         case 'cecan':
@@ -236,9 +235,6 @@ case 'vietnam':
                 ['Next', `${usedPrefix + command}`]
             ], m, { quoted: fakes })
             break
-}
-} catch {
-throw eror
 }
 }
 }

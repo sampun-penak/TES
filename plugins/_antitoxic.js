@@ -7,23 +7,16 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}
     const isAntiToxic = isToxic.exec(m.text)
+    let hapus = m.key.participant
+    let bang = m.key.id
     
     if (chat.antiToxic && isAntiToxic) {
         await conn.sendButton(m.chat, `*Kata Aneh Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antitoxic', '/disable antitoxic'], m)
         if (isBotAdmin && bot.restrict) {
             // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    global.db.data.users[m.sender].limit = 0
-    global.db.data.users[m.sender].exp = 0
-    global.db.data.users[m.sender].money = 0
-    
-    await conn.sendButton(m.chat, `*Anda kena sanksi*
-    
-    Karena Mengtoxic
-    Limit anda direset
-    
-    Ketik *.limit* untuk cek limit`, wm, null, [
-        ['Ngechit', `${usedPrefix}ngechit`]
-    ], m)
+    global.db.data.users[m.sender].warn += 1
+    global.db.data.users[m.sender].banned = true
+    return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
         } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
     }
     return !0

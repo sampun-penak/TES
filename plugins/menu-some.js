@@ -60,7 +60,6 @@ await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist
             }
             
 if (command) {
-try {
 switch (template) {
 case 'animal':
 if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -178,9 +177,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         return conn.sendButtonImg(m.chat, wnt, wm, 'Nih.jpg', 'Sticker', '.s', fakes, adReply)
             break
             
-}
-} catch {
-throw eror
 }
 }
 }

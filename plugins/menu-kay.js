@@ -32,7 +32,6 @@ await conn.sendButtonImg(m.chat, logo, caption, author, 'M E N U', '.menu', fpay
             }
             
 if (command) {
-try {
 switch (template) {
         
             case 'img':
@@ -133,9 +132,6 @@ switch (template) {
         await conn.sendButtonImg(m.chat, vpx, vpnn, author, 'To Sticker', '.s', fpayment, adReply)
             break
             
-}
-} catch {
-throw eror
 }
 }
 }

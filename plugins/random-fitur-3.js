@@ -163,14 +163,15 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} kucing`
     {
 	title: `${htki} PILIH TEMA ${htka}`,
 	rows: [
-	{title: 'kucing', rowId: usedPrefix + 'imagekit kucing|' + text},
-	{title: 'senyum', rowId: usedPrefix + 'imagekit senyum|' + text},
-	{title: 'monyet', rowId: usedPrefix + 'imagekit monyet|' + text},
-	{title: 'wp', rowId: usedPrefix + 'imagekit wp|' + text},
-	{title: 'wp1', rowId: usedPrefix + 'imagekit wp1|' + text},
-	{title: 'wp2', rowId: usedPrefix + 'imagekit wp2|' + text},
-	{title: 'wp3', rowId: usedPrefix + 'imagekit wp3|' + text},
-	{title: 'wp4', rowId: usedPrefix + 'imagekit wp4|' + text}
+	{title: 'Cat', rowId: usedPrefix + 'imagekit kucing|' + text},
+	{title: 'Smile', rowId: usedPrefix + 'imagekit senyum|' + text},
+	{title: 'Monkey', rowId: usedPrefix + 'imagekit monyet|' + text},
+	{title: 'Wall', rowId: usedPrefix + 'imagekit wp|' + text},
+	{title: 'Wall 1', rowId: usedPrefix + 'imagekit wp1|' + text},
+	{title: 'Wall 2', rowId: usedPrefix + 'imagekit wp2|' + text},
+	{title: 'Wall 3', rowId: usedPrefix + 'imagekit wp3|' + text},
+	{title: 'Wall 4', rowId: usedPrefix + 'imagekit wp4|' + text},
+	{title: 'Runtime', rowId: usedPrefix + 'imagekit runtime|' + text}
 	]
     }
 ]

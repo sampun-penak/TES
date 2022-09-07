@@ -7,20 +7,16 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     let chat = global.db.data.chats[m.chat]
     let bot = global.db.data.settings[this.user.jid] || {}
     const isAntiSatir = isSatir.exec(m.text)
+    let hapus = m.key.participant
+    let bang = m.key.id
 
     if (chat.antiSatir && isAntiSatir) {
         await conn.sendButton(m.chat, `*Kata Satir Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antisatir', '/disable antisatir'], m)
         if (isBotAdmin && bot.restrict) {
             // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    global.db.data.users[m.sender].limit += 10
-    
-    await conn.sendButton(m.chat, `*Limit anda bertambah 10*
-    
-    Karena Menggunakan Kata Satir
-    
-    Ketik *.limit* untuk cek limit`, wm, null, [
-        ['Ngechit', `${usedPrefix}ngechit`]
-    ], m)
+    global.db.data.users[m.sender].warn += 1
+    global.db.data.users[m.sender].banned = true
+    return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
         } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
     }
     return !0

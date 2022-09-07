@@ -16,6 +16,8 @@ let handler = async(m, {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 	let name = await conn.getName(who)
 	let pp = await conn.profilePictureUrl(who, 'image')
+	let q = m.quoted ? m.quoted : m
+	let mime = (q.msg || q).mimetype || ''
 	let urut = text.split `|`
 	let one = urut[1]
 	let two = urut[2]
@@ -110,7 +112,6 @@ ${usedPrefix + command} pinterest |wibu
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
 	if(command) {
-		try {
 			switch(template) {
 				case 'artimimpi':
 				case 'artinama':
@@ -223,13 +224,19 @@ ${usedPrefix + command} pinterest |wibu
 				case 'webpflip2':
 				case 'webpflip3':
 				case 'webpflip':
-					let cb = `https://cililitan.herokuapp.com/api/${args[0]}?url=${pp}`
+				let wnim = await q.download()
+  let wnim_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _wnim = await (wnim_ ? uploadImage : uploadFile)(wnim)
+					let cb = `https://cililitan.herokuapp.com/api/${args[0]}?url=${_wnim}`
 					let ce = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, cb, ce, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 				case 'bitrate':
+				let wnbm = await q.download()
+  let wnbm_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _wnim = await (wnbm_ ? uploadImage : uploadFile)(wnbm)
 				if(!one) throw penggunaan
-					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${pp}&bitrate=${one}`
+					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnim}&bitrate=${one}`
 					let de = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, db, de, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
@@ -424,9 +431,6 @@ ${pc.result.author}`)
 					conn.sendButtonImg(m.chat, wb, we, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 			}
-		} catch {
-			throw eror
-		}
 	}
 }
 handler.help = ['cil <command> <teks>']

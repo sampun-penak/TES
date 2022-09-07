@@ -13,7 +13,7 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     if (chat.autoJoin && isAutoJoin) {
         await conn.sendButton(m.chat, `*Group link join detect!*`, wm, null, [
                 ['Off AutoJoin', `${usedPrefix}off autojoin`],
-                ['Bot Join', `${usedPrefix} ${isJoin}`],
+                ['Bot Join', `${usedPrefix}join ${isJoin}`],
             ], m)
             }
     return !0
