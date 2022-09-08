@@ -190,7 +190,7 @@ return conn.sendButton(m.chat, `*RESULT: !*
 *SD:* ${teks.mirror.SD}
 *HD:* ${teks.mirror.HD}
 `, author, null, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'anoboys') {
@@ -244,11 +244,40 @@ throw blum
 }
 if (args[0] == 'asupanfilm') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sasupanfilm()
+let row = Object.values(teks).map((v, index) => ({
+		title: index + ' ' + v.judul,
+		description: '\ndeskripsi: ' + v.deskripsi + '\nLink: ' + v.link + '\nThumb: ' + v.thumb,
+		rowId: usedPrefix + 'ss ' + v.link
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'asupanfilminfo') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sasupanfilminfo(args[1])
+return conn.sendButton(m.chat, `*RESULT: !*
+
+${teks.judul}
+${teks.thumb}
+${teks.alurcerita_imdb}
+${teks.alurcerita_tmdb}
+${teks.direksi}
+${teks.pemeran}
+${teks.kategori}
+${teks.negara}
+${teks.tahun_rilis}
+${teks.durasi}
+${teks.skor}
+${teks.kualitas}
+${teks.jenis}
+`, author, null, [
+                ['Next', usedPrefix + command + ' ' + args[0]]
+            ], m)
 }
 if (args[0] == 'bacaresep') {
 if (!args[1]) throw kueri
@@ -285,7 +314,7 @@ if (args[0] == 'devianart') {
 if (!args[1]) throw kueri
 let teks = await sdevianart(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'dewabatch') {
@@ -298,7 +327,18 @@ throw blum
 }
 if (args[0] == 'facebook') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sfacebook(args[1])
+let row = Object.values(teks.data).map((v, index) => ({
+		title: index + ' Result',
+		description: '\nLink: ' + v.url,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'film') {
 if (!args[1]) throw kueri
@@ -356,7 +396,18 @@ throw blum
 }
 if (args[0] == 'igdl') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sigdl(args[1])
+	let row = Object.values(teks.data).map((v, index) => ({
+		title: index + ' Result',
+		description: '\nurl: ' + v.url,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'igdl2') {
 if (!args[1]) throw kueri
@@ -368,7 +419,18 @@ throw blum
 }
 if (args[0] == 'igstory') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sigdl(args[1])
+	let row = Object.values(teks.data).map((v, index) => ({
+		title: index + ' Result',
+		description: '\nurl: ' + v.url,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'job') {
 if (!args[1]) throw kueri
@@ -397,7 +459,7 @@ if (args[0] == 'konachan') {
 if (!args[1]) throw kueri
 let teks = await skonachan(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'manga') {
@@ -418,7 +480,7 @@ return conn.sendButton(m.chat, `*RESULT!*
 *size:* ${teks.size}
 *mime:* ${teks.mime}
 `, author, null, [
-                ['GET', usedPrefix + 'get ' + teks.link],
+                ['GET', usedPrefix + 'get ' + teks.link]
             ], m)
 }
 if (args[0] == 'merdekanews') {
@@ -437,8 +499,18 @@ let row = Object.values(teks).map((v, index) => ({
 	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'metronews') {
-if (!args[1]) throw kueri
-throw blum
+let teks = await smetronews()
+let row = Object.values(teks).map((v, index) => ({
+		title: index + ' ' + v.judul,
+		description: '\ndeskripsi: ' + v.deskripsi + '\nLink: ' + v.link + '\nThumb: ' + v.thumb,
+		rowId: usedPrefix + 'ss ' + v.link
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'palingmurah') {
 if (!args[1]) throw kueri
@@ -446,7 +518,18 @@ throw blum
 }
 if (args[0] == 'pin') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await spin()
+let row = Object.values(teks).map((v, index) => ({
+		title: index + ' Result',
+		description: '\nUpload: ' + v.url,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'pinterest2') {
 if (!args[1]) throw kueri
@@ -455,7 +538,17 @@ throw blum
 if (args[0] == 'quotes') {
 if (!args[1]) throw kueri
 let teks = await squotes(args[1])
-m.reply(teks.quote)
+let row = Object.values(teks.data).map((v, index) => ({
+		title: index + ' ' + v.author,
+		description: '\nquotes: ' + v.quote + '\nbio: ' + v.bio,
+		rowId: usedPrefix + 'nulis ' + v.quote
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'randomgore') {
 if (!args[1]) throw kueri
@@ -466,20 +559,52 @@ ${teks.data.views}
 ${teks.data.comment}
 ${teks.data.thumb}
 `, author, teks.data.link, [
-                ['GET', usedPrefix + 'get ' + teks.data.link],
+                ['GET', usedPrefix + 'get ' + teks.data.link]
             ], m)
 }
 if (args[0] == 'randomtt') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await srandomtt(args[1])
+return conn.sendButton(m.chat, `*Result: !*
+${teks.username}
+${teks.caption}
+${teks.like_count}
+${teks.comment_count}
+${teks.share_count}
+${teks.videourl}
+`, author, teks.videourl, [
+                ['GET', usedPrefix + 'get ' + teks.videourl]
+            ], m)
 }
 if (args[0] == 'rexdl') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await srexdl(args[1])
+	let row = Object.values(teks).map(( v, index ) => ({
+		title: index + ' ' + v.judul,
+		description: '\nkategori: ' + v.kategori + '\nupload_date: ' + v.upload_date + '\ndeskripsi: ' + v.deskripsi + '\nthumb: ' + v.thumb + '\nlink: ' + v.link,
+		rowId: usedPrefix + 'get ' + v.link
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'rexdldown') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await srexdldown(args[1])
+	let row = Object.values(teks.download).map(( v, index ) => ({
+		title: index + ' ' + v.link_name,
+		description: '\njudul: ' + teks.judul + '\nupdate_date: ' + teks.update_date + '\nversion: ' + v.version + '\nsize: ' + v.size,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'searchgore') {
 if (!args[1]) throw kueri
@@ -510,7 +635,7 @@ return conn.sendButton(m.chat, `*Result: !*
 *uploaded:* ${teks.data.uploaded}
 *download_count:* ${teks.data.download_count}
 `, author, teks.data.link, [
-                ['GET', usedPrefix + 'get ' + teks.data.link],
+                ['GET', usedPrefix + 'get ' + teks.data.link]
             ], m)
 }
 if (args[0] == 'sfilesearch') {
@@ -537,7 +662,7 @@ return conn.sendButton(m.chat, `*Result: !*
 *thumb:* ${teks.thumb}
 *download_count:* ${teks.download_count}
 `, author, teks.link, [
-                ['GET', usedPrefix + 'get ' + teks.link],
+                ['GET', usedPrefix + 'get ' + teks.link]
             ], m)
 }
 if (args[0] == 'stickersearch') {
@@ -564,7 +689,7 @@ ${teks.url}
 List Style:
 0-5
 `, author, teks.url, [
-                ['GET', usedPrefix + 'get ' + teks.url],
+                ['GET', usedPrefix + 'get ' + teks.url]
             ], m)
 }
 if (args[0] == 'tiktok') {
@@ -578,27 +703,38 @@ throw blum
 }
 if (args[0] == 'twitter') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await stwitter(args[1])
+let row = Object.values(teks.data).map((v, index) => ({
+		title: index + ' Result',
+		description: '\url: ' + v.url,
+		rowId: usedPrefix + 'get ' + v.url
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'wallpapercave') {
 if (!args[1]) throw kueri
 let teks = await swallpapercave(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'wallpapercraft') {
 if (!args[1]) throw kueri
 let teks = await swallpapercraft(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'wallpaperhd') {
 if (!args[1]) throw kueri
 let teks = await swallpaperhd(args[1])
 return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
-                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]],
+                ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'wattpad') {
@@ -626,11 +762,24 @@ let teks = await swikisearch(args[1])
 }
 if (args[0] == 'zerochan') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await szippydl(args[1])
+let pigg = teks.result
+return conn.sendButton(m.chat, `*Result: !*
+`, author, pigg.getRandom(), [
+                ['GET', usedPrefix + 'get ' + pigg.getRandom()]
+            ], m)
 }
 if (args[0] == 'zippydl') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await szippydl(args[1])
+return conn.sendButton(m.chat, `*Result: !*
+${teks.title}
+${teks.extension}
+${teks.filesize}
+${teks.upload}
+`, author, teks.data.link, [
+                ['GET', usedPrefix + 'get ' + teks.link]
+            ], m)
 }
 if (args[0] == 'zippydl2') {
 if (!args[1]) throw kueri
