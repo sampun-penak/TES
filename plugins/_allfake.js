@@ -12,12 +12,6 @@ export async function all(m) {
     let pp = await this.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
     
 	// Begin
-		global.fetch = await import('node-fetch')
-		global.bochil = await import('@bochilteam/scraper')
-		global.kontak2 = [
-				[owner[0], await this.getName(owner[0] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true],
-				[owner[1], await this.getName(owner[1] + '@s.whatsapp.net'), 'ᴅᴇᴠᴇʟᴏᴩᴇʀ ʙᴏᴛ', 'wudysoft@mail.com', true], // Kalo mau di tambah tinggal copy 1baris ini di tempel di bawahnya trs di edit dikit!
-			]
 		global.ucapan = ucapan()
 		global.ephemeral = '86400'
 		
@@ -132,7 +126,7 @@ export async function all(m) {
 			},
 			message: {
 				pollCreationMessage: {
-					name: author
+					name: '👋 Hay Kak :> ' + name
 				}
 			}
 		}
@@ -146,7 +140,7 @@ export async function all(m) {
 					status: 1,
 					surface: 1,
 					message: botdate,
-					orderTitle: wm,
+					orderTitle: author,
 					sellerJid: '0@s.whatsapp.net'
 				}
 			}
@@ -157,8 +151,8 @@ export async function all(m) {
 			},
 			message: {
 				contactMessage: {
-					displayName: wm,
-					vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
+					displayName: author,
+					vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${author},;;;\nFN:${author},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg'),
 					thumbnail: fs.readFileSync('./thumbnail.jpg'),
 					sendEphemeral: true
@@ -183,8 +177,8 @@ export async function all(m) {
 			},
 			message: {
 				videoMessage: {
-					title: wm,
-					h: `Hmm`,
+					title: author,
+					h: 'Hmm',
 					seconds: fsizedoc,
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
@@ -198,7 +192,7 @@ export async function all(m) {
 			message: {
 				extendedTextMessage: {
 					text: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					title: bottime,
+					title: botdate,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -210,7 +204,7 @@ export async function all(m) {
 			message: {
 				liveLocationMessage: {
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					h: bottime,
+					h: botdate,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -222,7 +216,7 @@ export async function all(m) {
 			message: {
 				liveLocationMessage: {
 					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					h: bottime,
+					h: botdate,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -237,17 +231,15 @@ export async function all(m) {
 						productImage: {
 							mimetype: 'image/jpeg',
 							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
-							//Gambarnye
 						},
 						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-						//Kasih namalu 
-						description: bottime,
+						description: botdate,
 						currencyCode: 'IDR',
 						priceAmount1000: fsizedoc,
 						retailerId: 'Ghost',
 						productImageCount: 1
 					},
-					businessOwnerJid: `0@s.whatsapp.net`
+					businessOwnerJid: '0@s.whatsapp.net'
 				}
 			}
 		}
@@ -257,7 +249,7 @@ export async function all(m) {
 			},
 			message: {
 				documentMessage: {
-					title: wm,
+					title: author,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -269,8 +261,8 @@ export async function all(m) {
 			message: {
 				groupInviteMessage: {
 					groupJid: '17608914335-1625305606@g.us',
-					inviteCode: null,
-					groupName: wm,
+					inviteCode: sgc,
+					groupName: author,
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
@@ -283,10 +275,10 @@ export async function all(m) {
 			message: {
 				videoMessage: {
 					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					h: `Hmm`,
+					h: 'Hmm',
 					seconds: fsizedoc,
 					gifPlayback: true,
-					caption: bottime,
+					caption: botdate,
 					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
 				}
 			}
@@ -323,7 +315,7 @@ export async function all(m) {
 				}
 			}
 	// Fake Random
-		let pft = [global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
+		let pft = [global.fpoll, global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
 	// Fake Knights
 		let imagea = await new knights.Jo().setImage(pp).toBuild();

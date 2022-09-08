@@ -3,27 +3,24 @@ import { randomBytes } from 'crypto'
 
 let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})( [0-9]{1,3})?/i
 
-let handler = async (m, { conn, text, usedPrefix, command, isOwner }) => {
+let handler = async (m, { conn, text, usedPrefix, command, isOwner, args }) => {
 let chat = global.db.data.chats[m.chat]
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let names = await conn.getName(who)
 let imgr = flaaa.getRandom()
-
-    let [_, code, expired] = text.match(linkRegex) || []
-    if (!code) throw `*Example:* ${usedPrefix + command} https://chat.whatsapp.com/DpqXHCpKCvi1TquMkI3mCI`
+let [_, code, expired] = text.match(linkRegex) || []
+    if (!code) throw `*Example:* ${usedPrefix + command} ${sgc}`
+    
     let res = await conn.groupAcceptInvite(code)
     if (!res) throw res.toString()
     let name = await conn.getName(res).catch(_ => null)
-    expired = Math.floor(Math.min(5, Math.max(999, isOwner ? expired && expired.isNumber() ? parseInt(expired) : 0 : 3)))
-    let caption = `*Berhasil join grup* ${name || res} ${expired ? `selama *${expired}* hari` : ''}\n*Jangan lupa baca rules ngap!*`
+    let caption = `${dmenut} Sukses Join Di Grup
+    ${dmenub} ${name || res}
+    ${dmenub} *Jangan lupa baca rules ngap!*
+    ${dmenuf}
+    `
     await conn.sendButton(m.chat, caption, wm, imgr + 'join', [
                 ['Rules', `${usedPrefix}rules`]
-            ], m, { quoted: fgif, contextInfo: { externalAdReply: { showAdAttribution: true,
-title: `「 👋 Hai ${names} 」`,
-sourceUrl: sgc,
-thumbnail: fs.readFileSync('./thumbnail.jpg')
-  }}})
-  
+            ], m, adReply)
+            
   if (chat.bcjoin) {
   let chats = Object.entries(conn.chats).filter(([_, chat]) => chat.isChats).map(v => v[0])
   let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
@@ -36,5 +33,4 @@ thumbnail: fs.readFileSync('./thumbnail.jpg')
 
 }
 handler.command = /^join$/i
-
 export default handler

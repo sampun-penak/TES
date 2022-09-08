@@ -157,7 +157,7 @@ throw blum
 if (args[0] == 'anime') {
 if (!args[1]) throw kueri
 let teks = await sanime(args[1])
-	let row = Object.values(teks.result).map((v, index) => ({
+	let row = Object.values(teks).map((v, index) => ({
 		title: index + ' ' + v.judul,
 		description: '\nThumb: ' + v.thumb + '\nLink: ' + v.link,
 		rowId: usedPrefix + 'ss ' + v.link
@@ -304,7 +304,18 @@ throw blum
 }
 if (args[0] == 'chara') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await schara(args[1])
+return conn.sendButton(m.chat, `*Result: !*
+${teks.nama}
+${teks.gender}
+${teks.warna_rambut}
+${teks.warna_mata}
+${teks.gol_darah}
+${teks.birthday}
+${teks.description}
+`, author, logo, [
+                ['Back', usedPrefix + 'menu']
+            ], m)
 }
 if (args[0] == 'corona') {
 if (!args[1]) throw kueri
@@ -373,7 +384,15 @@ let row = Object.values(teks).map((v, index) => ({
 }
 if (args[0] == 'goredl') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sgoredl(args[1])
+return conn.sendButton(m.chat, `*Result: !*
+${teks.data.judul}
+${teks.data.views}
+${teks.data.comment}
+${teks.data.link}
+`, author, teks.data.link, [
+                ['Back', usedPrefix + 'menu']
+            ], m)
 }
 if (args[0] == 'happymod') {
 if (!args[1]) throw kueri
@@ -392,7 +411,18 @@ let teks = await shappymod(args[1])
 }
 if (args[0] == 'happymoddl') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sigdl(args[1])
+	let row = Object.values(teks.download).map((v, index) => ({
+		title: index + ' Result: ' + v.title,
+		description: '\nurl: ' + teks.title + '\nurl: ' + teks.info,
+		rowId: usedPrefix + 'get ' + v.dl_link
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'igdl') {
 if (!args[1]) throw kueri
@@ -434,7 +464,18 @@ let teks = await sigstory(args[1])
 }
 if (args[0] == 'job') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await sjob(args[1])
+	let row = Object.values(teks).map((v, index) => ({
+		title: index + ' ' + v.job,
+		description: '\nperusahaan: ' + v.perusahaan + '\ndaerah: ' + v.daerah + '\nupload: ' + v.upload + '\nlink_Detail: ' + v.link_Detail,
+		rowId: usedPrefix + 'ss ' + v.link_Detail
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'joox') {
 if (!args[1]) throw kueri
@@ -458,13 +499,24 @@ throw blum
 if (args[0] == 'konachan') {
 if (!args[1]) throw kueri
 let teks = await skonachan(args[1])
-return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
+return conn.sendButton(m.chat, `*Result: !*`, author, teks.getRandom(), [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'manga') {
 if (!args[1]) throw kueri
-throw blum
+let teks = await smanga(args[1])
+	let row = Object.values(teks).map((v, index) => ({
+		title: index + ' ' + v.judul,
+		description: '\nThumb: ' + v.thumb + '\nLink: ' + v.link,
+		rowId: usedPrefix + 'ss ' + v.link
+	}))
+	let button = {
+		buttonText: `☂️ ${command} Search Disini ☂️`,
+		description: `⚡ ${name} Silakan pilih ${command} Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+		footerText: wm
+	}
+	return await conn.sendListM(m.chat, button, row, m)
 }
 if (args[0] == 'mangatoon') {
 if (!args[1]) throw kueri
@@ -719,21 +771,21 @@ let row = Object.values(teks.data).map((v, index) => ({
 if (args[0] == 'wallpapercave') {
 if (!args[1]) throw kueri
 let teks = await swallpapercave(args[1])
-return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
+return conn.sendButton(m.chat, `*Result: !*`, author, teks.getRandom(), [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'wallpapercraft') {
 if (!args[1]) throw kueri
 let teks = await swallpapercraft(args[1])
-return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
+return conn.sendButton(m.chat, `*Result: !*`, author, teks.getRandom(), [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
 if (args[0] == 'wallpaperhd') {
 if (!args[1]) throw kueri
 let teks = await swallpaperhd(args[1])
-return conn.sendButton(m.chat, `*Result: !*`, author, teks.result, [
+return conn.sendButton(m.chat, `*Result: !*`, author, teks.getRandom(), [
                 ['Next', usedPrefix + command + ' ' + args[0] + ' ' + args[1]]
             ], m)
 }
@@ -762,7 +814,7 @@ let teks = await swikisearch(args[1])
 }
 if (args[0] == 'zerochan') {
 if (!args[1]) throw kueri
-let teks = await szippydl(args[1])
+let teks = await szerochan(args[1])
 let pigg = teks.result
 return conn.sendButton(m.chat, `*Result: !*
 `, author, pigg.getRandom(), [
