@@ -419,7 +419,7 @@ throw blum
 }
 if (args[0] == 'igstory') {
 if (!args[1]) throw kueri
-let teks = await sigdl(args[1])
+let teks = await sigstory(args[1])
 	let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' Result',
 		description: '\nurl: ' + v.url,
@@ -706,7 +706,7 @@ if (!args[1]) throw kueri
 let teks = await stwitter(args[1])
 let row = Object.values(teks.data).map((v, index) => ({
 		title: index + ' Result',
-		description: '\url: ' + v.url,
+		description: '\nurl: ' + v.url,
 		rowId: usedPrefix + 'get ' + v.url
 	}))
 	let button = {

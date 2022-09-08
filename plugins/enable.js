@@ -169,7 +169,7 @@ let row = Object.keys(namop, desop, idop).map((v, index) => ({
           throw false
         }
       }
-      chat.antiDelete = !isEnable
+      chat.antiDelete = isEnable
       break
      case 'autodelvn':
        if (m.isGroup) {
