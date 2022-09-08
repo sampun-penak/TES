@@ -126,6 +126,16 @@ export async function all(m) {
 					}
 				}
 			}
+			global.fpoll = {
+			key: {
+				participant: '0@s.whatsapp.net'
+			},
+			message: {
+				pollCreationMessage: {
+					name: author
+				}
+			}
+		}
 		global.ftroli = {
 			key: {
 				participant: '0@s.whatsapp.net'
