@@ -21,80 +21,66 @@ export async function before(m, { conn, args, usedPrefix, command, isAdmin, isBo
     let hapus = m.key.participant
     let bang = m.key.id
     if (chat.antiLinkTik && isAntiLinkTik) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinktik', '/disable antilinktik'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinktik', '/disable antilinktik'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkYt && isAntiLinkYt) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkyt', '/disable antilinkyt'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkyt', '/disable antilinkyt'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkTel && isAntiLinkTel) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinktel', '/disable antilinktel'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinktel', '/disable antilinktel'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkFb && isAntiLinkFb) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkfb', '/disable antilinkfb'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkfb', '/disable antilinkfb'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkIg && isAntiLinkIg) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkig', '/disable antilinkig'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkig', '/disable antilinkig'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkWa && isAntiLinkWa) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkwa', '/disable antilinkwa'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antilinkwa', '/disable antilinkwa'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     
     if (chat.antiLinkHttp && isAntiLinkHttp) {
-        await conn.sendButton(m.chat, `*Link Terdeteksi!*${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antihatetepe', '/disable antihatetepe'], m)
+        await conn.sendButton(m.chat, `*Link Terdeteksi!* ${isBotAdmin ? '' : '\n\n_Bot bukan atmin_'}`, author, ['off antihatetepe', '/disable antihatetepe'], m)
         if (isBotAdmin && bot.restrict) {
-            // await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-    
     global.db.data.users[m.sender].warn += 1
     global.db.data.users[m.sender].banned = true
     return conn.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: false, id: bang, participant: hapus }})
-        } else if (!bot.restrict) return m.reply('Gk bisa gw kick!')
+        } else if (!bot.restrict) return m.reply('Semoga harimu suram!')
     }
     return !0
 }
