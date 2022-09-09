@@ -30,6 +30,7 @@ let name = await conn.getName(who)
 "Auto UpAnime",
 "Auto UpNews",
 "Auto Vn",
+"Get Msg",
 "BcJoin",
 "Detect",
 "Document",
@@ -68,6 +69,7 @@ let idop = ["anticall",
 "autoupnews",
 "autoupnime",
 "autovn",
+"getmsg",
 "bcjoin",
 "detect",
 "document",
@@ -106,6 +108,7 @@ let desop = ["Memblokir user jika menelpon bot",
 "Bot Otomatis UpAnime",
 "Bot Otomatis UpNews",
 "Bot Otomatis Vn",
+"Bot Otomatis Kirim Msg",
 "BcJoin",
 "Detect",
 "Document",
@@ -423,6 +426,14 @@ let row = Object.keys(namop, desop, idop).map((v, index) => ({
         throw false
       }
       bot.restrict = isEnable
+      break
+      case 'getmsg':
+      isAll = true
+      if (!isOwner) {
+        global.dfail('owner', m, conn)
+        throw false
+      }
+      chat.getmsg = isEnable
       break
     case 'nyimak':
       isAll = true

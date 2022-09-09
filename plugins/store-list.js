@@ -1,30 +1,20 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
+	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+	let name = await conn.getName(who)
 	let msgs = global.db.data.msgs
-	let msg = (Object.entries(msgs).map(([nama, isi]) => { return { nama, ...isi } })).map(v => v.nama)
-	let row = Object.keys(msg).map(v => ({
-		title: msg[v],
-		description: '',
-		rowId: msg[v]
-	}))
-	let button = {
-		buttonText: 'LIST STORE',
-		description: 'Berikut daftar Menu yg Ada di List store...',
-		footerText: wm
-	}
-	if (msg[0]) return await conn.sendListM(m.chat, button, row, m)
-	else throw `\nbelum ada Menu yg Ada di list store.\nketik *${usedPrefix + command} <teks>* untuk menambahkan daftar menu.\n`
+	let msg = (Object.entries(msgs).map(([nama, isi]) => { return { nama, ...isi} }))
+	let listSections = []
+	Object.values(msg).map((v, index) => {
+	listSections.push([htki + ' ' + ++index + ' ' + htka, [
+          ['Pesan: ' + v.nama, usedPrefix + 'getmsg ' + v.nama, 'ID: ' + v.key.id + '\nType: ' + Object.keys(v.message) + '\nSender: ' + 'wa.me/' + v.participant.replace(/@.+/, '')]
+        ]])
+	})
+	if (chat.getmsg === false) return conn.sendButton(m.chat, `kamu harus mengaktifkan getmsg dengan mengklik tombol di bawah`, wm, null, [['Nyalakan getmsg', '.on getmsg']], m)
+	if (msg[0]) return conn.sendList(m.chat, htki + ' 📺 LIST MESSAGE 🔎 ' + htka, `⚡ Hai ${name} Berikut daftar Menu yg Ada di List store...\nAkses langsung dengan mengetik namanya`, author, `☂️ ${command} Klik Disini ☂️`, listSections, m)
+	else throw `\nBelum ada Menu yg Ada di list store.\nketik *${usedPrefix + command} <teks>* untuk menambahkan daftar menu.\n`
 }
 handler.help = ['store'].map(v => 'list' + v)
 handler.tags = ['database']
 handler.command = /^list(store|shop)?$/i
 
 export default handler
-
-
-/**
- * Jangan di hapus
- *
- * Buatan FokusDotId (Fokus ID)
- * https://github.com/fokusdotid
- *
- */

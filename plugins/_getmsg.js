@@ -16,5 +16,7 @@ let chat = global.db.data.chats[m.chat]
         }
         return v
     }))
-    await _m.copyNForward(m.chat, true)
+    await _m.copyNForward(m.chat, false)
 }
+
+// Get Message No Prefix

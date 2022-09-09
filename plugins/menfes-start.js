@@ -32,7 +32,7 @@ Contoh: ${usedPrefix + command} ${nomorown} hai`
 			[null, null]
 		], null)
 		let media = q ? await m.getQuotedObj() : false || m
-		await conn.copyNForward(mention, media, true).catch(_ => _)
+		await conn.copyNForward(mention, media, false).catch(_ => _)
 	}
 	let suks = `Mengirim Pesan *${mime ? mime : 'Teks'}*
 👥 Dari : wa.me/${pengirim.split("@s.whatsapp.net")[0]}
