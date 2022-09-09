@@ -71,7 +71,7 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} tafsirsurah
 • ${usedPrefix + command} telesticker
 • ${usedPrefix + command} tiktok
-• ${usedPrefix + command} tiktok
+• ${usedPrefix + command} tiktoktrend
 • ${usedPrefix + command} ttp
 • ${usedPrefix + command} twitter
 • ${usedPrefix + command} twittertrend

@@ -38,26 +38,28 @@ switch (template) {
 
 case 'codenhentai':
             if (!one) throw 'Masukkan Text/Url'
-            let aa = await xa.anime.anime('https://api-xcoders.xyz/api/anime/codenhentai?code=' + one + '&apikey=7iyNa0qA')
-        let aa_ = Object.keys(aa.result.pages).map((v, index) => ({
+            let json = await fetch('https://api-xcoders.xyz/api/anime/codenhentai?code=' + one + '&apikey=7iyNa0qA')
+            let aa = await json.json()
+            let axa = aa.result.pages
+        let aa_ = Object.keys(axa).map((v, index) => ({
 		title: 'Result: ' + index,
-		description: '\nLink: ' + aa.result.link + '\nThumbnail: ' + Object.keys(aa.result.thumbnails),
-		rowId: usedPrefix + 'get ' + aa[v]
+		description: '\nLink: ' + aa.result.link + '\nThumbnail: ' + Object.values(aa.result.thumbnails).join('\n'),
+		rowId: usedPrefix + 'get ' + axa[v]
 	}))
 	let aan_ = {
 		buttonText: `☂️ ${command} Search Disini ☂️`,
 		description: `⚡ Hai ${name}
-		judul: ${aa.judul}
-		title_JP: ${aa.title_JP}
-		parodies: ${aa.details.parodies}
-		characters: ${aa.details.characters}
-		tags: ${aa.details.tags}
-		artists: ${aa.details.artists}
-		groups: ${aa.details.groups}
-		languages: ${aa.details.languages}
-		categories: ${aa.details.categories}
-		pages: ${aa.details.pages}
-		upload_date: ${aa.details.upload_date}
+		title: ${aa.result.title}
+		title_JP: ${aa.result.title_JP}
+		parodies: ${aa.result.details.parodies}
+		characters: ${aa.result.details.characters}
+		tags: ${aa.result.details.tags}
+		artists: ${aa.result.details.artists}
+		groups: ${aa.result.details.groups}
+		languages: ${aa.result.details.languages}
+		categories: ${aa.result.details.categories}
+		pages: ${aa.result.details.pages}
+		upload_date: ${aa.result.details.upload_date}
 		`,
 		footerText: wm
 	}
@@ -128,11 +130,184 @@ case 'water':
         conn.sendButtonImg(m.chat, dd, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
+            case 'affect':
+case 'approved':
+case 'badut2':
+case 'badut3':
+case 'badut':
+case 'beautiful':
+case 'blur':
+case 'brazzers':
+case 'burn':
+case 'challenger':
+case 'circle':
+case 'communism':
+case 'crush':
+case 'delete':
+case 'dictator':
+case 'discordhouse':
+case 'distort':
+case 'emboss':
+case 'facepalm':
+case 'frame':
+case 'gay':
+case 'glitch':
+case 'greyscale':
+case 'instagram':
+case 'invert':
+case 'jail':
+case 'joke':
+case 'karenhave':
+case 'missionpassed':
+case 'moustache':
+case 'ps4':
+case 'rejected':
+case 'rip':
+case 'rmbg':
+case 'scary':
+case 'sepia':
+case 'spongebob':
+case 'ssweb':
+case 'thanos':
+case 'tobecontinue':
+case 'trash':
+case 'triggered':
+case 'wanted':
+case 'wasted':
+let exe = await q.download()
+  let exe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _exe = await (exe_ ? uploadImage : uploadFile)(exe)
+        let ee = 'https://api-xcoders.xyz/api/maker/' + args[0] + '?url=' + _exe + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, ee, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
+            
+            case 'balloon':
+case 'bannerplane':
+case 'beachsign':
+case 'bracelet':
+case 'christmaswriting':
+case 'einstein':
+case 'hauntedhotel':
+case 'hearttattoo':
+case 'lightgraffiti':
+case 'lovelock':
+case 'neonsign':
+case 'neonwriting':
+case 'nightmarewriting':
+case 'pendant':
+case 'snow':
+case 'streetsign':
+case 'waterwriting':
+            if (!one) throw 'Masukkan Text/Url'
+        let ff = 'https://api-xcoders.xyz/api/photofunia/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, ff, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
+            
+            case 'burningfire':
+case 'burningphoto':
+case 'citybillboard':
+case 'giantartwork':
+case 'inthewoods':
+case 'lightning':
+case 'sketchpracticing':
+case 'travellerssketch':
+let gxg = await q.download()
+  let gxg_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _gxg = await (gxg_ ? uploadImage : uploadFile)(gxg)
+        let gg = 'https://api-xcoders.xyz/api/photofunia/' + args[0] + '?url=' + _gxg + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, gg, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
+            
+            case 'anaglyph':
+case 'burning':
+case 'exposure':
+case 'flame':
+case 'frame':
+case 'iphone':
+case 'memory':
+case 'mirrors':
+case 'nature':
+case 'ripped':
+case 'shattered':
+case 'tearing':
+case 'toilet':
+let hxh = await q.download()
+  let hxh_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _hxh = await (hxh_ ? uploadImage : uploadFile)(hxh)
+        let hh = 'https://api-xcoders.xyz/api/photooxy/' + args[0] + '?url=' + _hxh + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, hh, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
+            
+            case 'burnpaper':
+case 'butterfly':
+case 'coffecup':
+case 'coffee':
+case 'doubleheart':
+case 'flaming':
+case 'lovemessage':
+case 'lovetext':
+case 'grass':
+case 'gravity':
+case 'quotewood':
+case 'rainbow':
+case 'naruto':
+case 'oceansea':
+case 'romantic':
+case 'shadow':
+case 'smoke':
+            if (!one) throw 'Masukkan Text/Url'
+        let ii = 'https://api-xcoders.xyz/api/photooxy/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, ii, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
+            
+            case 'ancient':
+case 'arcane':
+case 'batman':
+case 'bear':
+case 'berry':
+case 'blackpink':
+case 'blood':
+case 'brick':
+case 'broken':
+case 'business':
+case 'carbon':
+case 'christmas':
+case 'circuit':
+case 'devil':
+case 'discovery':
+case 'dropwater':
+case 'embossed':
+case 'fiction':
+case 'firework':
+case 'giraffe':
+case 'glossy':
+case 'glowing':
+case 'glue':
+case 'gradient':
+case 'greenhorror':
+case 'harrypotter':
+case 'imglitch':
+case 'light':
+case 'magma':
+case 'metallic':
+case 'neon':
+case 'paper':
+case 'skeleton':
+case 'sketch':
+case 'sliced':
+case 'stone':
+case 'summer':
+case 'transformer':
+case 'videogame':
+            if (!one) throw 'Masukkan Text/Url'
+        let jj = 'https://api-xcoders.xyz/api/textpro/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
+        conn.sendButtonImg(m.chat, jj, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
+            break
 }
 }
 }
-handler.help = ['xfar <command> <teks>']
+handler.help = ['xco <command> <teks>']
 handler.tags = ['tools'] 
-handler.command = /^xfar$/i
+handler.command = /^xco$/i
 export default handler
 
