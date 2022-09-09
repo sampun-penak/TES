@@ -1,12 +1,13 @@
 let handler = async (m, { conn, usedPrefix, command }) => {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 	let name = await conn.getName(who)
+	let chat = global.db.data.chats[m.chat]
 	let msgs = global.db.data.msgs
 	let msg = (Object.entries(msgs).map(([nama, isi]) => { return { nama, ...isi} }))
 	let listSections = []
 	Object.values(msg).map((v, index) => {
 	listSections.push([htki + ' ' + ++index + ' ' + htka, [
-          ['Pesan: ' + v.nama, usedPrefix + 'getmsg ' + v.nama, 'ID: ' + v.key.id + '\nType: ' + Object.keys(v.message) + '\nSender: ' + 'wa.me/' + v.participant.replace(/@.+/, '')]
+          ['Pesan: ' + v.nama, usedPrefix + 'getmsg ' + v.nama, '\n\n' + htjava + '\n' + dmenub + ' *ID:* ' + v.key.id + '\n' + dmenub + ' *Type:* ' + Object.keys(v.message) + '\n' + dmenub + ' *Sender:* ' + 'wa.me/' + v.participant.replace(/@.+/, '') + '\n' + dmenuf]
         ]])
 	})
 	if (chat.getmsg === false) return conn.sendButton(m.chat, `kamu harus mengaktifkan getmsg dengan mengklik tombol di bawah`, wm, null, [['Nyalakan getmsg', '.on getmsg']], m)

@@ -2,7 +2,7 @@ import fetch from 'node-fetch'
 import axios from 'axios'
 import { tiktokdl } from '@bochilteam/scraper'
 
-let handler = async (m, { conn, args }) => {
+let handler = async (m, { conn, usedPrefix, command, text, args }) => {
 try {
   if (!args[0]) throw 'Uhm...url nya mana?'
   let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
