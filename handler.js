@@ -869,15 +869,15 @@ export async function handler(chatUpdate) {
             if (typeof chat !== 'object')
                 global.db.data.chats[m.chat] = {}
             if (chat) {
-                if (!('antiDelete' in chat)) chat.antiDelete = false
+                if (!('antiDelete' in chat)) chat.antiDelete = true
                 if (!('antiLink' in chat)) chat.antiLink = false
                 if (!('antiSticker' in chat)) chat.antiSticker = false
-                if (!('antiToxic' in chat)) chat.antiToxic = false
-                if (!('detect' in chat)) chat.detect = false
-                if (!('getmsg' in chat)) chat.getmsg = false
+                if (!('antiToxic' in chat)) chat.antiToxic = true
+                if (!('detect' in chat)) chat.detect = true
+                if (!('getmsg' in chat)) chat.getmsg = true
                 if (!('isBanned' in chat)) chat.isBanned = false
-                if (!('lastAnime' in chat)) chat.lastAnime = false
-                if (!('latestNews' in chat)) chat.latestNews = false
+                if (!('lastAnime' in chat)) chat.lastAnime = true
+                if (!('latestNews' in chat)) chat.latestNews = true
                 if (!('nsfw' in chat)) chat.nsfw = false
                 if (!('premium' in chat)) chat.premium = false
                 if (!('premiumTime' in chat)) chat.premiumTime = false
@@ -895,16 +895,16 @@ export async function handler(chatUpdate) {
                 if (!isNumber(chat.expired)) chat.expired = 0
             } else
                 global.db.data.chats[m.chat] = {
-                    antiDelete: false,
+                    antiDelete: true,
 	                antiLink: false,
 	                antiSticker: false,
 	                antiToxic: false,
-	                detect: false,
+	                detect: true,
 	                expired: 0,
-	                getmsg: false,
+	                getmsg: true,
 	                isBanned: false,
-	                lastAnime: false,
-	                latestNews: false,
+	                lastAnime: true,
+	                latestNews: true,
 	                nsfw: false,
 	                premium: false,
 	                premiumTime: false,
@@ -927,7 +927,7 @@ export async function handler(chatUpdate) {
                 if (!('autoread' in settings)) settings.autoread = false
                 if (!('restrict' in settings)) settings.restrict = false
                 if (!('jadibot' in settings)) settings.jadibot = false
-                if (!('autorestart' in settings)) settings.autorestart = false
+                if (!('autorestart' in settings)) settings.autorestart = true
                 if (!('restartDB' in settings)) settings.restartDB = 0
                 if (!('status' in settings)) settings.status = 0
              
@@ -936,7 +936,7 @@ export async function handler(chatUpdate) {
                 autoread: false,
                 jadibot: false,
                 restrict: false,
-                autorestart: false,
+                autorestart: true,
                 restartDB: 0,
                 status: 0
             }
@@ -1356,7 +1356,7 @@ export async function participantsUpdate({ id, participants, action }) {
             case 'demote':
                 if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
+                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.disable detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
                 break
         
     }
@@ -1383,7 +1383,7 @@ export async function groupsUpdate(groupsUpdate) {
             if (groupUpdate.restrict == true) text = (chats.sRestrictOn || this.sRestrictOn || conn.sRestrictOn || '*Group has been all participants!*')
             if (groupUpdate.restrict == false) text = (chats.sRestrictOff || this.sRestrictOff || conn.sRestrictOff || '*Group has been only admin!*')
             if (!text) continue
-            this.send2ButtonDoc(id, text.trim(), author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fakes, adReply)
+            this.send2ButtonDoc(id, text.trim(), author, '🔖 Matikan Fitur', '.disable detect', 'ℹ️ Menu', '.menu', fakes, adReply)
     }
 }
 
@@ -1406,7 +1406,7 @@ Untuk mematikan fitur ini, ketik
 *.off antidelete*
 
 Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
-*.delete*`, author, '🔖 Matikan Fitur', '.off antidelete', 'ℹ️ Menu', '.menu', msg, adReply)
+*.delete*`, author, '🔖 Matikan Fitur', '.disable antidelete', 'ℹ️ Menu', '.menu', msg, adReply)
         this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
     } catch (e) {
         console.error(e)
