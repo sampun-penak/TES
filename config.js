@@ -70,7 +70,7 @@ global.lolkey = '85faf717d0545d14074659ad'
 /*Xteam*/
 global.xteamkey = 'NezukoTachibana281207'
 /*Xcoders*/
-global.xckey = 'BOhjM2hUVn'
+global.xckey = '7iyNa0qA'
 
 /*List Key
 -Lolhuman-
