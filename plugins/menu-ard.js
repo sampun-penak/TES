@@ -18,6 +18,8 @@ let handler = async(m, {
 	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 	let name = await conn.getName(who)
 	let pp = await conn.profilePictureUrl(who, 'image')
+	let q = m.quoted ? m.quoted : m
+	let mime = (q.msg || q).mimetype || ''
 	let urut = text.split `|`
 	let one = urut[1]
 	let two = urut[2]
@@ -68,7 +70,6 @@ ${usedPrefix + command} pinterest |wibu
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
 	if(command) {
-		try {
 			switch(template) {
 				case 'lirik':
 					if(!one) throw penggunaan
@@ -135,25 +136,37 @@ ${usedPrefix + command} pinterest |wibu
 			case 'hitler':
 			case 'wantedwestern':
 			case 'tvanime':
-				let eb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?img=${pp}`
+			let exe = await q.download()
+  let exe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _exe = await (exe_ ? uploadImage : uploadFile)(exe)
+				let eb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?img=${_exe}`
 				let ee = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, eb, ee, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'wanted':
-				let fb = `https://ardhixsquerpants.herokuapp.com/api/maker/wanted?picurl=${pp}`
+			let efe = await q.download()
+  let efe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _efe = await (efe_ ? uploadImage : uploadFile)(efe)
+				let fb = `https://ardhixsquerpants.herokuapp.com/api/maker/wanted?picurl=${_efe}`
 				let fe = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, fb, fe, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'yasin':
 				if(!one) throw penggunaan
-				let gb = `https://ardhixsquerpants.herokuapp.com/api/maker/yasin?nama=${one}&lahir=${two}&wafat=${three}&img=${pp}`
+				let ege = await q.download()
+  let ege_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _ege = await (ege_ ? uploadImage : uploadFile)(ege)
+				let gb = `https://ardhixsquerpants.herokuapp.com/api/maker/yasin?nama=${one}&lahir=${two}&wafat=${three}&img=${_ege}`
 				let ge = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, gb, ge, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'news':
 			case 'newskompas':
 				if(!one) throw penggunaan
-				let hb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?title=${one}&img=${pp}`
+				let ehe = await q.download()
+  let ehe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
+  let _ehe = await (ehe_ ? uploadImage : uploadFile)(ehe)
+				let hb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?title=${one}&img=${_ehe}`
 				let he = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, hb, he, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
@@ -226,9 +239,6 @@ ${usedPrefix + command} pinterest |wibu
 				m.reply(qc.result)
 				break
 		}
-	} catch {
-		throw eror
-	}
 }
 }
 handler.help = ['ard <command> <teks>']

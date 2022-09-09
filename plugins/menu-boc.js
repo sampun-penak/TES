@@ -25,7 +25,6 @@ await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist
             }
             
 if (command) {
-try {
 switch (template) {
 case 'mediafire':
 if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
@@ -48,9 +47,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
     if (!urls) throw 'Can\'t download video!'
     conn.sendFile(m.chat, urls, 'tiktok.mp4', author, m)
             break
-}
-} catch {
-throw eror
 }
 }
 }
