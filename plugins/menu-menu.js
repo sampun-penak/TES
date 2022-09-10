@@ -46,38 +46,52 @@ let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 ${cmenua}`
 
 let weem = `📮 *Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-    let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5"]
-    let pilih = pusat.getRandom()
-    if (pilih == "ke1") {
-    let btn = [{
-                                urlButton: {
-                                    displayText: 'Chat Owner',
-                                    url: 'https://wa.me/' + nomorown
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: em.getRandom() + ' All Menu',
-                                    id: usedPrefix + 'allmenu'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: em.getRandom() + ' List Menu',
-                                    id: usedPrefix + 'menulist'
-                                }  
-                            }]
-        await conn.sendButtonGif(m.chat, cap, weem, { url: global.giflogo }, btn, knimg)
-        }
-        if (pilih == "ke2") {
-        await conn.send2ButtonDoc(m.chat, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fpayment, adReply)
-        }
-        if (pilih == "ke3") {
-        await conn.send2ButtonLoc(m.chat, knimg, cap, weem + '\n\n' + botdate, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', m)
-        }
-        if (pilih == "ke4") {
-        await conn.sendTemplateButtonLoc(m.chat, knimg, cap, weem + '\n\n' + botdate, em.getRandom() + ' List Menu', usedPrefix + 'menulist', m)
-        }
-        if (pilih == "ke5") {
-        await conn.sendButton(m.chat, cap, weem, Buffer.alloc(0), [[em.getRandom() + ' All Menu', usedPrefix + 'allmenu'], [em.getRandom() + ' List Menu', usedPrefix + 'menulist']], m, { mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(thumbnailUrl.getRandom())).buffer(), contextInfo: {
+    let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5", "ke6", "ke7", "ke8", "ke9"]
+let pilih = pusat.getRandom()
+if (pilih == "ke1") {
+	await conn.send2ButtonDoc(m.chat, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke2") {
+	await conn.send2ButtonLoc(m.chat, knimg, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke3") {
+	await conn.send2ButtonImg(m.chat, knimg, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke4") {
+	await conn.send2ButtonVid(m.chat, knimg, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke5") {
+	await conn.sendTemplateButtonDoc(m.chat, knimg, cap, weem, em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke6") {
+	await conn.sendTemplateButtonLoc(m.chat, knimg, cap, weem, em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke7") {
+	await conn.send2TemplateButtonFakeImg(m.chat, knimg, cap, weem, em.getRandom() + ' All Menu', usedPrefix + 'allmenu', em.getRandom() + ' List Menu', usedPrefix + 'menulist', fakes, fakefb)
+}
+if (pilih == "ke8") {
+	let btn = [{
+		urlButton: {
+			displayText: 'Chat Owner',
+			url: 'https://wa.me/' + nomorown
+		}
+	}, {
+		quickReplyButton: {
+			displayText: em.getRandom() + ' All Menu',
+			id: usedPrefix + 'allmenu'
+		}
+	}, {
+		quickReplyButton: {
+			displayText: em.getRandom() + ' List Menu',
+			id: usedPrefix + 'menulist'
+		}
+	}]
+	await conn.sendButtonGif(m.chat, cap, wm, {
+		url: global.giflogo
+	}, btn, knimg)
+}
+if (pilih == "ke9") {
+	await conn.sendButton(m.chat, cap, weem, Buffer.alloc(0), [[em.getRandom() + ' All Menu', usedPrefix + 'allmenu'], [em.getRandom() + ' List Menu', usedPrefix + 'menulist']], m, { mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(thumbnailUrl.getRandom())).buffer(), contextInfo: {
           externalAdReply :{
           showAdAttribution: true,
     mediaUrl: lin_.getRandom(),
@@ -89,7 +103,7 @@ let weem = `📮 *Note:* Jika menemukan bug, error atau kesulitan dalam pengguna
     sourceUrl: sgc
      }}
   })
-        }
+}
         
 }
 

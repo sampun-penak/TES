@@ -61,27 +61,9 @@ export default handler
 
 
 function msToDate(ms) {
-    temp = ms
-    days = Math.floor(ms / (24 * 60 * 60 * 1000));
-    daysms = ms % (24 * 60 * 60 * 1000);
-    hours = Math.floor((daysms) / (60 * 60 * 1000));
-    hoursms = ms % (60 * 60 * 1000);
-    minutes = Math.floor((hoursms) / (60 * 1000));
-    minutesms = ms % (60 * 1000);
-    sec = Math.floor((minutesms) / (1000));
-    return days + " hari " + hours + " jam " + minutes + " menit";
-    // +minutes+":"+sec;
-}
-
-function msToTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100),
-  seconds = Math.floor((duration / 1000) % 60),
-  minutes = Math.floor((duration / (1000 * 60)) % 60),
-  hours = Math.floor((duration / (1000 * 60 * 60)) % 24)
-
-  hours = (hours < 10) ? "0" + hours : hours
-  minutes = (minutes < 10) ? "0" + minutes : minutes
-  seconds = (seconds < 10) ? "0" + seconds : seconds
-
-  return hours + " jam " + minutes + " menit"
+  let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [d, ' *Days ☀️*\n ', h, ' *Hours 🕐*\n ', m, ' *Minute ⏰*\n ', s, ' *Second ⏱️* '].map(v => v.toString().padStart(2, 0)).join('')
 }
