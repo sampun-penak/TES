@@ -28,16 +28,201 @@ ${usedPrefix + command} cecan
 ${usedPrefix + command} pinterest |wibu
 
 *List:*
-• ${usedPrefix + command} anime
+• ${usedPrefix + command} affect
+• ${usedPrefix + command} american
+• ${usedPrefix + command} amongus
+• ${usedPrefix + command} anaglyph
+• ${usedPrefix + command} ancient
+• ${usedPrefix + command} anonymous
+• ${usedPrefix + command} aov
+• ${usedPrefix + command} approved
+• ${usedPrefix + command} arcane
+• ${usedPrefix + command} arrow
+• ${usedPrefix + command} arrow2
+• ${usedPrefix + command} badut
+• ${usedPrefix + command} badut2
+• ${usedPrefix + command} badut3
+• ${usedPrefix + command} balloon
+• ${usedPrefix + command} bannerplane
+• ${usedPrefix + command} batman
+• ${usedPrefix + command} beachsign
+• ${usedPrefix + command} bear
+• ${usedPrefix + command} beautiful
+• ${usedPrefix + command} berry
+• ${usedPrefix + command} blackpink
+• ${usedPrefix + command} blackpink
+• ${usedPrefix + command} blood
+• ${usedPrefix + command} blur
+• ${usedPrefix + command} bracelet
+• ${usedPrefix + command} brazzers
+• ${usedPrefix + command} brick
+• ${usedPrefix + command} broken
+• ${usedPrefix + command} burn
+• ${usedPrefix + command} burning
+• ${usedPrefix + command} burningfire
+• ${usedPrefix + command} burningphoto
+• ${usedPrefix + command} burnpaper
+• ${usedPrefix + command} business
+• ${usedPrefix + command} butterfly
+• ${usedPrefix + command} cake
+• ${usedPrefix + command} caper
+• ${usedPrefix + command} carbon
+• ${usedPrefix + command} challenger
+• ${usedPrefix + command} christmas
+• ${usedPrefix + command} christmaswriting
+• ${usedPrefix + command} circle
+• ${usedPrefix + command} circuit
+• ${usedPrefix + command} citybillboard
+• ${usedPrefix + command} cloth
+• ${usedPrefix + command} cloud
+• ${usedPrefix + command} codenhentai
+• ${usedPrefix + command} coffecup
+• ${usedPrefix + command} coffee
+• ${usedPrefix + command} communism
+• ${usedPrefix + command} coverpubg
+• ${usedPrefix + command} crank
+• ${usedPrefix + command} crush
+• ${usedPrefix + command} delete
+• ${usedPrefix + command} devil
+• ${usedPrefix + command} dictator
+• ${usedPrefix + command} discordhouse
+• ${usedPrefix + command} discovery
+• ${usedPrefix + command} distort
+• ${usedPrefix + command} doubleheart
+• ${usedPrefix + command} dragonfire
+• ${usedPrefix + command} dropwater
+• ${usedPrefix + command} einstein
+• ${usedPrefix + command} emboss
+• ${usedPrefix + command} embossed
+• ${usedPrefix + command} eraser
+• ${usedPrefix + command} exposure
+• ${usedPrefix + command} facepalm
+• ${usedPrefix + command} fiction
+• ${usedPrefix + command} firework
+• ${usedPrefix + command} flame
+• ${usedPrefix + command} flaming
+• ${usedPrefix + command} foggy
+• ${usedPrefix + command} frame
+• ${usedPrefix + command} frame
+• ${usedPrefix + command} gay
+• ${usedPrefix + command} giantartwork
+• ${usedPrefix + command} giraffe
+• ${usedPrefix + command} glasses
+• ${usedPrefix + command} glitch
+• ${usedPrefix + command} glossy
+• ${usedPrefix + command} glowing
+• ${usedPrefix + command} glue
+• ${usedPrefix + command} gradient
+• ${usedPrefix + command} graffiti
+• ${usedPrefix + command} grass
+• ${usedPrefix + command} gravity
+• ${usedPrefix + command} greenbrush
+• ${usedPrefix + command} greenhorror
+• ${usedPrefix + command} greyscale
+• ${usedPrefix + command} hallowen
+• ${usedPrefix + command} harrypotter
+• ${usedPrefix + command} hauntedhotel
+• ${usedPrefix + command} hearttattoo
+• ${usedPrefix + command} horror
+• ${usedPrefix + command} husbu
+• ${usedPrefix + command} imglitch
+• ${usedPrefix + command} incandescent
+• ${usedPrefix + command} instagram
+• ${usedPrefix + command} inthewoods
+• ${usedPrefix + command} invert
+• ${usedPrefix + command} iphone
+• ${usedPrefix + command} jail
+• ${usedPrefix + command} joke
+• ${usedPrefix + command} karenhave
+• ${usedPrefix + command} leafgraphy
+• ${usedPrefix + command} letters
+• ${usedPrefix + command} light
+• ${usedPrefix + command} lightgraffiti
+• ${usedPrefix + command} lightning
+• ${usedPrefix + command} loli
+• ${usedPrefix + command} lovelock
+• ${usedPrefix + command} lovemessage
+• ${usedPrefix + command} lovetext
+• ${usedPrefix + command} magma
+• ${usedPrefix + command} memory
+• ${usedPrefix + command} metallic
+• ${usedPrefix + command} metals
+• ${usedPrefix + command} mirrors
+• ${usedPrefix + command} missionpassed
+• ${usedPrefix + command} ml
+• ${usedPrefix + command} moustache
+• ${usedPrefix + command} naruto
+• ${usedPrefix + command} nature
+• ${usedPrefix + command} neko
+• ${usedPrefix + command} neon
+• ${usedPrefix + command} neonblue
+• ${usedPrefix + command} neonbp
+• ${usedPrefix + command} neonsign
+• ${usedPrefix + command} neonwriting
+• ${usedPrefix + command} nightmarewriting
+• ${usedPrefix + command} nightstars
+• ${usedPrefix + command} oceansea
+• ${usedPrefix + command} paper
+• ${usedPrefix + command} pendant
+• ${usedPrefix + command} pig
+• ${usedPrefix + command} ps4
+• ${usedPrefix + command} pubgavatar
+• ${usedPrefix + command} puppy
+• ${usedPrefix + command} quotewood
+• ${usedPrefix + command} rainbow
+• ${usedPrefix + command} rejected
+• ${usedPrefix + command} reversevideo
+• ${usedPrefix + command} rip
+• ${usedPrefix + command} ripped
+• ${usedPrefix + command} rmbg
+• ${usedPrefix + command} romantic
+• ${usedPrefix + command} scary
+• ${usedPrefix + command} sepia
+• ${usedPrefix + command} shadow
+• ${usedPrefix + command} shattered
+• ${usedPrefix + command} skeleton
+• ${usedPrefix + command} sketch
+• ${usedPrefix + command} sketchpracticing
+• ${usedPrefix + command} sliced
+• ${usedPrefix + command} smoke
+• ${usedPrefix + command} snow
+• ${usedPrefix + command} spongebob
+• ${usedPrefix + command} ssweb
+• ${usedPrefix + command} sticker
+• ${usedPrefix + command} stone
+• ${usedPrefix + command} streetsign
+• ${usedPrefix + command} summer
+• ${usedPrefix + command} sunlight
+• ${usedPrefix + command} tearing
+• ${usedPrefix + command} television
+• ${usedPrefix + command} thanos
+• ${usedPrefix + command} tiger
+• ${usedPrefix + command} tobecontinue
+• ${usedPrefix + command} toilet
+• ${usedPrefix + command} towebp
+• ${usedPrefix + command} transformer
+• ${usedPrefix + command} trash
+• ${usedPrefix + command} travellerssketch
+• ${usedPrefix + command} triggered
+• ${usedPrefix + command} typography
+• ${usedPrefix + command} typography2
+• ${usedPrefix + command} videogame
+• ${usedPrefix + command} waifu
+• ${usedPrefix + command} wanted
+• ${usedPrefix + command} warface
+• ${usedPrefix + command} wasted
+• ${usedPrefix + command} water
+• ${usedPrefix + command} waterwriting
+• ${usedPrefix + command} webp2mp4
 `
 await conn.sendButton(m.chat, caption, author, logo, [['Menu', '/menu']], m, adReply)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
-
 case 'codenhentai':
-            if (!one) throw 'Masukkan Text/Url'
             let json = await fetch('https://api-xcoders.xyz/api/anime/codenhentai?code=' + one + '&apikey=7iyNa0qA')
             let aa = await json.json()
             let axa = aa.result.pages
@@ -125,7 +310,6 @@ case 'typography':
 case 'typography2':
 case 'warface':
 case 'water':
-            if (!one) throw 'Masukkan Text/Url'
         let dd = 'https://api-xcoders.xyz/api/ephoto/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, dd, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
@@ -198,7 +382,6 @@ case 'pendant':
 case 'snow':
 case 'streetsign':
 case 'waterwriting':
-            if (!one) throw 'Masukkan Text/Url'
         let ff = 'https://api-xcoders.xyz/api/photofunia/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, ff, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
@@ -255,7 +438,6 @@ case 'oceansea':
 case 'romantic':
 case 'shadow':
 case 'smoke':
-            if (!one) throw 'Masukkan Text/Url'
         let ii = 'https://api-xcoders.xyz/api/photooxy/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, ii, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
@@ -299,11 +481,13 @@ case 'stone':
 case 'summer':
 case 'transformer':
 case 'videogame':
-            if (!one) throw 'Masukkan Text/Url'
         let jj = 'https://api-xcoders.xyz/api/textpro/' + args[0] + '?text=' + one + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, jj, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['xco <command> <teks>']

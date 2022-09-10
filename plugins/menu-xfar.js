@@ -84,13 +84,13 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} youtube
 `
 await conn.sendButton(m.chat, caption, author, logo, [['Menu', '/menu']], m, adReply)
-            }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' ttp |namaku'
             
+try {
 if (command) {
 switch (template) {
 
 case 'anime':
-            if (!one) throw 'Masukkan Text/Url'
 let aa = await xa.anime.anime(one)
         let _aa = aa
         let aa_ = Object.values(_aa).map((v, index) => ({
@@ -106,7 +106,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, aan_, aa_, m)
             break
             case 'character':
-            if (!one) throw 'Masukkan Text/Url'
         let bb = await xa.anime.character(one)
         let _bb = bb
         let bb_ = Object.values(_bb).map((v, index) => ({
@@ -122,7 +121,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, bbn_, bb_, m)
             break
             case 'kiryu':
-            if (!one) throw 'Masukkan Text/Url'
         let cc = await xa.anime.kiryu(one)
         let _cc = cc
         let cc_ = Object.values(_cc).map((v, index) => ({
@@ -138,7 +136,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, ccn_, cc_, m)
             break
             case 'manga':
-            if (!one) throw 'Masukkan Text/Url'
         let dd = await xa.anime.manga(one)
         let _dd = dd
         let dd_ = Object.values(_dd).map((v, index) => ({
@@ -154,7 +151,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, ddn_, dd_, m)
             break
             case 'otakudesu':
-            if (!one) throw 'Masukkan Text/Url'
         let ee = await xa.anime.otakudesu(one)
         let _ee = ee
         let ee_ = Object.values(_ee).map((v, index) => ({
@@ -170,7 +166,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, een_, ee_, m)
             break
             case 'otakudesuinfo':
-            if (!one) throw 'Masukkan Text/Url'
         let ff = await xa.anime.otakudesuinfo(one)
         let _ff = ff
         let fff = `*anime_status:* ${_ff.anime_status}
@@ -210,7 +205,6 @@ let aa = await xa.anime.anime(one)
 	return conn.sendListM(m.chat, ggn_, gg_, m)
             break
             case 'cocofun':
-            if (!one) throw 'Masukkan Text/Url'
         let hh = await xa.downloader.cocofun(one)
         let _hh = hh
         let hhh = `*caption:* ${_hh.caption}
@@ -224,7 +218,6 @@ let aa = await xa.anime.anime(one)
             conn.sendButton(m.chat, hhh, author, await(await fetch(_hh.thumbnail)).buffer(), [['NoWm', '/get ' + _hh.no_watermark], ['Wm', '/get ' + _hh.watermark]], m, adReply)
             break
             case 'facebook':
-            if (!one) throw 'Masukkan Text/Url'
         let ii = await xa.downloader.facebook(one)
         let _ii = ii
         let iii = `*title:* ${_ii.title}
@@ -233,14 +226,12 @@ let aa = await xa.anime.anime(one)
 conn.sendButton(m.chat, iii, author, logo, [['SD', '/get ' + _ii.sd], ['HD', '/get ' + _ii.hd]], m, adReply)
             break
             case 'imdb':
-            if (!one) throw 'Masukkan Text/Url'
         let jj = await xa.downloader.imdb(one)
         let _jj = jj
             let jjj = `${_jj.res}`
 conn.sendButton(m.chat, jjj, author, logo, [['Get', '/get ' + _jj]], m, adReply)
             break
             case 'imgur':
-            if (!one) throw 'Masukkan Text/Url'
         let kk = await xa.downloader.imgur(one)
         let _kk = kk
             let kkk = `*vid:* ${_kk.video_link}
@@ -248,7 +239,6 @@ conn.sendButton(m.chat, jjj, author, logo, [['Get', '/get ' + _jj]], m, adReply)
 conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], ['Img', '/get ' + _kk.image_link]], m, adReply)
             break
             case 'instagram':
-            if (!one) throw 'Masukkan Text/Url'
         let ll = await xa.downloader.instagram(one)
         let _ll = ll
         let lll = `*title:* ${_ll.title}
@@ -258,7 +248,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
             conn.sendButton(m.chat, lll, author, await(await fetch(_ll.thumbnail)).buffer(), [['Vid', '/get ' + _ll.media]], m, adReply)
             break
             case 'like':
-            if (!one) throw 'Masukkan Text/Url'
         let mm = await xa.downloader.like(one)
         let _mm = mm
             let mmm = `*title:* ${_mm.title}
@@ -268,7 +257,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
             conn.sendButton(m.chat, mmm, author, await(await fetch(_mm.thumbnail)).buffer(), [['NoWm', '/get ' + _mm.no_watermark], ['Wm', '/get ' + _mm.watermark]], m, adReply)
             break
             case 'linesticker':
-            if (!one) throw 'Masukkan Text/Url'
         let nn = await xa.downloader.linesticker(one)
         let _nn = nn.result.sticker
         let _nnx = nn.result.sticker_animasi
@@ -282,7 +270,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
 	return conn.sendList(m.chat, 'Select Your Sticker', '!No Spam', author, 'Here', U, m)
             break
             case 'pinterestdl':
-            if (!one) throw 'Masukkan Text/Url'
         let oo = await xa.downloader.pinterestdl(one)
         let _oo = oo
         let oo_ = Object.values(_oo).map((v, index) => ({
@@ -298,7 +285,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
 	return conn.sendListM(m.chat, oon_, oo_, m)
             break
             case 'soundcloud':
-            if (!one) throw 'Masukkan Text/Url'
         let pP = await xa.downloader.soundcloud(one)
         let _pP = pP
             let ppP = `*title:* ${_pP.title}
@@ -309,7 +295,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
             conn.sendButton(m.chat, ppP, author, await(await fetch(_pP.thumbnail)).buffer(), [['Get', '/get ' + _pP.download]], m, adReply)
             break
             case 'telesticker':
-            if (!one) throw 'Masukkan Text/Url'
         let qq = await xa.downloader.telesticker(one)
         let _qq = qq
             let qq_ = Object.values(_qq).map((v, index) => ({
@@ -325,7 +310,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
 	return conn.sendListM(m.chat, qqn_, qq_, m)
             break
             case 'tiktok':
-            if (!one) throw 'Masukkan Text/Url'
         let rr = await xa.downloader.tiktok(one)
         let _rr = rr
             let rrr = `*title:* ${_rr.title}
@@ -335,7 +319,6 @@ conn.sendButton(m.chat, kkk, author, logo, [['Vid', '/get ' + _kk.video_link], [
             conn.sendButton(m.chat, rrr, author, await(await fetch(_rr.thumbnail)).buffer(), [['Vid', '/get ' + _rr.media]], m, adReply)
             break
             case 'twitter':
-            if (!one) throw 'Masukkan Text/Url'
         let ss = await xa.downloader.twitter(one)
         let _ss = ss
         const sections = [
@@ -361,7 +344,6 @@ const ssx = {
 conn.sendMessage(m.chat, ssx, { quoted: fakes })
             break
             case 'youtube':
-            if (!one) throw 'Masukkan Text/Url'
         let tt = await xa.downloader.youtube(one)
         let _tt = tt
             let ttt = `*title:* ${_tt.title}
@@ -412,7 +394,6 @@ ${v.thumb}`,
 	return conn.sendListM(m.chat, vvn_, vv_, m)
             break
             case 'jadwalsholat':
-            if (!one) throw 'Masukkan Text/Url'
         let ww = await xa.information.jadwalsholat(one)
         let _ww = ww
         let ww_ = Object.values(_ww).map((v, index) => ({
@@ -495,7 +476,6 @@ ${v.video}`,
 	return conn.sendListM(m.chat, zzn_, zz_, m)
             break
             case 'twittertrend':
-            if (!one) throw 'Masukkan Text/Url'
         let AA = await xa.information.twittertrend(one)
         let _AA = AA
             let AA_ = Object.values(_AA).map((v, index) => ({
@@ -514,7 +494,6 @@ ${v.link}`,
 	return conn.sendListM(m.chat, AAn_, AA_, m)
             break
             case 'wattpaduser':
-            if (!one) throw 'Masukkan Text/Url'
         let BB = await xa.information.wattpaduser(one)
         let _BB = BB
             let BBB = `${_BB.username}
@@ -532,7 +511,6 @@ conn.sendButton(m.chat, BBB, author, logo, [['PP', '/get ' + _BB.pp_picture]], m
         m.reply(_CC.listsurah)
             break
             case 'surah':
-            if (!one) throw 'Masukkan Text/Url'
         let DD = await xa.islami.surah(one)
         let _DD = DD
             let DD_ = Object.values(_DD).map((v, index) => ({
@@ -550,7 +528,6 @@ ${v.translate}`,
 	return conn.sendListM(m.chat, DDn_, DD_, m)
             break
             case 'tafsirsurah':
-            if (!one) throw 'Masukkan Text/Url'
         let EE = await xa.islami.tafsirsurah(one)
         let _EE = EE
             let EE_ = Object.values(_EE).map((v, index) => ({
@@ -569,41 +546,35 @@ ${v.source}`,
 	return conn.sendListM(m.chat, EEn_, EE_, m)
             break
             case 'attp':
-            if (!one) throw 'Masukkan Text/Url'
         let FF = await xa.maker.attp(one)
         let _FF = FF
             let FFi = `*title:* ${one}`
 conn.sendButton(m.chat, FFi, author, _FF.result.result.resp, [['Sticker', '/s'], ['Back', '/menu']], m, adReply)
             break
             case 'ttp':
-            if (!one) throw 'Masukkan Text/Url'
         let GG = await xa.maker.ttp(one)
         let _GG = GG
             let GGi = `*title:* ${one}`
 conn.sendButton(m.chat, GGi, author, _GG.result.result.resp, [['Sticker', '/s'], ['Back', '/menu']], m, adReply)
             break
             case 'bingimage':
-            if (!one) throw 'Masukkan Text/Url'
         let HH = await xa.search.bingimage(one)
         let _HH = HH
             let HHi = `*title:* ${_HH.result.resp}`
 conn.sendButton(m.chat, HHi, author, _HH.result, [['Sticker', '/s'], ['Back', '/menu']], m, adReply)
             break
             case 'bingsearch':
-            if (!one) throw 'Masukkan Text/Url'
         let II = await xa.search.bingsearch(one)
         let _II = II
             let IIi = `*title:* ${_II.result.resp}`
 conn.sendButton(m.chat, IIi, author, _II.result, [['Sticker', '/s'], ['Back', '/menu']], m, adReply)
             break
             case 'chord':
-            if (!one) throw 'Masukkan Text/Url'
         let JJ = await xa.search.chord(one)
         let _JJ = JJ
         m.reply(_JJ.title + '\n' + _JJ.artist + '\n' + _JJ.chord)
             break
             case 'drakor':
-            if (!one) throw 'Masukkan Text/Url'
         let KK = await xa.search.drakor(one)
         let _KK = KK
             let KK_ = Object.values(_KK).map((v, index) => ({
@@ -623,7 +594,6 @@ ${v.url}`,
 	return conn.sendListM(m.chat, KKn_, KK_, m)
             break
             case 'film':
-            if (!one) throw 'Masukkan Text/Url'
         let LL = await xa.search.film(one)
         let _LL = LL
             let LL_ = Object.values(_LL).map((v, index) => ({
@@ -644,7 +614,6 @@ thumb: ${v.thumb}`,
 	return conn.sendListM(m.chat, LLn_, LL_, m)
             break
             case 'mangatoons':
-            if (!one) throw 'Masukkan Text/Url'
         let MM = await xa.search.mangatoons(one)
         let _MM = MM
             let MM_ = Object.values(_MM).map((v, index) => ({
@@ -663,7 +632,6 @@ thumbnail: ${v.thumbnail}`,
 	return conn.sendListM(m.chat, MMn_, MM_, m)
             break
             case 'noveltoons':
-            if (!one) throw 'Masukkan Text/Url'
         let NN = await xa.search.noveltoons(one)
         let _NN = NN
             let NN_ = Object.values(_NN).map((v, index) => ({
@@ -683,14 +651,12 @@ thumbnail: ${v.thumbnail}`,
 	return conn.sendListM(m.chat, NNn_, NN_, m)
             break
             case 'pinterest':
-            if (!one) throw 'Masukkan Text/Url'
         let OO = await xa.search.pinterest(one)
         let _OO = OO
             let OOi = `*title:* ${one}`
 conn.sendButton(m.chat, OOi, author, _OO.url, [['Sticker', '/s'], ['Back', '/menu']], m, adReply)
             break
             case 'stickersearch':
-            if (!one) throw 'Masukkan Text/Url'
         let PP = await xa.search.stickersearch(one)
         let _PP = PP
             let PP_ = Object.values(_PP).map((v, index) => ({
@@ -706,7 +672,6 @@ conn.sendButton(m.chat, OOi, author, _OO.url, [['Sticker', '/s'], ['Back', '/men
 	return coPP.sendListM(m.chat, PPn_, PP_, m)
             break
             case 'wattpad':
-            if (!one) throw 'Masukkan Text/Url'
         let QQ = await xa.search.wattpad(one)
         let _QQ = QQ
             let QQ_ = Object.values(_QQ).map((v, index) => ({
@@ -730,7 +695,6 @@ ${v.description}
 	return conn.sendListM(m.chat, QQn_, QQ_, m)
             break
             case 'webtoons':
-            if (!one) throw 'Masukkan Text/Url'
         let RR = await xa.search.webtoons(one)
         let _RR = RR
             let RR_ = Object.values(_RR).map((v, index) => ({
@@ -774,42 +738,39 @@ ${v.url}
             conn.sendButtonImg(m.chat, _UU.metadata, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'debase64':
-            if (!one) throw 'Masukkan Text/Url'
         let VV = await xa.tools.debase64(one)
         let _VV = VV
         m.reply(_VV.result)
             break
             case 'debinary':
-            if (!one) throw 'Masukkan Text/Url'
         let WW = await xa.tools.debinary(one)
         let _WW = WW
             m.reply(_WW.result)
             break
             case 'deobfuscatorjs':
-            if (!one) throw 'Masukkan Text/Url'
         let XX = await xa.tools.deobfuscatorjs(one)
         let _XX = XX
             m.reply(_XX.result)
             break
             case 'ebase64':
-            if (!one) throw 'Masukkan Text/Url'
         let YY = await xa.tools.ebase64(one)
         let _YY = YY
             m.reply(_YY.result)
             break
             case 'ebinary':
-            if (!one) throw 'Masukkan Text/Url'
         let ZZ = await xa.tools.ebinary(one)
         let _ZZ = ZZ
             m.reply(_ZZ.result)
             break
             case 'obfuscatorjs':
-            if (!one) throw 'Masukkan Text/Url'
         let aA = await xa.tools.obfuscatorjs(one)
         let _aA = aA
             m.reply(_aA.result)
             break
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['xfar <command> <teks>']

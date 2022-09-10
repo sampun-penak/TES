@@ -212,48 +212,64 @@ let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirnam
   }
                       
     try {
-    let dapet = ["Baileys", 
-"absen", 
-"admin", 
-"advanced", 
-"all", 
-"anonymous", 
-"audio", 
-"database", 
-"downloader", 
-"edukasi", 
-"fun", 
-"game", 
-"group", 
-"host", 
-"info", 
-"internet", 
-"jadian", 
-"jadibot", 
-"kerang", 
-"main", 
-"maker", 
-"nocategory", 
-"nsfw", 
-"nulis", 
-"owner", 
-"premium", 
-"primbon", 
-"quotes", 
-"quran", 
-"random", 
-"rpg", 
-"sticker", 
-"tools", 
-"vote", 
-"xp"]
-      let listSections = []
-	Object.keys(dapet).map((v, index) => {
-	listSections.push([htki + ' ' + ++index + ' ' + htka, [
-          [index + ' ' + dmenub + ' Menu ' + (dapet[v]).toUpperCase(), _p + 'menulist ' + dapet[v], ktx]
-        ]])
-	})
-	let tek = `👋 Hai @${who.split("@")[0]}\n${ucapan}
+      const sections = [
+   {
+	title: htki + ' MAIN ' + htka,
+	rows: [
+	    {title: `⚡ SPEED BOT`, rowId: _p + "ping", description: "Menampilkan kecepatan respon BOT"},
+	    {title: `💌 OWNER BOT`, rowId: _p + "owner", description: "Menampilkan List owner BOT"},
+	    {title: `📔 SCRIPT BOT`, rowId: _p + "sc", description: `Source Code`},
+	]
+    },{
+	title: htki + ' SUPPORT ' + htka,
+	rows: [
+	    {title: `🔖 SEWA`, rowId: _p + "sewa", description: "Menampilkan list harga sewa BOT"},
+	    {title: `🌟 LIST PREMIUM`, rowId: _p + "premlist", description: "Menampilkan list harga premium"},
+	    {title: `💹 DONASI`, rowId: _p + "donasi", description: 'Support BOT agar lebih fast respon'},
+	]
+	},{
+	title: htki + ' MENU ' + htka,
+	rows: [
+	{title: `${em.getRandom()} ${dmenub} Menu All Menu ${emot}`, rowId: _p + "menulist all", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Absen ${emot}`, rowId: _p + "menulist absen", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Admin ${emot}`, rowId: _p + "menulist admin", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Advanced ${emot}`, rowId: _p + "menulist advanced", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Anonymous ${emot}`, rowId: _p + "menulist anonymous", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Audio ${emot}`, rowId: _p + "menulist audio", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Baileys ${emot}`, rowId: _p + "menulist Baileys", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Database ${emot}`, rowId: _p + "menulist database", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Downloader ${emot}`, rowId: _p + "menulist downloader", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Edukasi ${emot}`, rowId: _p + "menulist edukasi", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Fun ${emot}`, rowId: _p + "menulist fun", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Game ${emot}`, rowId: _p + "menulist game", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Group ${emot}`, rowId: _p + "menulist group", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Host ${emot}`, rowId: _p + "menulist host", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Info ${emot}`, rowId: _p + "menulist info", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Internet ${emot}`, rowId: _p + "menulist internet", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Jadian ${emot}`, rowId: _p + "menulist jadian", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Jadibot ${emot}`, rowId: _p + "menulist jadibot", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Kerang ${emot}`, rowId: _p + "menulist kerang", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Main ${emot}`, rowId: _p + "menulist main", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Maker ${emot}`, rowId: _p + "menulist maker", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Nocategory ${emot}`, rowId: _p + "menulist nocategory", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Nsfw ${emot}`, rowId: _p + "menulist nsfw", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Nulis ${emot}`, rowId: _p + "menulist nulis", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Owner ${emot}`, rowId: _p + "menulist owner", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Premium ${emot}`, rowId: _p + "menulist premium", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Primbon ${emot}`, rowId: _p + "menulist primbon", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Quotes ${emot}`, rowId: _p + "menulist quotes", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Quran ${emot}`, rowId: _p + "menulist quran", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Random ${emot}`, rowId: _p + "menulist random", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu RPG ${emot}`, rowId: _p + "menulist rpg", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Sticker ${emot}`, rowId: _p + "menulist sticker", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Tools ${emot}`, rowId: _p + "menulist tools", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu Vote ${emot}`, rowId: _p + "menulist vote", description: ktx},
+	{title: `${em.getRandom()} ${dmenub} Menu XP ${emot}`, rowId: _p + "menulist xp", description: ktx}
+	]
+  }
+]
+
+let tek = `👋 Hai @${who.split("@")[0]} ${ucapan}
 
 *${htjava} YOUR PROFILE ${htjava}*
 *🏷️ Nama:* *${name}* ${registered ? '(' + name + ') ' : ''}
@@ -262,9 +278,16 @@ let handler = async (m, { conn, command, groupMetadata, usedPrefix: _p, __dirnam
 *🎋 Role:* ${role}
 *📨 Terdaftar:* ${registered ? 'Ya (' + new Date(regTime).toLocaleString() + ')' : 'Tidak'} ${lastclaim > 0 ? '\n*⏱️Terakhir Klaim:* ' + new Date(lastclaim).toLocaleString() : ''}\n\n Ketik /inv untuk melihat Inventory RPG
 `
-let des = '📮 *Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner'
-	    if (teks == '404') {
-  	return conn.sendList(m.chat, htki + ' 📺 *LIST MENU* 🔎 ' + htka, tek, des, 'CLICK HERE ⎙', listSections, fakes, { mentions: await conn.parseMention(tek)} )
+const listMessage = {
+  text: tek,
+  footer: '📮 *Note:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner',
+  mentions: await conn.parseMention(tek),
+  title: htki + ' *LIST MENU* ' + htka,
+  buttonText: 'CLICK HERE ⎙',
+  sections
+}
+  if (teks == '404') {
+  	return conn.sendMessage(m.chat, listMessage, { quoted: fakes })
     }
     
     let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
@@ -409,6 +432,7 @@ if (pilih == "ke8") {
 		url: global.giflogo
 	}, btn, knimg)
 }
+        
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
