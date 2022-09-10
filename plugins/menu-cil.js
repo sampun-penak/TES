@@ -4,12 +4,13 @@ import fetch from 'node-fetch'
 import {
 	sticker
 } from '../lib/sticker.js'
-import {
-	Sticker, StickerTypes
-} from 'wa-sticker-formatter'
+
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
+
 let handler = async(m, {
 	conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command
 }) => {
@@ -110,8 +111,7 @@ ${usedPrefix + command} pinterest |wibu
 `
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
-	else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
-            
+	
 try {
 	if(command) {
 			switch(template) {
@@ -218,18 +218,44 @@ try {
 				case 'webpflip2':
 				case 'webpflip3':
 				case 'webpflip':
-				let wnim = await q.download()
-  let wnim_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _wnim = await (wnim_ ? uploadImage : uploadFile)(wnim)
-					let cb = `https://cililitan.herokuapp.com/api/${args[0]}?url=${_wnim}`
+				let a__ = m.quoted ? m.quoted : m
+  let b__ = (a__.msg || a__).mimetype || ''
+  if (!b__) throw 'No media found'
+  let c__ = await a__.download()
+  let e__ = new Sticker(c__, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__
+  try {
+  if (/webp/g.test(b__)) d__ = await webp2png(c__)
+        else if (/image/g.test(b__)) d__ = await uploadImage(c__)
+        else if (/video/g.test(b__)) d__ = await uploadFile(c__)
+        else if (/viewOnce/g.test(b__)) d__ = await uploadFile(c__)
+        if (typeof d__ !== 'string') d__ = await uploadImage(c__)
+        else if (/gif/g.test(b__)) d__ = e__
+        } catch (e) {
+        throw eror
+        }
+					let cb = `https://cililitan.herokuapp.com/api/${args[0]}?url=${d__}`
 					let ce = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, cb, ce, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 				case 'bitrate':
-				let wnbm = await q.download()
-  let wnbm_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _wnbm = await (wnbm_ ? uploadImage : uploadFile)(wnbm)
-					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnbm}&bitrate=${one}`
+				let a_ = m.quoted ? m.quoted : m
+  let b_ = (a_.msg || a_).mimetype || ''
+  if (!b_) throw 'No media found'
+  let c_ = await a_.download()
+  let e_ = new Sticker(c_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d_
+  try {
+  if (/webp/g.test(b_)) d_ = await webp2png(c_)
+        else if (/image/g.test(b_)) d_ = await uploadImage(c_)
+        else if (/video/g.test(b_)) d_ = await uploadFile(c_)
+        else if (/viewOnce/g.test(b_)) d_ = await uploadFile(c_)
+        if (typeof d_ !== 'string') d_ = await uploadImage(c_)
+        else if (/gif/g.test(b_)) d_ = e_
+        } catch (e) {
+        throw eror
+        }
+					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnbm}&bitrate=${d_}`
 					let de = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, db, de, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break

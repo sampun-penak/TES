@@ -5,6 +5,8 @@ import xa from 'xfarr-api'
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -85,7 +87,6 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
-            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' ttp |namaku'
             
 try {
 if (command) {
@@ -717,18 +718,44 @@ ${v.url}
 	return conn.sendListM(m.chat, RRn_, RR_, m)
             break
             case 'whatanime':
-            let wnim = await q.download()
-  let wnim_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _wnim = await (wnim_ ? uploadImage : uploadFile)(wnim)
-        let SS = await xa.search.whatanime(_wnim)
+            let a__a = m.quoted ? m.quoted : m
+  let b__a = (a__a.msg || a__a).mimetype || ''
+  if (!b__a) throw 'No media found'
+  let c__a = await a__a.download()
+  let e__a = new Sticker(c__a, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__a
+  try {
+  if (/webp/g.test(b__a)) d__a = await webp2png(c__a)
+        else if (/image/g.test(b__a)) d__a = await uploadImage(c__a)
+        else if (/video/g.test(b__a)) d__a = await uploadFile(c__a)
+        else if (/viewOnce/g.test(b__a)) d__a = await uploadFile(c__a)
+        if (typeof d__a !== 'string') d__a = await uploadImage(c__a)
+        else if (/gif/g.test(b__a)) d__a = e__a
+        } catch (e) {
+        throw eror
+        }
+        let SS = await xa.search.whatanime(d__a)
         let _SS = SS
         conn.sendButtonImg(m.chat, _SS.data, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'whatimage':
-            let wimg = await q.download()
-  let wimg_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _wimg = await (wimg_ ? uploadImage : uploadFile)(wimg)
-        let TT = await xa.search.whatimage(_wimg)
+            let a__b = m.quoted ? m.quoted : m
+  let b__b = (a__b.msg || a__b).mimetype || ''
+  if (!b__b) throw 'No media found'
+  let c__b = await a__b.download()
+  let e__b = new Sticker(c__b, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__b
+  try {
+  if (/webp/g.test(b__b)) d__b = await webp2png(c__b)
+        else if (/image/g.test(b__b)) d__b = await uploadImage(c__b)
+        else if (/video/g.test(b__b)) d__b = await uploadFile(c__b)
+        else if (/viewOnce/g.test(b__b)) d__b = await uploadFile(c__b)
+        if (typeof d__b !== 'string') d__b = await uploadImage(c__b)
+        else if (/gif/g.test(b__b)) d__b = e__b
+        } catch (e) {
+        throw eror
+        }
+        let TT = await xa.search.whatimage(d__b)
         let _TT = TT
             conn.sendButtonImg(m.chat, _TT.data, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break

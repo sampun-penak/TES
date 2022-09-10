@@ -5,13 +5,13 @@ import {
 	sticker
 }
 from '../lib/sticker.js'
-import {
-	Sticker, StickerTypes
-}
-from 'wa-sticker-formatter'
+
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
+
 let handler = async(m, {
 	conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command
 }) => {
@@ -68,19 +68,16 @@ ${usedPrefix + command} pinterest |wibu
 `
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
-	else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' wiki |namaku'
-            
+	            
 try {
 	if(command) {
 			switch(template) {
 				case 'lirik':
-					if(!one) throw penggunaan
 					let ab = await fetch(`https://ardhixsquerpants.herokuapp.com/lirik?search=${one}`)
 					let ac = await ab.json()
 					m.reply(ac.results)
 					break
 				case 'chord':
-					if(!one) throw penggunaan
 					let abb = await fetch(`https://ardhixsquerpants.herokuapp.com/api/chord?q=${one}`)
 					let acc = await abb.json()
 					m.reply(acc.result)
@@ -137,35 +134,87 @@ try {
 			case 'hitler':
 			case 'wantedwestern':
 			case 'tvanime':
-			let exe = await q.download()
-  let exe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _exe = await (exe_ ? uploadImage : uploadFile)(exe)
-				let eb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?img=${_exe}`
+			let a_ = m.quoted ? m.quoted : m
+  let b_ = (a_.msg || a_).mimetype || ''
+  if (!b_) throw 'No media found'
+  let c_ = await a_.download()
+  let e_ = new Sticker(c_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d_
+  try {
+  if (/webp/g.test(b_)) d_ = await webp2png(c_)
+        else if (/image/g.test(b_)) d_ = await uploadImage(c_)
+        else if (/video/g.test(b_)) d_ = await uploadFile(c_)
+        else if (/viewOnce/g.test(b_)) d_ = await uploadFile(c_)
+        if (typeof d_ !== 'string') d_ = await uploadImage(c_)
+        else if (/gif/g.test(b_)) d_ = e_
+        } catch (e) {
+        throw eror
+        }
+				let eb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?img=${d_}`
 				let ee = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, eb, ee, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'wanted':
-			let efe = await q.download()
-  let efe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _efe = await (efe_ ? uploadImage : uploadFile)(efe)
-				let fb = `https://ardhixsquerpants.herokuapp.com/api/maker/wanted?picurl=${_efe}`
+			let aa_ = m.quoted ? m.quoted : m
+  let bb_ = (aa_.msg || aa_).mimetype || ''
+  if (!bb_) throw 'No media found'
+  let cc_ = await aa_.download()
+  let ee_ = new Sticker(cc_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let dd_
+  try {
+  if (/webp/g.test(bb_)) dd_ = await webp2png(cc_)
+        else if (/image/g.test(bb_)) dd_ = await uploadImage(cc_)
+        else if (/video/g.test(bb_)) dd_ = await uploadFile(cc_)
+        else if (/viewOnce/g.test(bb_)) dd_ = await uploadFile(cc_)
+        if (typeof dd_ !== 'string') dd_ = await uploadImage(cc_)
+        else if (/gif/g.test(bb_)) dd_ = ee_
+        } catch (e) {
+        throw eror
+        }
+				let fb = `https://ardhixsquerpants.herokuapp.com/api/maker/wanted?picurl=${dd_}`
 				let fe = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, fb, fe, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'yasin':
-				let ege = await q.download()
-  let ege_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _ege = await (ege_ ? uploadImage : uploadFile)(ege)
-				let gb = `https://ardhixsquerpants.herokuapp.com/api/maker/yasin?nama=${one}&lahir=${two}&wafat=${three}&img=${_ege}`
+				let aaa_ = m.quoted ? m.quoted : m
+  let bbb_ = (aaa_.msg || aaa_).mimetype || ''
+  if (!bbb_) throw 'No media found'
+  let ccc_ = await aaa_.download()
+  let eee_ = new Sticker(ccc_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let ddd_
+  try {
+  if (/webp/g.test(bbb_)) ddd_ = await webp2png(ccc_)
+        else if (/image/g.test(bbb_)) ddd_ = await uploadImage(ccc_)
+        else if (/video/g.test(bbb_)) ddd_ = await uploadFile(ccc_)
+        else if (/viewOnce/g.test(bbb_)) ddd_ = await uploadFile(ccc_)
+        if (typeof ddd_ !== 'string') ddd_ = await uploadImage(ccc_)
+        else if (/gif/g.test(bbb_)) ddd_ = eee_
+        } catch (e) {
+        throw eror
+        }
+				let gb = `https://ardhixsquerpants.herokuapp.com/api/maker/yasin?nama=${one}&lahir=${two}&wafat=${three}&img=${ddd_}`
 				let ge = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, gb, ge, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'news':
 			case 'newskompas':
-				let ehe = await q.download()
-  let ehe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _ehe = await (ehe_ ? uploadImage : uploadFile)(ehe)
-				let hb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?title=${one}&img=${_ehe}`
+				let a__ = m.quoted ? m.quoted : m
+  let b__ = (a__.msg || a__).mimetype || ''
+  if (!b__) throw 'No media found'
+  let c__ = await a__.download()
+  let e__ = new Sticker(c__, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__
+  try {
+  if (/webp/g.test(b__)) d__ = await webp2png(c__)
+        else if (/image/g.test(b__)) d__ = await uploadImage(c__)
+        else if (/video/g.test(b__)) d__ = await uploadFile(c__)
+        else if (/viewOnce/g.test(b__)) d__ = await uploadFile(c__)
+        if (typeof d__ !== 'string') d__ = await uploadImage(c__)
+        else if (/gif/g.test(b__)) d__ = e__
+        } catch (e) {
+        throw eror
+        }
+				let hb = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?title=${one}&img=${d__}`
 				let he = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, hb, he, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break

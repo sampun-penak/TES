@@ -4,6 +4,8 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -33,7 +35,6 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
-            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {
 if (command) {

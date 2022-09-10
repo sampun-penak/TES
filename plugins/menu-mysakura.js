@@ -4,6 +4,8 @@ import FormData from 'form-data'
 import fetch from 'node-fetch'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 import { sticker } from '../lib/sticker.js'
 import fs from "fs"
 
@@ -85,7 +87,6 @@ ${usedPrefix + command} attp teks
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
-            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {
 if (command) {

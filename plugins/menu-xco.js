@@ -4,6 +4,8 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -217,7 +219,6 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
-            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {
 if (command) {
@@ -264,10 +265,23 @@ conn.sendButton(m.chat, bbi, author, bb, [['Menu', '/menu']], m, adReply)
             case 'sticker':
             case 'towebp':
             case 'webp2mp4':
-            let cxc = await q.download()
-  let cxc_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _cxc = await (cxc_ ? uploadImage : uploadFile)(cxc)
-        let cc = 'https://api-xcoders.xyz/api/convert/' + args[0] + '?url=' + _cxc + '&apikey=7iyNa0qA'
+            let a_ = m.quoted ? m.quoted : m
+  let b_ = (a_.msg || a_).mimetype || ''
+  if (!b_) throw 'No media found'
+  let c_ = await a_.download()
+  let e_ = new Sticker(c_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d_
+  try {
+  if (/webp/g.test(b_)) d_ = await webp2png(c_)
+        else if (/image/g.test(b_)) d_ = await uploadImage(c_)
+        else if (/video/g.test(b_)) d_ = await uploadFile(c_)
+        else if (/viewOnce/g.test(b_)) d_ = await uploadFile(c_)
+        if (typeof d_ !== 'string') d_ = await uploadImage(c_)
+        else if (/gif/g.test(b_)) d_ = e_
+        } catch (e) {
+        throw eror
+        }
+        let cc = 'https://api-xcoders.xyz/api/convert/' + args[0] + '?url=' + d_ + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, cc, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
@@ -358,10 +372,23 @@ case 'trash':
 case 'triggered':
 case 'wanted':
 case 'wasted':
-let exe = await q.download()
-  let exe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _exe = await (exe_ ? uploadImage : uploadFile)(exe)
-        let ee = 'https://api-xcoders.xyz/api/maker/' + args[0] + '?url=' + _exe + '&apikey=7iyNa0qA'
+let aa_ = m.quoted ? m.quoted : m
+  let bb_ = (aa_.msg || aa_).mimetype || ''
+  if (!bb_) throw 'No media found'
+  let cc_ = await aa_.download()
+  let ee_ = new Sticker(cc_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let dd_
+  try {
+  if (/webp/g.test(bb_)) dd_ = await webp2png(cc_)
+        else if (/image/g.test(bb_)) dd_ = await uploadImage(cc_)
+        else if (/video/g.test(bb_)) dd_ = await uploadFile(cc_)
+        else if (/viewOnce/g.test(bb_)) dd_ = await uploadFile(cc_)
+        if (typeof dd_ !== 'string') dd_ = await uploadImage(cc_)
+        else if (/gif/g.test(bb_)) dd_ = ee_
+        } catch (e) {
+        throw eror
+        }
+        let ee = 'https://api-xcoders.xyz/api/maker/' + args[0] + '?url=' + dd_ + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, ee, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
@@ -394,10 +421,23 @@ case 'inthewoods':
 case 'lightning':
 case 'sketchpracticing':
 case 'travellerssketch':
-let gxg = await q.download()
-  let gxg_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _gxg = await (gxg_ ? uploadImage : uploadFile)(gxg)
-        let gg = 'https://api-xcoders.xyz/api/photofunia/' + args[0] + '?url=' + _gxg + '&apikey=7iyNa0qA'
+let a__ = m.quoted ? m.quoted : m
+  let b__ = (a__.msg || a__).mimetype || ''
+  if (!b__) throw 'No media found'
+  let c__ = await a__.download()
+  let e__ = new Sticker(c__, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__
+  try {
+  if (/webp/g.test(b__)) d__ = await webp2png(c__)
+        else if (/image/g.test(b__)) d__ = await uploadImage(c__)
+        else if (/video/g.test(b__)) d__ = await uploadFile(c__)
+        else if (/viewOnce/g.test(b__)) d__ = await uploadFile(c__)
+        if (typeof d__ !== 'string') d__ = await uploadImage(c__)
+        else if (/gif/g.test(b__)) d__ = e__
+        } catch (e) {
+        throw eror
+        }
+        let gg = 'https://api-xcoders.xyz/api/photofunia/' + args[0] + '?url=' + d__ + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, gg, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
@@ -414,10 +454,23 @@ case 'ripped':
 case 'shattered':
 case 'tearing':
 case 'toilet':
-let hxh = await q.download()
-  let hxh_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _hxh = await (hxh_ ? uploadImage : uploadFile)(hxh)
-        let hh = 'https://api-xcoders.xyz/api/photooxy/' + args[0] + '?url=' + _hxh + '&apikey=7iyNa0qA'
+let a__a = m.quoted ? m.quoted : m
+  let b__a = (a__a.msg || a__a).mimetype || ''
+  if (!b__a) throw 'No media found'
+  let c__a = await a__a.download()
+  let e__a = new Sticker(c__a, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d__a
+  try {
+  if (/webp/g.test(b__a)) d__a = await webp2png(c__a)
+        else if (/image/g.test(b__a)) d__a = await uploadImage(c__a)
+        else if (/video/g.test(b__a)) d__a = await uploadFile(c__a)
+        else if (/viewOnce/g.test(b__a)) d__a = await uploadFile(c__a)
+        if (typeof d__a !== 'string') d__a = await uploadImage(c__a)
+        else if (/gif/g.test(b__a)) d__a = e__a
+        } catch (e) {
+        throw eror
+        }
+        let hh = 'https://api-xcoders.xyz/api/photooxy/' + args[0] + '?url=' + d__a + '&apikey=7iyNa0qA'
         conn.sendButtonImg(m.chat, hh, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             

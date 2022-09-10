@@ -4,6 +4,8 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
+import { webp2png } from '../lib/webp2mp4.js'
+import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, isPrems, isOwner, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
@@ -114,7 +116,6 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
-            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {
 if (command) {
@@ -246,13 +247,23 @@ case 'greyscale':
 case 'gun':
 case 'invert':
 case 'uncover':
-            let q = m.quoted ? m.quoted : m
-  let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No media found'
-  let media = await q.download()
-  let isTele = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let link = await (isTele ? uploadImage : uploadFile)(media)
-        let wnt = `https://myselfff.herokuapp.com/docs/canvas/${args[0]}?url=${link}`
+            let a_ = m.quoted ? m.quoted : m
+  let b_ = (a_.msg || a_).mimetype || ''
+  if (!b_) throw 'No media found'
+  let c_ = await a_.download()
+  let e_ = new Sticker(c_, { pack: packname, author: author, type: StickerTypes.FULL })
+  let d_
+  try {
+  if (/webp/g.test(b_)) d_ = await webp2png(c_)
+        else if (/image/g.test(b_)) d_ = await uploadImage(c_)
+        else if (/video/g.test(b_)) d_ = await uploadFile(c_)
+        else if (/viewOnce/g.test(b_)) d_ = await uploadFile(c_)
+        if (typeof d_ !== 'string') d_ = await uploadImage(c_)
+        else if (/gif/g.test(b_)) d_ = e_
+        } catch (e) {
+        throw eror
+        }
+        let wnt = `https://myselfff.herokuapp.com/docs/canvas/${args[0]}?url=${d_}`
         conn.sendButtonImg(m.chat, wnt, author, 'Nih.jpg', 'VIDEO', '.get ' + Gd.video, fakes, adReply)
             break
             
