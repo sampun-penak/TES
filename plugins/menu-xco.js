@@ -215,7 +215,7 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} waterwriting
 • ${usedPrefix + command} webp2mp4
 `
-await conn.sendButton(m.chat, caption, author, logo, [['Menu', '/menu']], m, adReply)
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             

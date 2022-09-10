@@ -59,9 +59,7 @@ ${usedPrefix + command} waifu
 ${usedPrefix + command} wallpapercave
 ${usedPrefix + command} wiki
 `
-conn.sendButton(m.chat, caption, wm, null, [
-                ['Menu', `${usedPrefix}menu`]
-            ], m, { quoted: fakes })
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             

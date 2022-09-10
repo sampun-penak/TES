@@ -24,182 +24,167 @@ ${usedPrefix + command} cecan
 ${usedPrefix + command} pinterest |wibu
 
 *List:*
-• 3d-gradient
-• 3dstone
-• 1917
-• aesthetic
-• ahegao
-• akira
-• akiyama
-• anaa
-• anime
-• anjing
-• art-papper
-• ass
-• astone
-• asuna
-• ayuzawa
-• bdsm
-• black-pink
-• blood
-• blowjob
-• boneka-chucky
-• boruto
-• bread
-• broken-glass
-• cecan
-• cecan2
-• chiho
-• chitoge
-• christmas
-• cogan
-• cogan2
-• cuckold
-• cum
-• cyberspace
-• deidara
-• deluxe-silver
-• doraemon
-• drop-water
-• eba
-• elaina
-• emilia
-• engraved
-• ero
-• erza
-• fabric
-• femdom
-• foot
-• gaming
-• gangbang
-• gifs
-• glasses
-• glossy
-• glue-text
-• grafity-text
-• gremory
-• hallowen
-• hallowen-text
-• harry-potter
-• hekel
-• hentai
-• hestia
-• hinata
-• holograpic
-• honey
-• horor-blood
-• ice
-• inori
-• islami
-• isuzu
-• itachi
-• itori
-• jahy
-• jeni
-• jiso
-• joker-logo
-• joox
-• justina
-• kaga
-• kagura
-• kaori
-• kartun
-• katakata
-• keneki
-• koi
-• kotori
-• kpop
-• kucing
-• kurumi
-• larva
-• loli
-• luxury
-• madara
-• magma
-• manga
-• masturbation
-• mediafire
-• megumin
-• mikasa
-• miku
-• minato
-• mobil
-• montor
-• mountain
-• multi-color
-• naruto
-• natural-leavest
-• neko
-• neko2
-• neon-devil
-• neon-light
-• nezuko
-• nsfwloli
-• onepiece
-• orgy
-• panties
-• pentol
-• pokemon
-• pornhub
-• ppcouple
-• programing
-• pubg
-• pussy
-• rize
-• rose
-• rusty
-• ryujin
-• sagiri
-• sakura
-• sasuke
-• satanic
-• shina
-• shinka
-• shinomiya
-• shizuka
-• shota
-• sky-text
-• stroberi
-• tatasurya
-• tejina
-• teknologi
-• tentacles
-• thighs
-• thunder2
-• toukachan
-• toxic-bokeh
-• trans
-• tsunade
-• waifu
-• waifu2
-• wallhp
-• water-color
-• wicker
-• writing
-• xnxx
-• xvideo
-• yotsuba
-• yuki
-• yumeko
-• yuri
-• zettai
+${usedPrefix + command} 3d-gradient
+${usedPrefix + command} 3dstone
+${usedPrefix + command} 1917
+${usedPrefix + command} aesthetic
+${usedPrefix + command} ahegao
+${usedPrefix + command} akira
+${usedPrefix + command} akiyama
+${usedPrefix + command} anaa
+${usedPrefix + command} anime
+${usedPrefix + command} anjing
+${usedPrefix + command} art-papper
+${usedPrefix + command} ass
+${usedPrefix + command} astone
+${usedPrefix + command} asuna
+${usedPrefix + command} ayuzawa
+${usedPrefix + command} bdsm
+${usedPrefix + command} black-pink
+${usedPrefix + command} blood
+${usedPrefix + command} blowjob
+${usedPrefix + command} boneka-chucky
+${usedPrefix + command} boruto
+${usedPrefix + command} bread
+${usedPrefix + command} broken-glass
+${usedPrefix + command} cecan
+${usedPrefix + command} cecan2
+${usedPrefix + command} chiho
+${usedPrefix + command} chitoge
+${usedPrefix + command} christmas
+${usedPrefix + command} cogan
+${usedPrefix + command} cogan2
+${usedPrefix + command} cuckold
+${usedPrefix + command} cum
+${usedPrefix + command} cyberspace
+${usedPrefix + command} deidara
+${usedPrefix + command} deluxe-silver
+${usedPrefix + command} doraemon
+${usedPrefix + command} drop-water
+${usedPrefix + command} eba
+${usedPrefix + command} elaina
+${usedPrefix + command} emilia
+${usedPrefix + command} engraved
+${usedPrefix + command} ero
+${usedPrefix + command} erza
+${usedPrefix + command} fabric
+${usedPrefix + command} femdom
+${usedPrefix + command} foot
+${usedPrefix + command} gaming
+${usedPrefix + command} gangbang
+${usedPrefix + command} gifs
+${usedPrefix + command} glasses
+${usedPrefix + command} glossy
+${usedPrefix + command} glue-text
+${usedPrefix + command} grafity-text
+${usedPrefix + command} gremory
+${usedPrefix + command} hallowen
+${usedPrefix + command} hallowen-text
+${usedPrefix + command} harry-potter
+${usedPrefix + command} hekel
+${usedPrefix + command} hentai
+${usedPrefix + command} hestia
+${usedPrefix + command} hinata
+${usedPrefix + command} holograpic
+${usedPrefix + command} honey
+${usedPrefix + command} horor-blood
+${usedPrefix + command} ice
+${usedPrefix + command} inori
+${usedPrefix + command} islami
+${usedPrefix + command} isuzu
+${usedPrefix + command} itachi
+${usedPrefix + command} itori
+${usedPrefix + command} jahy
+${usedPrefix + command} jeni
+${usedPrefix + command} jiso
+${usedPrefix + command} joker-logo
+${usedPrefix + command} joox
+${usedPrefix + command} justina
+${usedPrefix + command} kaga
+${usedPrefix + command} kagura
+${usedPrefix + command} kaori
+${usedPrefix + command} kartun
+${usedPrefix + command} katakata
+${usedPrefix + command} keneki
+${usedPrefix + command} koi
+${usedPrefix + command} kotori
+${usedPrefix + command} kpop
+${usedPrefix + command} kucing
+${usedPrefix + command} kurumi
+${usedPrefix + command} larva
+${usedPrefix + command} loli
+${usedPrefix + command} luxury
+${usedPrefix + command} madara
+${usedPrefix + command} magma
+${usedPrefix + command} manga
+${usedPrefix + command} masturbation
+${usedPrefix + command} mediafire
+${usedPrefix + command} megumin
+${usedPrefix + command} mikasa
+${usedPrefix + command} miku
+${usedPrefix + command} minato
+${usedPrefix + command} mobil
+${usedPrefix + command} montor
+${usedPrefix + command} mountain
+${usedPrefix + command} multi-color
+${usedPrefix + command} naruto
+${usedPrefix + command} natural-leavest
+${usedPrefix + command} neko
+${usedPrefix + command} neko2
+${usedPrefix + command} neon-devil
+${usedPrefix + command} neon-light
+${usedPrefix + command} nezuko
+${usedPrefix + command} nsfwloli
+${usedPrefix + command} onepiece
+${usedPrefix + command} orgy
+${usedPrefix + command} panties
+${usedPrefix + command} pentol
+${usedPrefix + command} pokemon
+${usedPrefix + command} pornhub
+${usedPrefix + command} ppcouple
+${usedPrefix + command} programing
+${usedPrefix + command} pubg
+${usedPrefix + command} pussy
+${usedPrefix + command} rize
+${usedPrefix + command} rose
+${usedPrefix + command} rusty
+${usedPrefix + command} ryujin
+${usedPrefix + command} sagiri
+${usedPrefix + command} sakura
+${usedPrefix + command} sasuke
+${usedPrefix + command} satanic
+${usedPrefix + command} shina
+${usedPrefix + command} shinka
+${usedPrefix + command} shinomiya
+${usedPrefix + command} shizuka
+${usedPrefix + command} shota
+${usedPrefix + command} sky-text
+${usedPrefix + command} stroberi
+${usedPrefix + command} tatasurya
+${usedPrefix + command} tejina
+${usedPrefix + command} teknologi
+${usedPrefix + command} tentacles
+${usedPrefix + command} thighs
+${usedPrefix + command} thunder2
+${usedPrefix + command} toukachan
+${usedPrefix + command} toxic-bokeh
+${usedPrefix + command} trans
+${usedPrefix + command} tsunade
+${usedPrefix + command} waifu
+${usedPrefix + command} waifu2
+${usedPrefix + command} wallhp
+${usedPrefix + command} water-color
+${usedPrefix + command} wicker
+${usedPrefix + command} writing
+${usedPrefix + command} xnxx
+${usedPrefix + command} xvideo
+${usedPrefix + command} yotsuba
+${usedPrefix + command} yuki
+${usedPrefix + command} yumeko
+${usedPrefix + command} yuri
+${usedPrefix + command} zettai
 `
-await conn.sendButton(m.chat, caption, wm, null, [
-                ['Menu', `${usedPrefix}menu`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
@@ -214,20 +199,7 @@ switch (template) {
         let pnnnn = `*Result:*\n${pnn.result[0].name}\n${pnn.result[0].mime}\n${pnn.result[0].size}`
         await conn.sendButton(m.chat, pnnnn, wm, null, [
                 ['Get', `${usedPrefix}get ${pnn.result[0].link}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case 'pornhub':
         let sp = await fetch(`https://revita.herokuapp.com/api/downloader/pornhub?query=${one}&apikey=ApiRevita`)
@@ -239,20 +211,7 @@ link: ${v.link}`.trim()
     }).join('\n\n')
     await conn.sendButton(m.chat, str, wm, null, [
                 ['Dlbokep!', `${usedPrefix}dlbokep`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case 'xnxx':
             case 'xvideo':
@@ -265,20 +224,7 @@ link: ${v.link}`.trim()
     }).join('\n\n')
     await conn.sendButton(m.chat, str1, wm, null, [
                 ['Dlbokep!', `${usedPrefix}dlbokep`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case 'joox':
         let go = await fetch(`https://revita.herokuapp.com/api/music/joox?query=${one}&apikey=ApiRevita`)
@@ -289,20 +235,7 @@ link: ${v.link}`.trim()
         ${goo.result.publish}`
         await conn.sendButton(m.chat, gooo, wm, goo.result.img, [
                 ['Next', `${usedPrefix + command} ${one}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case 'ahegao':
 case 'ass':
@@ -329,25 +262,11 @@ case 'tentacles':
 case 'thighs':
 case 'yuri':
 case 'zettai':
-            if (args[0]) throw `Contoh penggunaan ${usedPrefix + command} query`
         let hm = `https://revita.herokuapp.com/api/nsfw/${args[0]}?apikey=ApiRevita`
         let hmmm = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, hmmm, wm, hm, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case '3d-gradient':
 case '3dstone':
@@ -395,20 +314,7 @@ case 'writing':
         let wkkk = `*Result:* ${wkk.result}`
         await conn.sendButton(m.chat, wkkk, wm, wkk.result, [
                 ['Next', `${usedPrefix + command} ${one}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             case 'aesthetic':
 case 'akira':
@@ -499,25 +405,11 @@ case 'yotsuba':
 case 'yuki':
 case 'yumeko':
 case 'yuri':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let rimg = `https://revita.herokuapp.com/api/wallpaper/${args[0]}?apikey=ApiRevita`
         let riimg = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, riimg, wm, rimg, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
             
 }

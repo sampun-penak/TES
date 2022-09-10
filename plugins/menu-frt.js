@@ -90,23 +90,8 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} toxic
 • ${usedPrefix + command} wanted
 `
-await conn.sendButton(m.chat, caption, wm, null, [
-                ['Menu', `${usedPrefix}menu`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
-            }
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+	}
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {

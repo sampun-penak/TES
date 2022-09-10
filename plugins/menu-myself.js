@@ -262,8 +262,8 @@ case 'uncover':
 throw eror
 }
 }
-handler.help = ['mys <command> <teks>']
+handler.help = ['myse <command> <teks>']
 handler.tags = ['tools'] 
-handler.command = /^mys$/i
+handler.command = /^myse$/i
 export default handler
 

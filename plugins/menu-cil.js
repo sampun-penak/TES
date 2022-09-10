@@ -228,8 +228,8 @@ try {
 				case 'bitrate':
 				let wnbm = await q.download()
   let wnbm_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
-  let _wnim = await (wnbm_ ? uploadImage : uploadFile)(wnbm)
-					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnim}&bitrate=${one}`
+  let _wnbm = await (wnbm_ ? uploadImage : uploadFile)(wnbm)
+					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnbm}&bitrate=${one}`
 					let de = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, db, de, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break

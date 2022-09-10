@@ -77,8 +77,8 @@ ${usedPrefix + command} img |wibu
 > thunder
 > toxic
 `
-await conn.sendButtonImg(m.chat, logo, caption, author, 'M E N U', '.menu', fpayment, adReply)
-            }
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+	}
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {

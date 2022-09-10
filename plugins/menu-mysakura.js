@@ -8,9 +8,6 @@ import { sticker } from '../lib/sticker.js'
 import fs from "fs"
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-
 
 let template = (args[0] || '').toLowerCase()
 if (!args[0]) {
@@ -86,10 +83,8 @@ ${usedPrefix + command} attp teks
 • ${usedPrefix + command} yeet
 • ${usedPrefix + command} yuri
 `
-conn.sendButton(m.chat, caption, wm, null, [
-                ['Menu', `${usedPrefix}menu`]
-            ], m, fdoc)
-            }
+await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+	}
             else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
 try {
@@ -106,7 +101,7 @@ switch (template) {
     let ling = `https://hadi-api.herokuapp.com/api/canvas/${args[0]}?text=${one}`
     await conn.sendButton(m.chat, 'Nih', wm, ling, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'chord':
@@ -115,7 +110,7 @@ switch (template) {
         let captionab = `*Result:* ${x.result}`
         await conn.sendButton(m.chat, captionab, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'corohelp':
@@ -129,7 +124,7 @@ switch (template) {
 `
         await conn.sendButton(m.chat, captionA, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'cuaca':
@@ -142,7 +137,7 @@ switch (template) {
 ${xabt.kota}
 ${xabt.malam}
 `}
-        await conn.reply(m.chat, caption, m, frep)
+        await conn.reply(m.chat, caption, fakes, adReply)
             break
             
         case 'cuttly':
@@ -151,7 +146,7 @@ ${xabt.malam}
         let captionabu = `*Result:* ${xabu.result}`
         await conn.sendButton(m.chat, captionabu, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'darkjokes':
@@ -160,7 +155,7 @@ ${xabt.malam}
         let captionabl = `*Result:* ${command}`
         await conn.sendButton(m.chat, captionabl, wm, xabl.result, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'detik':
@@ -174,7 +169,7 @@ ${xabk.Time}
 `
         await conn.sendButton(m.chat, captionabk, wm, xabk.result.img_url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'font':
@@ -183,7 +178,7 @@ ${xabk.Time}
         let captionabb = `*Result:* ${xabb.result}`
         await conn.sendButton(m.chat, captionabb, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'font2':
@@ -192,7 +187,7 @@ ${xabk.Time}
         let captionabc = `*Result:* ${xabc.result}`
         await conn.sendButton(m.chat, captionabc, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'githubstalk':
@@ -211,7 +206,7 @@ ${xabk.Time}
 `
         await conn.sendButton(m.chat, captionabg, wm, xabg.avatar, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
             //Sakura
@@ -241,7 +236,7 @@ ${xabk.Time}
         let xabz = await peabz.json()
         await conn.sendButton(m.chat, `${command}`, wm, xabz.result, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
             case 'hijaber':
@@ -252,7 +247,7 @@ ${xabk.Time}
         let xeabg = await peabg.json()
         await conn.sendButton(m.chat, `${command}`, wm, xeabg.result.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'waifu':
@@ -264,7 +259,7 @@ ${xabk.Time}
         let xsb = await pesb.json()
         await conn.sendButton(m.chat, `${command}`, wm, xsb.result.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'bonk':
@@ -283,7 +278,7 @@ ${xabk.Time}
         let xaa = await peaa.json()
         await conn.sendButton(m.chat, `${command}`, wm, xaa.result.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'bucin':
@@ -291,7 +286,7 @@ ${xabk.Time}
         let xbb = await pebb.json()
         await conn.sendButton(m.chat, `*Bucin* ${xbb.result.result}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'pantun':
@@ -299,7 +294,7 @@ ${xabk.Time}
         let xcc = await pecc.json()
         await conn.sendButton(m.chat, `*pantun* ${xcc.result.pantun}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'dare':
@@ -307,7 +302,7 @@ ${xabk.Time}
         let xdd = await pedd.json()
         await conn.sendButton(m.chat, `*dare* ${xdd.result.dare}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'trut':
@@ -315,7 +310,7 @@ ${xabk.Time}
         let xee = await peee.json()
         await conn.sendButton(m.chat, `*trut* ${xee.result.trut}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'aneh':
@@ -323,7 +318,7 @@ ${xabk.Time}
         let xff = await peff.json()
         await conn.sendButton(m.chat, `*truth* ${xff.result.truth}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'motivasi':
@@ -331,7 +326,7 @@ ${xabk.Time}
         let xgg = await pegg.json()
         await conn.sendButton(m.chat, `*motivasi* ${xgg.result.motivasi}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'anime':
@@ -339,7 +334,7 @@ ${xabk.Time}
         let xhh = await pehh.json()
         await conn.sendButton(m.chat, `*quote* ${xhh.quotes}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'islami':
@@ -347,7 +342,7 @@ ${xabk.Time}
         let xii = await peii.json()
         await conn.sendButton(m.chat, `*quote* ${xii.result}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
         case 'bijak':
@@ -356,7 +351,7 @@ ${xabk.Time}
         let xjj = await pejj.json()
         await conn.sendButton(m.chat, `*quote* ${xjj.result.quotes}`, wm, null, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
             case 'gambar':
@@ -364,7 +359,7 @@ ${xabk.Time}
         let xkk = await pekk.json()
         await conn.sendButton(m.chat, `*quote* ${args[0]}`, wm, xkk.result.url, [
                 ['Next', `${usedPrefix}${command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             break
             
           }
@@ -373,7 +368,7 @@ ${xabk.Time}
 throw eror
 }
 }
-handler.help = ['mys <command> <teks>']
+handler.help = ['mysa <command> <teks>']
 handler.tags = ['tools'] 
-handler.command = /^mys$/i
+handler.command = /^mysa$/i
 export default handler
