@@ -11,9 +11,7 @@ let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
 let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
-  let thm = args[0]
-  let text1 = args.slice(1).join(' ')
-  
+
 let template = (args[0] || '').toLowerCase()
 if (!args[0]) {
 let caption = `*Contoh Penggunaan*
@@ -92,26 +90,27 @@ conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, fdoc)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
             //Hadi
         case 'attp':
         case 'ttp':
-        await conn.sendFile(m.chat, `https://hadi-api.herokuapp.com/api/canvas/${thm}?text=${text1}`, 'sticker.webp', '', m)
+        await conn.sendFile(m.chat, `https://hadi-api.herokuapp.com/api/canvas/${args[0]}?text=${one}`, 'sticker.webp', '', m)
             break
             
         case 'nulis':
         case 'nulis2':
-    let ling = `https://hadi-api.herokuapp.com/api/canvas/${args[0]}?text=${text1}`
+    let ling = `https://hadi-api.herokuapp.com/api/canvas/${args[0]}?text=${one}`
     await conn.sendButton(m.chat, 'Nih', wm, ling, [
                 ['Next', `${usedPrefix + command}`]
             ], m, fdoc)
             break
             
         case 'chord':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} sayang`
-        let f = await fetch(`https://hadi-api.herokuapp.com/api/chord?q=${text1}`)
+        let f = await fetch(`https://hadi-api.herokuapp.com/api/chord?q=${one}`)
         let x = await f.json()
         let captionab = `*Result:* ${x.result}`
         await conn.sendButton(m.chat, captionab, wm, null, [
@@ -120,8 +119,7 @@ switch (template) {
             break
             
         case 'corohelp':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} indonesia`
-        let fA = await fetch(`https://hadi-api.herokuapp.com/api/corohelp?negara=${text1}`)
+        let fA = await fetch(`https://hadi-api.herokuapp.com/api/corohelp?negara=${one}`)
         let oA = await fA.json()
         let xA = oA.result
         let captionA = `*terkonfirmasi:* ${xA.terkonfirmasi}
@@ -135,8 +133,7 @@ switch (template) {
             break
             
         case 'cuaca':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} sulswesi selatan`
-        let fabt = await fetch(`https://hadi-api.herokuapp.com/api/cuaca?prov=${text1}`)
+        let fabt = await fetch(`https://hadi-api.herokuapp.com/api/cuaca?prov=${one}`)
         let oabt = await fabt.json()
         
         let caption = `*⎔┉━「 ${command} 」━┉⎔*\n`
@@ -149,8 +146,7 @@ ${xabt.malam}
             break
             
         case 'cuttly':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
-        let fabu = await fetch(`https://hadi-api.herokuapp.com/api/cuttly?url=${text1}`)
+        let fabu = await fetch(`https://hadi-api.herokuapp.com/api/cuttly?url=${one}`)
         let xabu = await fabu.json()
         let captionabu = `*Result:* ${xabu.result}`
         await conn.sendButton(m.chat, captionabu, wm, null, [
@@ -182,8 +178,7 @@ ${xabk.Time}
             break
             
         case 'font':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} sayang`
-        let fabb = await fetch(`https://hadi-api.herokuapp.com/api/font?teks=${text1}`)
+        let fabb = await fetch(`https://hadi-api.herokuapp.com/api/font?teks=${one}`)
         let xabb = await fabb.json()
         let captionabb = `*Result:* ${xabb.result}`
         await conn.sendButton(m.chat, captionabb, wm, null, [
@@ -192,8 +187,7 @@ ${xabk.Time}
             break
             
         case 'font2':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} sayang`
-        let fabc = await fetch(`https://hadi-api.herokuapp.com/api/font2?teks=${text1}`)
+        let fabc = await fetch(`https://hadi-api.herokuapp.com/api/font2?teks=${one}`)
         let xabc = await f.json()
         let captionabc = `*Result:* ${xabc.result}`
         await conn.sendButton(m.chat, captionabc, wm, null, [
@@ -202,8 +196,7 @@ ${xabk.Time}
             break
             
         case 'githubstalk':
-            if (!text1) throw `Contoh penggunaan ${usedPrefix}${command} sayang`
-        let fabg = await fetch(`https://hadi-api.herokuapp.com/api/githubstalk?username=${text1}`)
+        let fabg = await fetch(`https://hadi-api.herokuapp.com/api/githubstalk?username=${one}`)
         let oabg = await f.json()
         let xabg = oabg.result
         let captionabg = `*Bio:* ${xabg.bio}
@@ -376,6 +369,9 @@ ${xabk.Time}
             
           }
      }
+     } catch (e) {
+throw eror
+}
 }
 handler.help = ['mys <command> <teks>']
 handler.tags = ['tools'] 

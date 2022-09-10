@@ -58,24 +58,23 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
 case 'animal':
-if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let cb = await fetch(`https://some-random-api.ml/animal/${one}`)
         let cc = await cb.json()
         return conn.sendButtonImg(m.chat, cc.image, cc.fact, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             
 case 'animu':
-if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             let db = await fetch(`https://some-random-api.ml/animu/${one}`)
         let dc = await db.json()
         return conn.sendButtonGif(m.chat, 'Nihh', wm, { url: dc.link }, btn, knimg)
             break
             case 'binary':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let eb = await fetch(`https://some-random-api.ml/binary?text=${one}`)
         let ec = await eb.json()
         return m.reply(ec.binary)
@@ -86,21 +85,18 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         return m.reply(fc.token)
             break
             case 'base64':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let gb = await fetch(`https://some-random-api.ml/base64?encode=${one}`)
         let gc = await gb.json()
         return m.reply(gc.base64)
             break
             
             case 'facts':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let hb = await fetch(`https://some-random-api.ml/facts/${one}`)
         let hc = await hb.json()
         return m.reply(hc.fact)
             break
             
             case 'img':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let ib = await fetch(`https://some-random-api.ml/img/${one}`)
         let ic = await ib.json()
         return conn.sendButtonImg(m.chat, ic.link, wm, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
@@ -113,7 +109,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
             case 'lyrics':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let kb = await fetch(`https://some-random-api.ml/lyrics?title=${one}`)
         let kc = await kb.json()
         let kd = `${kc.title}
@@ -124,7 +119,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
             case 'mc':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let lb = await fetch(`https://some-random-api.ml/mc?username=${one}`)
         let lc = await lb.json()
         return m.reply(lc.uuid)
@@ -137,7 +131,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
             case 'pokedex':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             let nb = await fetch(`https://some-random-api.ml/pokedex?pokemon=${one}`)
         let nc = await nb.json()
         let nd = `${nc.name}
@@ -166,7 +159,6 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
             case 'canvas':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'No media found'
@@ -178,6 +170,9 @@ if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
             break
             
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['some <command> <teks>']

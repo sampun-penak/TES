@@ -201,13 +201,14 @@ await conn.sendButton(m.chat, caption, wm, null, [
      }}
   })
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
 
         
             case 'mediafire':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let pn = await fetch(`https://revita.herokuapp.com/api/download/mediafire?url=${one}&apikey=ApiRevita`)
         let pnn = await pn.json()
         let pnnnn = `*Result:*\n${pnn.result[0].name}\n${pnn.result[0].mime}\n${pnn.result[0].size}`
@@ -229,7 +230,6 @@ switch (template) {
   })
             break
             case 'pornhub':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sp = await fetch(`https://revita.herokuapp.com/api/downloader/pornhub?query=${one}&apikey=ApiRevita`)
         let spp = await sp.json()
         let str = spp.result.results.map((v, index) => {
@@ -256,7 +256,6 @@ link: ${v.link}`.trim()
             break
             case 'xnxx':
             case 'xvideo':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sp1 = await fetch(`https://revita.herokuapp.com/api/downloader/${args[0]}?query=${one}&apikey=ApiRevita`)
         let spp1 = await sp1.json()
         let str1 = spp1.result.map((v, index) => {
@@ -282,7 +281,6 @@ link: ${v.link}`.trim()
   })
             break
             case 'joox':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let go = await fetch(`https://revita.herokuapp.com/api/music/joox?query=${one}&apikey=ApiRevita`)
         let goo = await go.json()
         let gooo = `*Result:* ${goo.result.lagu}
@@ -392,7 +390,6 @@ case 'toxic-bokeh':
 case 'water-color':
 case 'wicker':
 case 'writing':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let wk = await fetch(`https://revita.herokuapp.com/api/textpro/${args[0]}?text=${one}&apikey=ApiRevita`)
         let wkk = await wk.json()
         let wkkk = `*Result:* ${wkk.result}`
@@ -524,6 +521,9 @@ case 'yuri':
             break
             
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['rev <command> <teks>']

@@ -22,7 +22,6 @@ let handler = async(m, {
 	let one = urut[1]
 	let two = urut[2]
 	let three = urut[3]
-	let penggunaan = `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
 	let template = (args[0] || '').toLowerCase()
 	if(!args[0]) {
 		let caption = `*Contoh Penggunaan Single*
@@ -111,11 +110,13 @@ ${usedPrefix + command} pinterest |wibu
 `
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
+	else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
+            
+try {
 	if(command) {
 			switch(template) {
 				case 'artimimpi':
 				case 'artinama':
-				if(!one) throw penggunaan
 					let ab = await fetch(`https://cililitan.herokuapp.com/api/${args[0]}?mimpi=${one}`)
 					let ac = await ab.json()
 					m.reply(ac.result)
@@ -131,25 +132,21 @@ ${usedPrefix + command} pinterest |wibu
 				case 'huluh':
 				case 'heleh':
 				case 'holoh':
-				if(!one) throw penggunaan
 					let awb = await fetch(`https://cililitan.herokuapp.com/api/fancytext?teks=${one}`)
 					let awc = await awb.json()
 					m.reply(awc.result)
 					break
 				case 'counter':
-				if(!one) throw penggunaan
 					let avb = await fetch(`https://cililitan.herokuapp.com/api/hitungmundur?tanggal=${one}&bulan=${two}&tahun=${three}`)
 					let avc = await avb.json()
 					m.reply(avc.result)
 					break
 				case 'html':
-				if(!one) throw penggunaan
 					let aub = await fetch(`https://cililitan.herokuapp.com/api/htmlscrapper?url=${one}`)
 					let auc = await aub.json()
 					m.reply(auc.result)
 					break
 				case 'balikangka':
-				if(!one) throw penggunaan
 					let abb = await fetch(`https://cililitan.herokuapp.com/api/balikangka?angka=${one}`)
 					let acc = await abb.json()
 					m.reply(acc.result)
@@ -158,14 +155,12 @@ ${usedPrefix + command} pinterest |wibu
 				case 'bilangangka':
 				case 'jumlahhuruf':
 				case 'jumlahangka':
-				if(!one) throw penggunaan
 					let axb = await fetch(`https://cililitan.herokuapp.com/api/${args[0]}?huruf=${one}`)
 					let axc = await axb.json()
 					m.reply(axc.result)
 					break
 				case 'besarkecil':
 				case 'kapital':
-				if(!one) throw penggunaan
 					let ayb = await fetch(`https://cililitan.herokuapp.com/api/${args[0]}?teks=${one}`)
 					let ayc = await ayb.json()
 					m.reply(ayc.result)
@@ -175,7 +170,6 @@ ${usedPrefix + command} pinterest |wibu
 				case 'texttopng3':
 				case 'texttopng4':
 				case 'texttopng':
-				if(!one) throw penggunaan
 					let ttx = 'https://cililitan.herokuapp.com/api/' + args[0] + '?teks=' + one
 					try {
 						let ttb = await sticker(null, ttx, global.packname, global.author)
@@ -235,13 +229,11 @@ ${usedPrefix + command} pinterest |wibu
 				let wnbm = await q.download()
   let wnbm_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let _wnim = await (wnbm_ ? uploadImage : uploadFile)(wnbm)
-				if(!one) throw penggunaan
 					let db = `https://cililitan.herokuapp.com/api/bitrate?url=${_wnim}&bitrate=${one}`
 					let de = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, db, de, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 				case 'carbon':
-				if(!one) throw penggunaan
 					let eb = `https://cililitan.herokuapp.com/api/carbon?teks=${one}`
 					let ee = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, eb, ee, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
@@ -268,7 +260,6 @@ ${gd.cerita}
 					conn.sendButtonImg(m.chat, gd.image, ge, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 				case 'chord':
-				if(!one) throw penggunaan
 					let hb = await fetch(`https://cililitan.herokuapp.com/api/chordlagu?lagu=${one}`)
 					let hc = await hb.json()
 					let hd = hc.result
@@ -294,7 +285,6 @@ ${gd.cerita}
 					})
 					break
 				case 'gsmarena':
-				if(!one) throw penggunaan
 					let ib = await fetch(`https://cililitan.herokuapp.com/api/gsmarena?query=${one}`)
 					let ic = await ib.json()
 					let nahini = ic.result
@@ -307,7 +297,6 @@ ${gd.cerita}
 					return conn.sendList(m.chat, htki + ' 📺 Search 🔎 ' + htka, `⚡ Silakan pilih Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Search Disini ☂️`, lesgom, m)
 					break
 				case 'grupwa':
-				if(!one) throw penggunaan
 					let ixb = await fetch(`https://cililitan.herokuapp.com/api/searchgrupwa?nama=${one}`)
 					let ixc = await ixb.json()
 					let xxnxx = ixc.result
@@ -320,7 +309,6 @@ ${gd.cerita}
 					return conn.sendList(m.chat, htki + ' 📺 Search 🔎 ' + htka, `⚡ Silakan pilih Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Search Disini ☂️`, lesgox, m)
 					break
 				case 'ssticker':
-				if(!one) throw penggunaan
 					let izb = await fetch(`https://cililitan.herokuapp.com/api/searchsticker?query=${one}`)
 					let izc = await izb.json()
 					let zxnxx = izc.result.sticker
@@ -333,7 +321,6 @@ ${gd.cerita}
 					return conn.sendList(m.chat, htki + ' 📺 Search 🔎 ' + htka, `⚡ Silakan pilih Search di tombol di bawah...`, author, `☂️ Search Disini ☂️`, lesgoz, m)
 					break
 				case 'hadits':
-				if(!one) throw penggunaan
 					let jb = await fetch(`https://cililitan.herokuapp.com/api/hadits?kitab=${one}&nomor=${two}`)
 					let jc = await jb.json()
 					let jd = jc.result.data
@@ -345,7 +332,6 @@ ${jd.contents.arab}
 ${jd.contents.id}`)
 					break
 				case 'mediafire':
-				if(!one) throw penggunaan
 					let kb = await fetch(`https://cililitan.herokuapp.com/api/mediafire?url=${one}`)
 					let kc = await kb.json()
 					let kd = kc.result
@@ -355,13 +341,11 @@ ${kd.size}
 ${kd.url}`)
 					break
 				case 'pastebin':
-				if(!one) throw penggunaan
 					let lb = await fetch(`https://cililitan.herokuapp.com/api/pastebin?teks=${one}`)
 					let lc = await lb.json()
 					m.reply(lc.result)
 					break
 				case 'pastegg':
-				if(!one) throw penggunaan
 					let mb = await fetch(`https://cililitan.herokuapp.com/api/pastegg?teks=${one}&nama=${one}`)
 					let mc = await mb.json()
 					m.reply(`${mc.result.nama}
@@ -408,19 +392,16 @@ ${pc.result.author}`)
 					conn.sendButtonImg(m.chat, sb, se, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 					break
 				case 'tiny':
-				if(!one) throw penggunaan
 					let tb = await fetch(`https://cililitan.herokuapp.com/api/short/tiny?url=${one}`)
 					let tc = await tb.json()
 					m.reply(tc.result.link)
 					break
 				case 'shortlink':
-				if(!one) throw penggunaan
 					let ub = await fetch(`https://cililitan.herokuapp.com/api/shortlink?url=${one}`)
 					let uc = await ub.json()
 					m.reply(uc.result)
 					break
 				case 'ttpcolor':
-				if(!one) throw penggunaan
 					let vb = `https://cililitan.herokuapp.com/api/ttpcolor?teks=${one}&color=${two}`
 					let ve = `Nih ${args[0]} mu`
 					conn.sendButtonImg(m.chat, vb, ve, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
@@ -432,6 +413,9 @@ ${pc.result.author}`)
 					break
 			}
 	}
+	} catch (e) {
+throw eror
+}
 }
 handler.help = ['cil <command> <teks>']
 handler.tags = ['tools']

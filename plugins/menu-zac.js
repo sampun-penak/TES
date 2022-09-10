@@ -21,49 +21,51 @@ ${usedPrefix + command} cecan
 ${usedPrefix + command} pinterest |wibu
 
 *List:*
-• alphacoders
-• cecan
-• cerpen
-• china
-• cosplay
-• dare
-• darkjokes
-• faktaunik
-• fml
-• google
-• hijaber
-• hmod
-• husbu
-• indonesia
-• japan
-• katagalau
-• konachan
-• korea
-• loli
-• loli
-• malaysia
-• meme
-• milf
-• pinterest
-• ppcouple
-• quotes
-• quotesanime
-• random
-• santuy
-• sstick
-• thailand
-• truth
-• ukhty
-• vietnam
-• waifu
-• wallpapercave
-• wiki
+${usedPrefix + command} alphacoders
+${usedPrefix + command} cecan
+${usedPrefix + command} cerpen
+${usedPrefix + command} china
+${usedPrefix + command} cosplay
+${usedPrefix + command} dare
+${usedPrefix + command} darkjokes
+${usedPrefix + command} faktaunik
+${usedPrefix + command} fml
+${usedPrefix + command} google
+${usedPrefix + command} hijaber
+${usedPrefix + command} hmod
+${usedPrefix + command} husbu
+${usedPrefix + command} indonesia
+${usedPrefix + command} japan
+${usedPrefix + command} katagalau
+${usedPrefix + command} konachan
+${usedPrefix + command} korea
+${usedPrefix + command} loli
+${usedPrefix + command} loli
+${usedPrefix + command} malaysia
+${usedPrefix + command} meme
+${usedPrefix + command} milf
+${usedPrefix + command} pinterest
+${usedPrefix + command} ppcouple
+${usedPrefix + command} quotes
+${usedPrefix + command} quotesanime
+${usedPrefix + command} random
+${usedPrefix + command} santuy
+${usedPrefix + command} sstick
+${usedPrefix + command} thailand
+${usedPrefix + command} truth
+${usedPrefix + command} ukhty
+${usedPrefix + command} vietnam
+${usedPrefix + command} waifu
+${usedPrefix + command} wallpapercave
+${usedPrefix + command} wiki
 `
 conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
             ], m, { quoted: fakes })
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
 
@@ -80,23 +82,7 @@ case 'santuy':
 case 'thailand':
 case 'ukhty':
 case 'vietnam':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} cecan
-*List Command*
-• cecan
-• china
-• hijaber
-• indonesia
-• japan
-• korea
-• loli
-• malaysia
-• random
-• santuy
-• thailand
-• ukhty
-• vietnam
-`
-        let as= `https://api.zacros.my.id/asupan/${args[0]}`
+        let as = `https://api.zacros.my.id/asupan/${args[0]}`
         let ass = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, ass, wm, as, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
@@ -105,12 +91,6 @@ case 'vietnam':
             case 'alphacoders':
             case 'wallpapercave':
             case 'konachan':
-            if (!one) throw `Contoh penggunaan ${usedPrefix}${command} alphacoders|teks
-*List Command*
-• alphacoders
-• wallpapercave
-• konachan
-`
         let wl = `https://api.zacros.my.id/search/${args[0]}?query=${one}`
         let wll = `*Result:* ${args[0]}`
         await conn.sendButton(m.chat, wll, wm, wl, [
@@ -118,7 +98,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'pinterest':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let pn = await fetch(`https://api.zacros.my.id/search/pinterest?query=${one}`)
         let pnn = await pn.json()
         let pnnn = pnn.result
@@ -128,7 +107,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'sstick':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sp = await fetch(`https://api.zacros.my.id/search/sticker?query=${one}`)
         let spp = await sp.json()
         let sppp = `*Result:* ${spp.result[0].title}
@@ -139,7 +117,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'google':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let go = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let goo = await go.json()
         let gooo = `*Result:* ${goo.result[0].title}
@@ -150,7 +127,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'hmod':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let hm = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let hmm = await hm.json()
         let hmmm = `*Result:* ${hmm.result[0].title}
@@ -161,7 +137,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'wiki':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let wk = await fetch(`https://api.zacros.my.id/search/google?query=${one}`)
         let wkk = await wk.json()
         let wkkk = `*Result:* ${wkk.result[0].wiki}
@@ -178,7 +153,6 @@ case 'vietnam':
             case 'cosplay':
             case 'darkjokes':
             case 'meme':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let rimg = `https://api.zacros.my.id/randomimg/${args[0]}`
         let riimg = `*Result:* ${args[0]}
 `
@@ -187,7 +161,6 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
             case 'ppcouple':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let pp = await fetch(`https://api.zacros.my.id/randomimg/${args[0]}`)
         let ppc = await pp.json()
         let cwo = `*Cwok:* ${args[0]}`
@@ -227,7 +200,6 @@ case 'vietnam':
             case 'katagalau':
             case 'truth':
             case 'dare':
-            if (!args[0]) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} `
         let fa = await fetch(`https://api.zacros.my.id/randomtext/${args[0]}`)
         let faa = await fa.json()
         let faaa = `*Result:* ${faa.result}`
@@ -236,6 +208,9 @@ case 'vietnam':
             ], m, { quoted: fakes })
             break
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['zac <command> <teks>']

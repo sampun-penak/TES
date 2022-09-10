@@ -23,11 +23,12 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
 case 'mediafire':
-if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
 let res = await mediafiredl(one)
     let { url, url2, filename, ext, aploud, filesize, filesizeH } = res
     let caption = `
@@ -41,13 +42,15 @@ let res = await mediafiredl(one)
             break
             
 case 'tiktok':
-if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
     const { author: { nickname }, video, description } = await tiktokdl(one).catch(async _ => await tiktokdlv3(one))
     let urls = video.no_watermark || video.no_watermark2 || video.no_watermark_raw 
     if (!urls) throw 'Can\'t download video!'
     conn.sendFile(m.chat, urls, 'tiktok.mp4', author, m)
             break
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['boc <command> <teks>']

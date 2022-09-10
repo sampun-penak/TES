@@ -107,12 +107,13 @@ await conn.sendButton(m.chat, caption, wm, null, [
      }}
   })
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
         
             case 'alkitabsearch':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let ab = await fetch(`https://restapi.frteam.xyz/alkitabsearch?q=${one}&apikey=Hrbot`)
         let ac = await ab.json()
     let ad = ac.data
@@ -129,7 +130,6 @@ switch (template) {
 	return await conn.sendListM(m.chat, af, ae, m)
             break
             case 'animeidsearch':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let bb = await fetch(`https://restapi.frteam.xyz/animeidsearch?query=${one}&apikey=Hrbot`)
         let bc = await bb.json()
     let bd = bc.data
@@ -203,7 +203,6 @@ case 'asupan':
         conn.sendButtonImg(m.chat, nsf, wm, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'pinterest':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let db = await fetch(`https://restapi.frteam.xyz/pinterest?url=${one}&apikey=Hrbot`)
         let dc = await db.json()
     let dd = dc.data
@@ -220,7 +219,6 @@ case 'asupan':
 	return await conn.sendListM(m.chat, df, de, m)
             break
             case 'pinterests':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let eb = await fetch(`https://restapi.frteam.xyz/pinterestSearch?q=${one}&apikey=Hrbot`)
         let ec = await eb.json()
     let ed = ec.data
@@ -262,6 +260,9 @@ case 'toxic':
             break
             
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['frt <command> <teks>']

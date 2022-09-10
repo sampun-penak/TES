@@ -48,11 +48,12 @@ await conn.sendButton(m.chat, caption, wm, null, [
      }}
   })
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
             case 'gimg':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let bb = await fetch('https://megayaa.herokuapp.com/api/gimg?q=' + one)
         let bc = await bb.json()
         let bd = bc.result
@@ -113,7 +114,6 @@ switch (template) {
             break
             
             case 'sstick':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sb = await fetch('https://megayaa.herokuapp.com/api/searchsticker?q=' + one)
         let sc = await sb.json()
 	let se = Object.keys(sc.result).map((v, index) => ({
@@ -129,6 +129,9 @@ switch (template) {
 	return await conn.sendListM(m.chat, sf, se, m)
             break
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['meg <command> <teks>']

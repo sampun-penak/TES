@@ -73,14 +73,13 @@ ${usedPrefix + command} pinterest |wibu
 `
 await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
-if (command) {
 try {
+if (command) {
 switch (template) {
-
         
             case 'animeget':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let ab = await fetch(`https://api.neoxr.my.id/api/anime-get?url=${one}&apikey=5VC9rvNx`)
         let ac = await ab.json()
         m.reply(`${ac.status}
@@ -157,7 +156,6 @@ ${ac.stream[3].url.quality}
 ${ac.stream[3].url.url}`)
             break
             case 'anime':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let bb = await fetch(`https://api.neoxr.my.id/api/anime?q=${one}&apikey=5VC9rvNx`)
         let bc = await bb.json()
     let bd = bc.data
@@ -193,7 +191,6 @@ case 'slice':
         conn.sendButtonImg(m.chat, nsf, wm, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'gores':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let db = await fetch(`https://api.neoxr.my.id/api/gore-search?q=${one}&apikey=5VC9rvNx`)
         let dc = await db.json()
     let dd = dc.data
@@ -210,7 +207,6 @@ case 'slice':
 	return conn.sendListM(m.chat, df, de, m)
             break
             case 'getgore':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let eb = await fetch(`https://api.neoxr.my.id/api/gore-get?url=${one}&apikey=5VC9rvNx`)
         let ec = await eb.json()
     let ee = `${ec.data.title}
@@ -222,7 +218,6 @@ case 'slice':
 	conn.sendButtonVid(m.chat, ec.data.video, ee, 'Nih.mp4', 'To Sticker', '.s', fakes, adReply)
             break
             case 'gore':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let fb = await fetch(`https://api.neoxr.my.id/api/gore?q=${one}&apikey=5VC9rvNx`)
         let fc = await fb.json()
     let fe = `${fc.data.title}
@@ -240,7 +235,6 @@ case 'slice':
             conn.sendButtonImg(m.chat, gc.data[0].url, gc.data[0].type, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'igstalk':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let hb = await fetch(`https://api.neoxr.my.id/api/igstalk?username=${one}&apikey=5VC9rvNx`)
         let hc = await hb.json()
     let he = `${hc.data.about}
@@ -267,7 +261,6 @@ ${hc.data.username}
             conn.sendButtonImg(m.chat, jc.data.url, author, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
             break
             case 'mediafire':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let kb = await fetch(`https://api.neoxr.my.id/api/mediafire?url=${one}&apikey=5VC9rvNx`)
         let kc = await kb.json()
     let ke = `${kc.data.extension}
@@ -286,7 +279,6 @@ ${kc.data.uploaded}
             conn.sendButtonVid(m.chat, lc.data.url, lc.data.type, 'Nih', 'Get', '.get ' + lc.data.link, fakes, adReply)
             break
             case 'pinterest':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let mb = await fetch(`https://api.neoxr.my.id/api/pinterest?q=${one}&apikey=5VC9rvNx`)
         let mc = await mb.json()
     let md = mc.data
@@ -303,7 +295,6 @@ ${kc.data.uploaded}
 	return conn.sendListM(m.chat, mf, me, m)
             break
             case 'podcast':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let nb = await fetch(`https://api.neoxr.my.id/api/podcast?url=${one}&apikey=5VC9rvNx`)
         let nc = await nb.json()
     let ne = `${nc.data.audio}
@@ -314,7 +305,6 @@ ${nc.data.title}
 	conn.sendButtonVid(m.chat, giflogo, ne, 'Nih', 'Get', '.get ' + nc.data.audio, fakes, adReply)
             break
             case 'rexdlget':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let ob = await fetch(`https://api.neoxr.my.id/api/rexdl-get?url=${one}&apikey=5VC9rvNx`)
         let oc = await ob.json()
     let oe = `${oc.name}
@@ -331,7 +321,6 @@ ${oc.data.url}
             break
             
             case 'rexdl':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let pb = await fetch(`https://api.neoxr.my.id/api/rexdl?q=${one}&apikey=5VC9rvNx`)
         let pc = await pb.json()
     let pd = pc.data
@@ -349,13 +338,11 @@ ${oc.data.url}
             break
             
             case 'shorten':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let qb = await fetch(`https://api.neoxr.my.id/api/shorten?url=${one}&apikey=5VC9rvNx`)
         let qc = await qb.json()
         m.reply('Result: ' + qc.data.url)
                 break
                 case 'soundclouds':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let rb = await fetch(`https://api.neoxr.my.id/api/soundcloud-search?q=${one}&apikey=5VC9rvNx`)
         let rc = await rb.json()
     let rd = rc.data
@@ -373,7 +360,6 @@ ${oc.data.url}
             break
             
             case 'soundcloud':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let sb = await fetch(`https://api.neoxr.my.id/api/soundcloud?url=${one}&apikey=5VC9rvNx`)
         let sc = await sb.json()
     let se = `${sc.data.imageURL}
@@ -412,7 +398,6 @@ ${sc.data.author.verified}`
             break
             
             case 'sticker':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let vb = await fetch(`https://api.neoxr.my.id/api/sticker?q=${one}&apikey=5VC9rvNx`)
         let vc = await vb.json()
     let vd = vc.data
@@ -430,7 +415,6 @@ ${sc.data.author.verified}`
             break
             
             case 'stickerget':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let wb = await fetch(`https://api.neoxr.my.id/api/sticker-get?url=${one}&apikey=5VC9rvNx`)
         let wc = await wb.json()
     let wd = wc.data
@@ -448,7 +432,6 @@ ${sc.data.author.verified}`
             break
             
             case 'swiki':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let xb = await fetch(`https://api.neoxr.my.id/api/swiki?q=${one}&apikey=5VC9rvNx`)
         let xc = await xb.json()
     let xd = xc.data
@@ -465,7 +448,6 @@ ${sc.data.author.verified}`
 	return conn.sendListM(m.chat, xf, xe, m)
             break
             case 'swikiget':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let yb = await fetch(`https://api.neoxr.my.id/api/swiki-get?url=${one}&apikey=5VC9rvNx`)
         let yc = await yb.json()
     let yd = yc.data
@@ -483,7 +465,6 @@ ${sc.data.author.verified}`
             break
             
             case 'telesticker':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let zb = await fetch(`https://api.neoxr.my.id/api/telesticker?url=${one}&apikey=5VC9rvNx`)
         let zc = await zb.json()
     let zd = zc.data
@@ -501,7 +482,6 @@ ${sc.data.author.verified}`
             break
             
             case 'tiktok':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Ab = await fetch(`https://api.neoxr.my.id/api/tiktok?url=${one}&apikey=5VC9rvNx`)
         let Ac = await Ab.json()
     let Ae = `${Ac.data.author}
@@ -510,7 +490,6 @@ ${Ac.data.caption}`
             break
             
             case 'tiktokfull':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Bb = await fetch(`https://api.neoxr.my.id/api/tiktokfull?url=${one}&apikey=5VC9rvNx`)
         let Bc = await Bb.json()
     let Be = `${Bc.data.commentCount}
@@ -572,7 +551,6 @@ ${Bc.downloads[2].url}`
 	conn.send2ButtonVid(m.chat, Bc.downloads.url, Be, 'Nih', 'No WM', '.get ' + Bc.downloads[1].url, 'MP3', '.get ' + Bc.downloads[2].url, fakes, adReply)
             break
             case 'twitter':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Cb = await fetch(`https://api.neoxr.my.id/api/twitter?url=${one}&apikey=5VC9rvNx`)
         let Cc = await Cb.json()
     let Ce = `${Cb.author}
@@ -586,14 +564,12 @@ ${Cb.data[0].url}`
             break
             
             case 'urban':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Db = await fetch(`https://api.neoxr.my.id/api/urban?q=${one}&apikey=5VC9rvNx`)
         let Dc = await Db.json()
         m.reply('Result:\n' + Dc.data.content + '\n' + Dc.data.author)
                 break
                 
                 case 'wallpaper':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Eb = await fetch(`https://api.neoxr.my.id/api/wallpaper?q=${one}&apikey=5VC9rvNx`)
         let Ec = await Eb.json()
     let Ed = Ec.data
@@ -610,7 +586,6 @@ ${Cb.data[0].url}`
 	return conn.sendListM(m.chat, Ef, Ee, m)
             break
             case 'wallpaper2':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
         let Fb = await fetch(`https://api.neoxr.my.id/api/wallpaper2?q=${one}&apikey=5VC9rvNx`)
         let Fc = await Fb.json()
     let Fd = Fc.data
@@ -648,9 +623,9 @@ ${Gd.similarity}`
             break
             
 }
-} catch {
-throw eror
 }
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['neo <command> <teks>']

@@ -24,33 +24,68 @@ ${usedPrefix + command} img |wibu
 *List:*
 
 • img
+> akira
+> ass
+> asuna
+> blowjob
+> cum
+> foot
+> hentai
+> hinata
+> husbu
+> loli
+> meme
+> islamic
+
 • vid
+> asupan
+> jjanime
+> jjfreefire
+> jjml
+> jjpubg
+> ptl
+> hentai
+> hinata
+> husbu
+> loli
+
 • txt
+> asmaulhusna
+> bijak
+> fakta
+> motivasi
+> quotes
+
 • tpro
+> blood
+> cloud
+> demon
+> devil
+> firework
+> galaxy
+> glitch
+> glitter
+> glow
+> graffiti
+> greenneon
+> lava
+> magma
+> neon
+> newyear2022
+> skeleton
+> thunder2
+> thunder
+> toxic
 `
 await conn.sendButtonImg(m.chat, logo, caption, author, 'M E N U', '.menu', fpayment, adReply)
             }
+            else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' oceansea |namaku'
             
+try {
 if (command) {
 switch (template) {
         
             case 'img':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query
-            
-            *L I S T*
-• akira
-• ass
-• asuna
-• blowjob
-• cum
-• foot
-• hentai
-• hinata
-• husbu
-• loli
-• meme
-• islamic
-            `
         let ix = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
         let ixn = await ix.json()
         let ixnnn = `*Result:*\n${ixn.image}`
@@ -61,35 +96,12 @@ switch (template) {
         }
             break
             case 'vid':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query
-            
-            *L I S T*
-• asupan
-• jjanime
-• jjfreefire
-• jjml
-• jjpubg
-• ptl
-• hentai
-• hinata
-• husbu
-• loli
-            `
         let vx = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
         let vxn = await vx.json()
         let vxnnn = `*Result:*\n${vxn.video}`
         await conn.sendButtonImg(m.chat, vxn.video, vxnnn, author, 'To Sticker', '.s', fpayment, adReply)
             break
             case 'txt':
-            if (!one) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query
-            
-            *L I S T*
-• asmaulhusna
-• bijak
-• fakta
-• motivasi
-• quotes
-            `
         let tx = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
         let txn = await tx.json()
         let txnn = `*Result:*\n${txn.result}`
@@ -104,35 +116,15 @@ switch (template) {
         }
             break
             case 'tpro':
-            if (!one || !two) throw `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query|query
-            
-            *L I S T*
-• blood
-• cloud
-• demon
-• devil
-• firework
-• galaxy
-• glitch
-• glitter
-• glow
-• graffiti
-• greenneon
-• lava
-• magma
-• neon
-• newyear2022
-• skeleton
-• thunder2
-• thunder
-• toxic
-            `
         let vpx = `https://api-kaysa.herokuapp.com/api/textpro/${one}?text=${two}&apikey=ltQh6BQN`
         let vpnn = `*Result:*\n`
         await conn.sendButtonImg(m.chat, vpx, vpnn, author, 'To Sticker', '.s', fpayment, adReply)
             break
             
 }
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['kay <command> <teks>']

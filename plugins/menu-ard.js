@@ -24,7 +24,6 @@ let handler = async(m, {
 	let one = urut[1]
 	let two = urut[2]
 	let three = urut[3]
-	let penggunaan = `Contoh penggunaan ${usedPrefix + command} ${args[0]} |query`
 	let template = (args[0] || '').toLowerCase()
 	if(!args[0]) {
 		let caption = `*Contoh Penggunaan Single*
@@ -69,6 +68,9 @@ ${usedPrefix + command} pinterest |wibu
 `
 		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
+	else if (!one) throw 'Masukkan Text/Url\nContoh: ' + usedPrefix + command + ' wiki |namaku'
+            
+try {
 	if(command) {
 			switch(template) {
 				case 'lirik':
@@ -121,7 +123,6 @@ ${usedPrefix + command} pinterest |wibu
 				conn.sendButtonImg(m.chat, cc.map, ccc, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'kuso':
-				if(!one) throw penggunaan
 				let db = await fetch(`https://ardhixsquerpants.herokuapp.com/api/kuso?q=${one}`)
 				let dc = await db.json()
 				let dcc = `info: ${dc.info}
@@ -152,7 +153,6 @@ ${usedPrefix + command} pinterest |wibu
 				conn.sendButtonImg(m.chat, fb, fe, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'yasin':
-				if(!one) throw penggunaan
 				let ege = await q.download()
   let ege_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let _ege = await (ege_ ? uploadImage : uploadFile)(ege)
@@ -162,7 +162,6 @@ ${usedPrefix + command} pinterest |wibu
 				break
 			case 'news':
 			case 'newskompas':
-				if(!one) throw penggunaan
 				let ehe = await q.download()
   let ehe_ = /image\/(png|jpe?g|gif)|video\/mp4/.test(mime)
   let _ehe = await (ehe_ ? uploadImage : uploadFile)(ehe)
@@ -173,13 +172,11 @@ ${usedPrefix + command} pinterest |wibu
 			case 'sertialien':
 			case 'sertiharryp':
 			case 'sertiml':
-				if(!one) throw penggunaan
 				let ib = `https://ardhixsquerpants.herokuapp.com/api/maker/${args[0]}?text=${one}`
 				let ie = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, ib, ie, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
 				break
 			case 'nulis':
-				if(!one) throw penggunaan
 				let jb = `https://ardhixsquerpants.herokuapp.com/api/nulis?text=${one}`
 				let je = `Nih ${args[0]} mu`
 				conn.sendButtonImg(m.chat, jb, je, 'Nih.jpg', 'To Sticker', '.s', fakes, adReply)
@@ -217,13 +214,11 @@ ${usedPrefix + command} pinterest |wibu
 				m.reply(nc.quotes + '\n' + nc.author)
 				break
 			case 'spamcall':
-				if(!one) throw penggunaan
 				let ob = await fetch(`https://ardhixsquerpants.herokuapp.com/api/spamcall?no=${one}`)
 				let oc = await ob.json()
 				m.reply(oc.logs)
 				break
 			case 'wiki':
-				if(!one) throw penggunaan
 				let pb = await fetch(`https://ardhixsquerpants.herokuapp.com/api/wiki?q=${one}`)
 				let pc = await pb.json()
 				m.reply(pc.result)
@@ -233,12 +228,14 @@ ${usedPrefix + command} pinterest |wibu
 			case 'hilih':
 			case 'holoh':
 			case 'huluh':
-				if(!one) throw penggunaan
 				let qb = await fetch(`https://ardhixsquerpants.herokuapp.com/api/vokal/${args[0]}?text=${one}`)
 				let qc = await qb.json()
 				m.reply(qc.result)
 				break
 		}
+}
+} catch (e) {
+throw eror
 }
 }
 handler.help = ['ard <command> <teks>']
