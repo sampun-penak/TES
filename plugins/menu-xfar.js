@@ -23,7 +23,7 @@ let urut = text.split`|`
   let three = urut[3]
   
 let template = (args[0] || '').toLowerCase()
-if (!args[0]) {
+if (!args[0] || !one) {
 let caption = `*Contoh Penggunaan Single*
 ${usedPrefix + command} cecan
 
@@ -85,7 +85,7 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} whatmusic
 • ${usedPrefix + command} youtube
 `
-await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+await conn.sendButtonVid(m.chat, logo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
             }
             
 try {

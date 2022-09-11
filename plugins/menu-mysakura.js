@@ -12,7 +12,7 @@ import fs from "fs"
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 
 let template = (args[0] || '').toLowerCase()
-if (!args[0]) {
+if (!args[0] || !one) {
 let caption = `*Contoh Penggunaan*
 
 ${usedPrefix + command} attp teks
@@ -85,7 +85,7 @@ ${usedPrefix + command} attp teks
 • ${usedPrefix + command} yeet
 • ${usedPrefix + command} yuri
 `
-await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+await conn.sendButtonVid(m.chat, logo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
             
 try {

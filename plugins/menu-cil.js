@@ -24,7 +24,7 @@ let handler = async(m, {
 	let two = urut[2]
 	let three = urut[3]
 	let template = (args[0] || '').toLowerCase()
-	if(!args[0]) {
+	if (!args[0] || !one) {
 		let caption = `*Contoh Penggunaan Single*
 ${usedPrefix + command} cecan
 
@@ -109,7 +109,7 @@ ${usedPrefix + command} pinterest |wibu
 • ${usedPrefix + command} webpflip2
 • ${usedPrefix + command} webpflip3
 `
-		await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+		await conn.sendButtonVid(m.chat, logo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
 	
 try {

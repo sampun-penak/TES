@@ -16,7 +16,7 @@ let urut = text.split`|`
   let three = urut[3]
   
 let template = (args[0] || '').toLowerCase()
-if (!args[0]) {
+if (!args[0] || !one) {
 let caption = `
 *Contoh Penggunaan Multi*
 ${usedPrefix + command} img |wibu
@@ -77,7 +77,7 @@ ${usedPrefix + command} img |wibu
 > thunder
 > toxic
 `
-await conn.sendButtonVid(m.chat, giflogo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
+await conn.sendButtonVid(m.chat, logo, caption, 'Nih.mp4', 'Back', '.menulist', fakes, adReply)
 	}
             
 try {
