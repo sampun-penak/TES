@@ -275,8 +275,8 @@ if (command == 'karakter') {
   let json = await res.json()
   let kar = json.results
   let row = Object.values(kar).map((v, index) => ({
-		title: '💬 ' + v.name,
-		description: '\n💭 *Nickname* ' + v.alternative_names + '\n🔗 *Link* ' + v.url + '\n👤 *Character Type* ' + v.type + '\n*Image* ' + v.image_url,
+		title: ++index + dmenub + ' ' + v.name,
+		description: '\n*ID* ' + v.mal_id + '\n💭 *Nickname* ' + v.alternative_names + '\n🔗 *Link* ' + v.url + '\n👤 *Character Type* ' + Object.values(v.manga).map(v => v.type) + '\n👤 *name* ' + Object.values(v.manga).map(v => v.name) + '\n👤 *mal_id* ' + Object.values(v.manga).map(v => v.mal_id) + '\n👤 *url* ' + Object.values(v.manga).map(v => v.url) + '\n*Image* ' + v.image_url,
 		rowId: usedPrefix + 'get ' + v.image_url
 	}))
 	let button = {

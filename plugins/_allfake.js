@@ -3,13 +3,16 @@ import fs from 'fs'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import knights from 'knights-canvas'
-export async function all(m) {
-	let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
-	let name = await this.getName(who)
+let handler = m => m
+handler.all = async function (m) {
+	let name = await this.getName(m.sender)
 	let sap = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann']
 	let a = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
     let b = a[Math.floor(Math.random() * a.length)]
-    let pp = await this.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+    let pp = await this.profilePictureUrl(m.sender).catch(_ => hwaifu.getRandom())
+    // jpegThumbnail
+    let situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
+    let sipp = await this.resize(pp, 300, 150)
     
 	// Begin
 		global.ucapan = ucapan()
@@ -96,10 +99,7 @@ export async function all(m) {
 	// Fake Reply
 		global.fpayment = {
 				key: {
-					remoteJid: '0@s.whatsapp.net',
-					fromMe: false,
-					id: 'BAE595C600522C9C',
-					participant: '0@s.whatsapp.net'
+					participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 				},
 				message: {
 					requestPaymentMessage: {
@@ -122,7 +122,7 @@ export async function all(m) {
 			}
 			global.fpoll = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				pollCreationMessage: {
@@ -132,7 +132,7 @@ export async function all(m) {
 		}
 		global.ftroli = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				orderMessage: {
@@ -147,21 +147,21 @@ export async function all(m) {
 		}
 		global.fkontak = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				contactMessage: {
 					displayName: author,
 					vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${author},;;;\nFN:${author},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg'),
-					thumbnail: fs.readFileSync('./thumbnail.jpg'),
+					jpegThumbnail: sipp,
+					thumbnail: sipp,
 					sendEphemeral: true
 				}
 			}
 		}
 		global.fvn = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				audioMessage: {
@@ -173,7 +173,7 @@ export async function all(m) {
 		}
 		global.fvid = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				videoMessage: {
@@ -181,56 +181,56 @@ export async function all(m) {
 					h: 'Hmm',
 					seconds: fsizedoc,
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.ftextt = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				extendedTextMessage: {
 					text: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					title: botdate,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fliveLoc = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				liveLocationMessage: {
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					h: botdate,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fliveLoc2 = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				liveLocationMessage: {
 					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					h: botdate,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.ftoko = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				productMessage: {
 					product: {
 						productImage: {
 							mimetype: 'image/jpeg',
-							jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+							jpegThumbnail: sipp
 						},
 						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 						description: botdate,
@@ -245,18 +245,18 @@ export async function all(m) {
 		}
 		global.fdocs = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				documentMessage: {
 					title: author,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fgclink = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				groupInviteMessage: {
@@ -264,13 +264,13 @@ export async function all(m) {
 					inviteCode: sgc,
 					groupName: author,
 					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fgif = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				videoMessage: {
@@ -279,13 +279,13 @@ export async function all(m) {
 					seconds: fsizedoc,
 					gifPlayback: true,
 					caption: botdate,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fimg = {
 			key: {
-				participant: '0@s.whatsapp.net'
+				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				imageMessage: {
@@ -294,13 +294,13 @@ export async function all(m) {
 					fileLength: fsizedoc,
 					height: 306,
 					width: 366,
-					jpegThumbnail: fs.readFileSync('./thumbnail.jpg')
+					jpegThumbnail: sipp
 				}
 			}
 		}
 		global.fimgv = {
 				key: {
-					participant: '0@s.whatsapp.net'
+					participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 				},
 				message: {
 					imageMessage: {
@@ -309,7 +309,7 @@ export async function all(m) {
 						fileLength: fsizedoc,
 						height: 306,
 						width: 366,
-						jpegThumbnail: fs.readFileSync('./thumbnail.jpg'),
+						jpegThumbnail: sipp,
 						viewOnce: true
 					}
 				}
@@ -327,8 +327,6 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
-	// jpegThumbnail
-		let situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
 	// Global Fake
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
@@ -336,6 +334,7 @@ export async function all(m) {
 		global.tumhiho = situm
 	// Ends
 }
+export default handler
 
 function ucapan() {
 	const time = moment.tz('Asia/Jakarta').format('HH')
