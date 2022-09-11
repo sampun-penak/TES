@@ -286,7 +286,7 @@ const listMessage = {
   buttonText: `☂️ Tema Disini ☂️`,
   sections
 }
-conn.sendMessage(m.chat, listMessage, fdoc)
+conn.sendMessage(m.chat, listMessage, { quoted: fakes })
 }
 
 if (args[0] == 'asupan') {

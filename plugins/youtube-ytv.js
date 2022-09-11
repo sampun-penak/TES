@@ -6,9 +6,8 @@ let handler = async (m, { conn, groupMetadata, usedPrefix, text, args, command, 
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-
+if (!args || !args[0]) throw 'Uhm... urlnya mana?'
 try {
-  if (!args || !args[0]) throw 'Uhm... urlnya mana?'
   let chat = global.db.data.chats[m.chat]
   const isY = /y(es)/gi.test(args[1])
   const { thumbnail, video: _video, title} = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
@@ -62,7 +61,6 @@ try {
   })
   } catch {
   try {
-if (!text) throw '*Masukkan link*\n Example: https://www.youtube.com/watch?v=eZskFo64rs8'
 let res = await axios('https://violetics.pw/api/downloader/youtube?apikey=beta&url=' + text)
 let json = res.data
 let dapet = json.result.url
