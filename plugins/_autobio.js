@@ -1,6 +1,8 @@
 let handler = m => m
 handler.all = async function (m) {
 	let setting = global.db.data.settings[this.user.jid]
+	let chat = global.db.data.chats[m.chat]
+	if (chat.autoBio) {
 	if (new Date() * 1 - setting.status > 1000) {
 		let _uptime = process.uptime() * 1000
 		let uptime = clockString(_uptime);
@@ -10,6 +12,7 @@ handler.all = async function (m) {
 	}
 }
 
+}
 export default handler
 function clockString(ms) {
   let d = isNaN(ms) ? '--' : Math.floor(ms / 86400000)

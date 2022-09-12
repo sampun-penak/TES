@@ -30,6 +30,7 @@ let name = await conn.getName(who)
 "Auto UpAnime",
 "Auto UpNews",
 "Auto Vn",
+"Auto Bio",
 "Get Msg",
 "BcJoin",
 "Detect",
@@ -69,6 +70,7 @@ let idop = ["anticall",
 "autoupnews",
 "autoupnime",
 "autovn",
+"autobio",
 "getmsg",
 "bcjoin",
 "detect",
@@ -108,6 +110,7 @@ let desop = ["Memblokir user jika menelpon bot",
 "Bot Otomatis UpAnime",
 "Bot Otomatis UpNews",
 "Bot Otomatis Vn",
+"Bot Otomatis Bio",
 "Bot Otomatis Kirim Msg",
 "BcJoin",
 "Detect",
@@ -450,6 +453,13 @@ let row = Object.keys(namop, desop, idop).map((v, index) => ({
         throw false
       }
       global.opts['autoread'] = isEnable
+      break
+      case 'autobio':
+        if (!isROwner) {
+          global.dfail('rowner', m, conn)
+          throw false
+        }
+      chat.autoBio = isEnable
       break
     case 'pconly':
     case 'privateonly':

@@ -24,20 +24,7 @@ let caption = `*Last Up:* ${x.time_last_update_utc}
 *Result:* ${x.conversion_result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix}${command} ${text}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'ipcountry') {
@@ -49,20 +36,7 @@ let caption = `*Title:* ${x.country}
 *Ip:* ${x.ip}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix}${command} ${text}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'mediafiredl') {
@@ -72,25 +46,11 @@ let f = await fetch(`https://kannxapi.herokuapp.com/api/mediafire?url=${args[0]}
 let c = await f.json()
 let x = c.result
 let caption = `*Title:* ${x.title}
-*Url:* ${x.url}
+*Url:* ${x.link}
 *Size:* ${x.size}
 `
-await conn.sendButton(m.chat, caption, wm, null, [
-                ['Get', `${usedPrefix}get ${x.link}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+m.reply(caption)
+await conn.sendFile(m.chat, x.link, x.title, '', m, null, { asDocument: true })
 }
 
 if (command == 'emojimix3') {
@@ -115,20 +75,7 @@ let x = await f.json()
 let caption = `*Hasil:* ${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'gqr') {
@@ -136,20 +83,7 @@ let img = `https://levanter.up.railway.app/gqr?text==${text}`
 let caption = `*Hasil:*`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'jamdunia') {
@@ -168,20 +102,7 @@ let v = xx.result
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Menu!', `${usedPrefix}menu`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'mvsearch') {
@@ -203,20 +124,7 @@ let caption = `*Title:* ${x.Title}
 `
 await conn.sendButton(m.chat, caption, wm, x.Poster, [
                 ['Next', `${usedPrefix}mvsearch2 ${x.Title}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'mvsearch2') {
@@ -230,20 +138,7 @@ let caption = `*Title:* ${x.results[0].original_title}
 `
 await conn.sendButton(m.chat, caption, wm, 'https://image.tmdb.org/t/p/w500/' + x.poster_path, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'lmaker') {
@@ -274,20 +169,7 @@ Usage: .lmaker master|3|Haloo
   await conn.sendButton(m.chat, caption, wm, images, [
                 ['Next', `${usedPrefix + command}`],
                 ['Menu', `${usedPrefix}menu`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
           
 if (command == 'truth2') {
@@ -296,20 +178,7 @@ let x = await f.json()
 let caption = `🤠 ${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'dare2') {
@@ -318,20 +187,7 @@ let x = await f.json()
 let caption = `🤠 ${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'quotes') {
@@ -342,20 +198,7 @@ let caption = `${x.quotes}
 🤠 ${x.author}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'fakta') {
@@ -364,20 +207,7 @@ let x = await f.json()
 let caption = `*Fakta:* ${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'bijak') {
@@ -386,20 +216,7 @@ let x = await f.json()
 let caption = `${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'ptl') {
@@ -419,20 +236,7 @@ Category: ${x.data[0].category}
 Upload: ${x.data[0].created_at}`
 await conn.sendButton(m.chat, caption, wm, x.data[0].path, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'motivasi') {
@@ -441,20 +245,7 @@ let x = await f.json()
 let caption = `${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'iplookup') {
@@ -478,20 +269,7 @@ as: ${x.as}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'ssweb2') {
@@ -509,20 +287,7 @@ let caption = `Result: ${args[0]}`
 let img = `https://hadi-api.herokuapp.com/api/ssweb?url=${args[0]}&device=${args[1]}&full=${args[2]}`
 await conn.sendButton(m.chat, caption, wm, img, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'tinyurl') {
@@ -532,20 +297,7 @@ let x = await f.json()
 let caption = `${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'bitly') {
@@ -555,20 +307,7 @@ let x = await f.json()
 let caption = `${x.result}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
 }
 
 if (command == 'imgs') {
@@ -658,20 +397,7 @@ Opsi Tersedia:
 let x = await pe.json()
   await conn.sendButton(m.chat, `*Nih*`, wm, x.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            ], fakes, adReply)
             break
         default:
             throw er
