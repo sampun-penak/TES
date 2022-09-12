@@ -6,8 +6,8 @@ export async function all(m) {
     if (chat.antiSpam) {
     if (m.sender in this.spam) {
         this.spam[m.sender].count++
-        if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 10) {
-            if (this.spam[m.sender].count > 10) {
+        if (m.messageTimestamp.toNumber() - this.spam[m.sender].lastspam > 5) {
+            if (this.spam[m.sender].count > 5) {
                global.db.data.users[m.sender].banned = true
                 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
     let caption = `👋 Banned *@${who.split("@")[0]}* Jangan spam!`

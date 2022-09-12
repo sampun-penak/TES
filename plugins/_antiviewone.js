@@ -1,10 +1,10 @@
 let { downloadContentFromMessage } = (await import('@adiwajshing/baileys'));
 import fetch from 'node-fetch'
 
-export async function before(m, { isAdmin, isBotAdmin }) {
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
-let name = await conn.getName(who)
+export async function before(m) {
+let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? this.user.jid : m.sender
+let pp = await this.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
+let name = await this.getName(who)
  
 let chat = global.db.data.chats[m.chat]
     if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
@@ -18,30 +18,10 @@ let chat = global.db.data.chats[m.chat]
             buffer = Buffer.concat([buffer, chunk])
         }
         if (/video/.test(type)) {
-            return this.sendFile(m.chat, buffer, ucapan, msg[type].caption || '', m, null, { fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            return this.sendFile(m.chat, buffer, author, msg[type].caption || '', m, null, fakefb)
             
         } else if (/image/.test(type)) {
-            return this.sendFile(m.chat, buffer, ucapan, msg[type].caption || '', m, null, { fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+            return this.sendFile(m.chat, buffer, author, msg[type].caption || '', m, null, fakefb)
         }
     }
 }
