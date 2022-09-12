@@ -23,7 +23,7 @@ export async function all(m) {
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
 		// Fake Random
-		let pft = [global.fpoll, global.fimg, global.fimgv, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.fliveLoc2, global.ftoko, global.fdocs, global.fgclink, global.fgif]
+		let pft = [global.fpoll, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.ftoko, global.fdocs, global.fgif]
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
 	try {
 	// Begin
@@ -221,18 +221,6 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fliveLoc2 = {
-			key: {
-				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
-			},
-			message: {
-				liveLocationMessage: {
-					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					h: botdate,
-					jpegThumbnail: sipp
-				}
-			}
-		}
 		global.ftoko = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
@@ -266,20 +254,6 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fgclink = {
-			key: {
-				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
-			},
-			message: {
-				groupInviteMessage: {
-					groupJid: '17608914335-1625305606@g.us',
-					inviteCode: sgc,
-					groupName: author,
-					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
-					jpegThumbnail: sipp
-				}
-			}
-		}
 		global.fgif = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
@@ -295,37 +269,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fimg = {
-			key: {
-				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
-			},
-			message: {
-				imageMessage: {
-					url: logo,
-					mimetype: 'image/jpeg',
-					fileLength: fsizedoc,
-					height: 306,
-					width: 366,
-					jpegThumbnail: sipp
-				}
-			}
-		}
-		global.fimgv = {
-				key: {
-					participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
-				},
-				message: {
-					imageMessage: {
-						url: logo,
-						mimetype: 'image/jpeg',
-						fileLength: fsizedoc,
-						height: 306,
-						width: 366,
-						jpegThumbnail: sipp,
-						viewOnce: true
-					}
-				}
-			}
+		
 	// Global Fake
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
