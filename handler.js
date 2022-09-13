@@ -1311,9 +1311,10 @@ export async function participantsUpdate({ id, participants, action }) {
     let weld = `https://malesin.xyz/welcome3?username=${await this.getName(user)}&profile=${pp}`
     let byea = `https://malesin.xyz/goodbye2?username=${await this.getName(user)}&groupname=${await this.getName(id)}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`
     let byeb = `https://malesin.xyz/goodbye3?username=${await this.getName(user)}&profile=${pp}`
-    let welran = [wela, welb, welc, weld].getRandom()
-    let byeran = [byea, welb, byeb].getRandom()
-    
+    let reswel = [wela, welb, welc, weld].getRandom()
+    let resbye = [byea, welb, byeb].getRandom()
+    let welran = await this.resize(reswel, 300, 150)
+    let byeran = await this.resize(resbye, 300, 150)
     
       let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5", "ke6", "ke7", "ke8", "ke9"]
 let pilih = pusat.getRandom()
@@ -1346,12 +1347,12 @@ if (pilih == "ke8") {
 		}
 	}, {
 		quickReplyButton: {
-			displayText: em.getRandom() + ' All Menu',
+			displayText: emojis.getRandom() + ' All Menu',
 			id: '/allmenu'
 		}
 	}, {
 		quickReplyButton: {
-			displayText: em.getRandom() + ' List Menu',
+			displayText: emojis.getRandom() + ' List Menu',
 			id: '/menulist'
 		}
 	}]
