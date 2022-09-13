@@ -66,10 +66,12 @@ await this.reply(nomorown + '@s.whatsapp.net', `Ada Yang Mau Nyulik nih :v \n\nd
             key: m.key
           }})
         }
+        
+    // ketika ada yang kirim anu
     
     // bot
     if (/^(aktif|w(ey|oi)|bot|ha[iy]|we|oy|p)$/i.test(m.text)) {
-    let apsih = ["Kenapa dah",
+    let apsih = ["Kenapa",
 "Ada apa",
 "Naon meng",
 "Iya, bot disini",
