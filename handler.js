@@ -1283,6 +1283,7 @@ export async function participantsUpdate({ id, participants, action }) {
                             (chat.sBye || this.bye || conn.bye || '👋 Bye, @user!')).replace('@user', await this.getName(user))
                             
   let names = await this.getName(user)
+  let namesg = await this.getName(id)
   let gettext = await fetch('https://raw.githubusercontent.com/fawwaz37/random/main/bijak.txt')
   let restext = await gettext.text()
   let katarandom = restext.split('\n')
@@ -1293,8 +1294,8 @@ export async function participantsUpdate({ id, participants, action }) {
   let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
   let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
   let welbuf = await new knights.Welcome()
-    .setUsername(await this.getName(user))
-    .setGuildName(await this.getName(id))
+    .setUsername(names)
+    .setGuildName(namesg)
     .setGuildIcon(ppgc)
     .setMemberCount(user.length)
     .setAvatar(pp)
@@ -1303,16 +1304,16 @@ export async function participantsUpdate({ id, participants, action }) {
     let wela = welbuf.toBuffer()
     let byebuf = await new knights.Welcome2()
     .setAvatar(pp)
-    .setUsername(await this.getName(user))
+    .setUsername(names)
     .setBg(thumbnailUrl.getRandom())
-    .setGroupname(await this.getName(id))
+    .setGroupname(namesg)
     .setMember(user.length) 
     .toAttachment();
     let welb = byebuf.toBuffer()
-    let welc = await( await fetch(`https://malesin.xyz/welcome2?username=${await this.getName(user)}&groupname=${await this.getName(id)}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`)).buffer()
-    let weld = await( await fetch(`https://malesin.xyz/welcome3?username=${await this.getName(user)}&profile=${pp}`)).buffer()
-    let byea = await( await fetch(`https://malesin.xyz/goodbye2?username=${await this.getName(user)}&groupname=${await this.getName(id)}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`)).buffer()
-    let byeb = await( await fetch(`https://malesin.xyz/goodbye3?username=${await this.getName(user)}&profile=${pp}`)).buffer()
+    let welc = `https://malesin.xyz/welcome2?username=${names}&groupname=${namesg}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`
+    let weld = `https://malesin.xyz/welcome3?username=${names}&profile=${pp}`
+    let byea = `https://malesin.xyz/goodbye2?username=${names}&groupname=${namesg}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`
+    let byeb = `https://malesin.xyz/goodbye3?username=${names}&profile=${pp}`
     let welran = [wela, welb, welc, weld].getRandom()
     let byeran = [byea, byeb].getRandom()
     
