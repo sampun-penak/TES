@@ -7,7 +7,6 @@ let pp = await this.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await this.getName(who)
  
 let chat = global.db.data.chats[m.chat]
-    if (/^[.~#/\$,](read)?viewonce/.test(m.text)) return
     if (!chat.viewonce || chat.isBanned) return
     if (m.mtype == 'viewOnceMessage') {
         let msg = m.message.viewOnceMessage.message
