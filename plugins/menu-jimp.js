@@ -5,6 +5,7 @@ import { webp2png } from '../lib/webp2mp4.js'
 import { Sticker, StickerTypes } from 'wa-sticker-formatter'
 import fetch from 'node-fetch'
 import Jimp from 'jimp'
+import TinyColor from 'tinycolor2'
 
 let handler = async (m, { conn, args, text }) => {
 let a_ = m.quoted ? m.quoted : m
@@ -61,6 +62,12 @@ if (args[0] == 'color') {
 }
 if (args[0] == 'flip') {
   	let hoih = await flip(link)
+  conn.sendFile(m.chat, hoih, 'thumbnail.jpg', `
+*${htki} Result ${htka}*
+`, m)
+}
+if (args[0] == 'flip2') {
+  	let hoih = await flip2(link)
   conn.sendFile(m.chat, hoih, 'thumbnail.jpg', `
 *${htki} Result ${htka}*
 `, m)
@@ -144,7 +151,13 @@ if (args[0] == 'hasAlpha') {
 `, m)
 }
 if (args[0] == 'mirror') {
-  	let hoih = await mirror(link, args[1], args[2])
+  	let hoih = await mirror(link)
+  conn.sendFile(m.chat, hoih, 'thumbnail.jpg', `
+*${htki} Result ${htka}*
+`, m)
+}
+if (args[0] == 'mirror2') {
+  	let hoih = await mirror2(link)
   conn.sendFile(m.chat, hoih, 'thumbnail.jpg', `
 *${htki} Result ${htka}*
 `, m)
@@ -177,11 +190,24 @@ if (args[0] == 'sepia') {
 handler.command = /^(hooh)$/i
 
 export default handler
+function arbitraryColorToInt (val) {
+    val = val || 0; // 0, null, undefined, NaN
+    if (typeof val === 'number') 
+        return Number(val);
+    var color = new TinyColor(val);
+    return parseInt(color.toHex8(), 16);
+}
 
 async function flip(img) {
   let imagea = await Jimp.read(img);
  let aa = await imagea.flip(false, true).getBufferAsync(Jimp.MIME_JPEG)
 return aa
+}
+
+async function flip2(img) {
+  let imagea2 = await Jimp.read(img);
+ let aa2 = await imagea2.flip(true, false).getBufferAsync(Jimp.MIME_JPEG)
+return aa2
 }
 
 async function blur(img, num) {
@@ -229,25 +255,25 @@ return hh
 
 async function background(img, hx) {
   let imagei = await Jimp.read(img);
- let ii = await imagei.background(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let ii = await imagei.background(arbitraryColorToInt(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return ii
 }
 
 async function brightness(img, hx) {
   let imagej = await Jimp.read(img);
- let jj = await imagej.brightness(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let jj = await imagej.brightness(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return jj
 }
 
 async function contrast(img, hx) {
   let imagek = await Jimp.read(img);
- let kk = await imagek.contrast(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let kk = await imagek.contrast(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return kk
 }
 
 async function crop(img, hx) {
   let imagel = await Jimp.read(img);
- let ll = await imagel.crop(hx, hx, hx, hx).getBufferAsync(Jimp.MIME_JPEG)
+ let ll = await imagel.crop(Number(hx), Number(hx), Number(hx), Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return ll
 }
 
@@ -259,7 +285,7 @@ return mm
 
 async function fade(img, hx) {
   let imagen = await Jimp.read(img);
- let nn = await imagen.fade(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let nn = await imagen.fade(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return nn
 }
 
@@ -275,15 +301,21 @@ async function hasAlpha(img, hx) {
 return pp
 }
 
-async function mirror(img, hx, xh) {
+async function mirror(img) {
   let imageq = await Jimp.read(img);
- let qq = await imageq.mirror(hx, xh).getBufferAsync(Jimp.MIME_JPEG)
+ let qq = await imageq.mirror(true, false).getBufferAsync(Jimp.MIME_JPEG)
 return qq
+}
+
+async function mirror2(img) {
+  let imageq2 = await Jimp.read(img);
+ let qq2 = await imageq2.mirror(false, true).getBufferAsync(Jimp.MIME_JPEG)
+return qq2
 }
 
 async function opacity(img, hx) {
   let imager = await Jimp.read(img);
- let rr = await imager.opacity(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let rr = await imager.opacity(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return rr
 }
 
@@ -295,7 +327,7 @@ return ss
 
 async function posterize(img, hx) {
   let imaget = await Jimp.read(img);
- let tt = await imaget.posterize(hx).getBufferAsync(Jimp.MIME_JPEG)
+ let tt = await imaget.posterize(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return tt
 }
 
