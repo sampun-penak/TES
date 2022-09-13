@@ -5,6 +5,7 @@ import path, { join } from 'path'
 import { unwatchFile, watchFile, readFileSync } from 'fs'
 import chalk from 'chalk'
 import fetch from 'node-fetch'
+import knights from 'knights-canvas'
 
 /**
  * @type {import('@adiwajshing/baileys')}
@@ -1291,49 +1292,75 @@ export async function participantsUpdate({ id, participants, action }) {
   let lin_ = ["https://www.youtube.com","https://www.tiktok.com","https://www.instagram.com","https://www.facebook.com"]
   let wmwel = `\n\n📮 *Welcome:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
   let wmlea = `\n\n📮 *Byee:* Jika menemukan bug, error atau kesulitan dalam penggunaan silahkan laporkan/tanyakan kepada Owner`
-  
-      let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5"]
-    let pilih = pusat.getRandom()
-    if (pilih == "ke1") {
-    let btn = [{
-                                urlButton: {
-                                    displayText: 'Source Code',
-                                    url: sgh
-                                }
-                            }, {
-                                callButton: {
-                                    displayText: 'Number Phone Owner',
-                                    phoneNumber: nomorown
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: em.getRandom() + ' All Menu',
-                                    id: '/allmenu'
-                                }
-                            }, {
-                                quickReplyButton: {
-                                    displayText: em.getRandom() + ' List Menu',
-                                    id: '/menulist'
-                                }  
-                            }, {
-                                quickReplyButton: {
-                                    displayText: 'Script',
-                                    id: '.sc'
-                                }
-                            }]
-        await conn.sendButtonGif(id, text, action == 'add' ? wmwel : wmlea, { url: global.giflogo }, btn, knimg)
-        }
-        if (pilih == "ke2") {
-        await conn.send2ButtonDoc(id, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
-        }
-        if (pilih == "ke3") {
-        await conn.send2ButtonLoc(id, knimg, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
-        }
-        if (pilih == "ke4") {
-        await conn.sendTemplateButtonLoc(id, knimg, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fpayment, adReply)
-        }
-        if (pilih == "ke5") {
-        await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fakes, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(ppgc)).buffer(), contextInfo: {
+  let wela = await new knights.Welcome()
+    .setUsername(await this.getName(user))
+    .setGuildName(await this.getName(id))
+    .setGuildIcon(ppgc)
+    .setMemberCount(user.length)
+    .setAvatar(pp)
+    .setBackground(thumbnailUrl.getRandom())
+    .toAttachment();
+    let welb = await new knights.Welcome2()
+    .setAvatar(pp)
+    .setUsername(await this.getName(user))
+    .setBg(thumbnailUrl.getRandom())
+    .setGroupname(await this.getName(id))
+    .setMember(user.length) 
+    .toAttachment();
+    let welc = `https://malesin.xyz/welcome2?username=${await this.getName(user)}&groupname=${await this.getName(id)}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`
+    let weld = `https://malesin.xyz/welcome3?username=${await this.getName(user)}&profile=${pp}`
+    let byea = `https://malesin.xyz/goodbye2?username=${await this.getName(user)}&groupname=${await this.getName(id)}&membercount=${user.length}&profile=${pp}&background=${thumbnailUrl.getRandom()}`
+    let byeb = `https://malesin.xyz/goodbye3?username=${await this.getName(user)}&profile=${pp}`
+    let welran = [wela, welb, welc, weld].getRandom()
+    let byeran = [byea, welb, byeb].getRandom()
+    
+    
+      let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5", "ke6", "ke7", "ke8", "ke9"]
+let pilih = pusat.getRandom()
+if (pilih == "ke1") {
+	await conn.send2ButtonDoc(id, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke2") {
+	await conn.send2ButtonLoc(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke3") {
+	await conn.send2ButtonImg(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke4") {
+	await conn.send2ButtonVid(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke5") {
+	await conn.sendTemplateButtonDoc(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke6") {
+	await conn.sendTemplateButtonLoc(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke7") {
+	await conn.send2TemplateButtonFakeImg(id, action == 'add' ? welran : byeran, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
+}
+if (pilih == "ke8") {
+	let btn = [{
+		urlButton: {
+			displayText: 'Chat Owner',
+			url: 'https://wa.me/' + nomorown
+		}
+	}, {
+		quickReplyButton: {
+			displayText: em.getRandom() + ' All Menu',
+			id: '/allmenu'
+		}
+	}, {
+		quickReplyButton: {
+			displayText: em.getRandom() + ' List Menu',
+			id: '/menulist'
+		}
+	}]
+	await conn.sendButtonGif(id, text, wm, {
+		url: global.giflogo
+	}, btn, action == 'add' ? welran : byeran)
+}
+if (pilih == "ke9") {
+        await conn.sendButton(id, text, action == 'add' ? wmwel : wmlea, Buffer.alloc(0), [[action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu'], [action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu']], null, { quoted: fakes, mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: tumhiho, contextInfo: {
     mentionedJid: [user],
           externalAdReply :{
           showAdAttribution: true,
@@ -1342,7 +1369,7 @@ export async function participantsUpdate({ id, participants, action }) {
     description: wm, 
     title: '👋 Hai, ' + names + ' ' + ucapan,
     body: botdate,
-    thumbnail: await( await fetch(pp)).buffer(),
+    thumbnail: await( await fetch(action == 'add' ? welran : byeran)).buffer(),
     sourceUrl: sgc
      }}
   })
