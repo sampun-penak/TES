@@ -1317,8 +1317,7 @@ export async function participantsUpdate({ id, participants, action }) {
     let welran = [wela, welb, welc, weld].getRandom()
     let byeran = [byea, byeb].getRandom()
     
-      let pusat = ["ke1", "ke2", "ke3", "ke4", "ke5", "ke6", "ke7", "ke8", "ke9"]
-let pilih = pusat.getRandom()
+      let pilih = ["ke1", "ke2", "ke3", "ke4", "ke5", "ke6", "ke7", "ke8", "ke9"].getRandom()
 if (pilih == "ke1") {
 	await conn.send2ButtonDoc(id, text, action == 'add' ? wmwel : wmlea, action == 'add' ? emojis.getRandom() + ' Selamat Datang' : emojis.getRandom() + ' Sampai Jumpa', action === 'add' ? 'tes' : 'Huuu', action == 'add' ? emojis.getRandom() + ' Menu List' : emojis.getRandom() + ' Byee \n\n' + katarandom.getRandom() + '\n\n', action === 'add' ? '/menulist' : 'Huuu', fakes, fakefb)
 }
@@ -1436,7 +1435,7 @@ Untuk mematikan fitur ini, ketik
 
 Untuk menghapus pesan yang dikirim BOT, reply pesan dengan perintah
 *.delete*`, author, '🔖 Matikan Fitur', '.disable antidelete', 'ℹ️ Menu', '.menu', msg, adReply)
-        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+        this.copyNForward(msg.chat, msg, false).catch(e => console.log(e, msg))
     } catch (e) {
         console.error(e)
     }
