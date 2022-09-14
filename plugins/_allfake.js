@@ -13,18 +13,16 @@ export async function all(m) {
     let situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
     let sipp = await this.resize(pp, 300, 300)
     // Fake Knights
-		let imagea = await new knights.Jo().setImage(pp).toBuild();
-		let dataa = imagea.toBuffer();
-		let imageb = await new knights.Patrick().setAvatar(pp).toAttachment();
-		let datab = imageb.toBuffer();
-		let imagec = await new knights.Bonk().setAvatar1(pp).setAvatar2(pp).toBuild();
-		let datac = imagec.toBuffer();
-		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
-		let datad = imaged.toBuffer();
-		let kn = [dataa, datab, datac, datad]
-		// Fake Random
-		let pft = [global.fpoll, global.fpayment, global.ftroli, global.fkontak, global.fvn, global.fvid, global.ftextt, global.fliveLoc, global.ftoko, global.fdocs, global.fgif]
+		let imagea = await new knights.Jo().setImage(pp).toBuild().toBuffer();
+		let imageb = await new knights.Patrick().setAvatar(pp).toAttachment().toBuffer();
+		let imagec = await new knights.Bonk().setAvatar1(pp).setAvatar2(pp).toBuild().toBuffer();
+		let imaged = await new knights.Burn().setAvatar(pp).toAttachment().toBuffer();
+		let kn = [imagea, imageb, imagec, imaged]
+			// Mime Random
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
+			// Fake Random
+		let pft = [global.fdocs, global.fgif, global.fkontak, global.fliveLoc, global.fpayment, global.fpoll, global.ftextt, global.ftoko, global.ftroli, global.fvid, global.fvn]
+		
 	try {
 	// Begin
 		global.ucapan = ucapan()
@@ -37,7 +35,7 @@ export async function all(m) {
 				forwardingScore: fsizedoc,
 				externalAdReply: {
 					showAdAttribution: true,
-					title: global.ucapan,
+					title: ucapan,
 					body: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
 					mediaUrl: sgc,
 					description: botdate,
@@ -269,37 +267,37 @@ export async function all(m) {
 				}
 			}
 		}
-		
-	// Global Fake
+		// Global Fake
 		global.doc = pdoc.getRandom()
 		global.fakes = pft.getRandom()
 		global.knimg = kn.getRandom()
 		global.tumhiho = situm
 	// Ends
 	} catch (e) {
+	throw 'Ada masalah'
 	}
 }
 
 function ucapan() {
-	const time = moment.tz('Asia/Jakarta').format('HH')
-	let res = 'Selamat malam 🌙'
-	if(time >= 1) {
-		res = 'Selamat Pagi 🗿'
+	let waktunya = moment.tz('Asia/Jakarta').format('HH')
+	let ucapin = 'Selamat malam 🌙'
+	if(waktunya >= 1) {
+		ucapin = 'Selamat Pagi 🗿'
 	}
-	if(time >= 4) {
-		res = 'Selamat pagi 🌄'
+	if(waktunya >= 4) {
+		ucapin = 'Selamat pagi 🌄'
 	}
-	if(time > 10) {
-		res = 'Selamat siang ☀️'
+	if(waktunya > 10) {
+		ucapin = 'Selamat siang ☀️'
 	}
-	if(time >= 15) {
-		res = 'Selamat sore 🌅'
+	if(waktunya >= 15) {
+		ucapin = 'Selamat sore 🌅'
 	}
-	if(time >= 18) {
-		res = 'Selamat malam 🌙'
+	if(waktunya >= 18) {
+		ucapin = 'Selamat malam 🌙'
 	}
-	if(time >= 24) {
-		res = 'Selamat Begadang 🗿'
+	if(waktunya >= 24) {
+		ucapin = 'Selamat Begadang 🗿'
 	}
-	return res
+	return ucapin
 }

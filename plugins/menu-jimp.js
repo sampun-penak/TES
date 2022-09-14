@@ -10,7 +10,6 @@ import TinyColor from 'tinycolor2'
 let handler = async (m, { conn, args, text }) => {
 let a_ = m.quoted ? m.quoted : m
   let b_ = (a_.msg || a_).mimetype || ''
-  if (!b_) throw 'No media found'
   let c_ = await a_.download()
   let e_ = new Sticker(c_, { pack: packname, author: author, type: StickerTypes.FULL })
   let link
@@ -48,6 +47,7 @@ let a_ = m.quoted ? m.quoted : m
 • posterize
 • sepia`
 
+if (!b_) throw 'No media found'
   if (args[0] == 'blur') {
   	let hoih = await blur(link, args[1])
   conn.sendFile(m.chat, hoih, 'thumbnail.jpg', `
