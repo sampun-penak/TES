@@ -261,13 +261,13 @@ return ii
 
 async function brightness(img, hx) {
   let imagej = await Jimp.read(img);
- let jj = await imagej.brightness(+Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
+ let jj = await imagej.brightness(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return jj
 }
 
 async function contrast(img, hx) {
   let imagek = await Jimp.read(img);
- let kk = await imagek.contrast(+Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
+ let kk = await imagek.contrast(Number(hx)).getBufferAsync(Jimp.MIME_JPEG)
 return kk
 }
 
