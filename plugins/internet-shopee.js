@@ -25,7 +25,7 @@ ${cmenua}
 
 let weem = `📮 *Note:* Jangan beli sembarangan`
 let mim_ = ["application/vnd.openxmlformats-officedocument.presentationml.presentation","application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","application/vnd.openxmlformats-officedocument.wordprocessingml.document","text/rtf"]
-    await conn.sendButton(m.chat, str, weem, Buffer.alloc(0), [['All Menu', usedPrefix + 'allmenu'], ['List Menu', usedPrefix + 'menulist']], m, { quoted: fgif,
+    await conn.sendButton(m.chat, str, weem, Buffer.alloc(0), [['All Menu', usedPrefix + 'allmenu'], ['List Menu', usedPrefix + 'menulist']], m, { quoted: fakes,
 mimetype: mim_.getRandom(), fileName: ucapan, pageCount: fpagedoc, fileLength: fsizedoc, seconds: fsizedoc, jpegThumbnail: await( await fetch(xx.result[0].image_cover)).buffer(), contextInfo: {
           externalAdReply :{
           showAdAttribution: true,

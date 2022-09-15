@@ -126,7 +126,7 @@ const listMessage = {
   buttonText: `CLICK HERE ⎙`,
   sections
 }
-  	return conn.sendMessage(m.chat, listMessage, {quoted: fgif})
+  	return conn.sendMessage(m.chat, listMessage, {quoted: fakes})
                 }
 ///AKSJDDJ
 handler.help = ['game']

@@ -85,7 +85,7 @@ const listMessage = {
                        break
 
                        default:
-                        return conn.sendMessage(m.chat, listMessage, {quoted: fgif})
+                        return conn.sendMessage(m.chat, listMessage, {quoted: fakes})
                 }
         }
     } catch (e) {

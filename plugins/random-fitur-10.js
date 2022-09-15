@@ -196,7 +196,7 @@ if (command == 'iqrax') {
 {'buttonId': '.menu','buttonText': {'displayText': `Menu`},'type': 1}
 ],
 'headerType': 6}
-    await conn.sendMessage(m.chat, buttonMessage, {quoted: fgif})
+    await conn.sendMessage(m.chat, buttonMessage, {quoted: fakes})
 		}
 		
 if (command == 'hadistx') {
@@ -251,7 +251,7 @@ if (command == 'alquranx') {
 
 ( Q.S ${res.result.data.surah.name.transliteration.id} : ${res.result.data.number.inSurah} )`
 		m.reply(txt)
-		await conn.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : fvn })
+		await conn.sendMessage(m.chat, {audio: { url: res.result.data.audio.primary }, mimetype: 'audio/mpeg'}, { quoted : fakes })
 		}
 		
 if (command == 'tafsirsurahx') {

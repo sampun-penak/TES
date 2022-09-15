@@ -10,7 +10,7 @@ const { meta, hd, sd} = await savefrom(args[0]).catch(async _ => await aiovideod
 const done = hd.url || sd.url
   conn.sendButtonVid(m.chat, done, ` *🏷️Title:* ${meta.title}
 *⌛ durasi:* ${meta.duration}
-🔗 *Url:* ${done}`, author, 'To mp3', '.tomp3', fpayment, adReply)
+🔗 *Url:* ${done}`, author, 'To mp3', '.tomp3', fakes, adReply)
 }
 handler.help = ['savefrom'].map(v => v + ' <url>')
 handler.tags = ['downloader']

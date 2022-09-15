@@ -35,7 +35,7 @@ let stiker = false
         console.error(e)
       }
     return conn.sendButtonVid(m.chat, out, `*${htki} TOMP4 ${htka}*
-*NIH UDAH JADI*`, author, 'To mp3', '.tomp3', fpayment, adReply)
+*NIH UDAH JADI*`, author, 'To mp3', '.tomp3', fakes, adReply)
 }
 //lo mau apa??
 handler.help = ['tovideo']

@@ -448,7 +448,7 @@ case 'yuri':
             break
             
 default:
-         return await conn.sendMessage(m.chat, listMessage, { quoted: fkontak, contextInfo: { mentionedJid: [m.sender] }})
+         return await conn.sendMessage(m.chat, listMessage, { quoted: fakes, contextInfo: { mentionedJid: [m.sender] }})
         }
         } else if (/hentong/i.test(command)) {
                const count = args[2] && args[2].length > 0 ? Math.min(99999999, Math.max(parseInt(args[2]), 1)) : !args[2] || args.length < 4 ? 1 :Math.min(1, count)

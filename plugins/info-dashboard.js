@@ -18,7 +18,7 @@ ${total}
 *${htjava} T I M E ${htjava}*
 ${getTime(last)}
 `}).join`\n\n`
-  conn.send2ButtonDoc(m.chat, txt, author, '🔖 Tes', 'tes', 'ℹ️ Menu', '.menu', fpayment, adReply)
+  conn.send2ButtonDoc(m.chat, txt, author, '🔖 Tes', 'tes', 'ℹ️ Menu', '.menu', fakes, adReply)
 }
 handler.help = ['dashboard']
 handler.tags = ['info']

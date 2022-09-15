@@ -41,6 +41,8 @@ Original Photo Description
 	})
 	return conn.sendList(m.chat, htki + ' 📺 Pexels Search 🔎 ' + htka, `⚡ Silakan pilih Pexels Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Pexels Search Disini ☂️`, listSections, m)
 }
+handler.help = ['pexels']
+handler.tags = ['internet']
 handler.command = /^(pexels)$/i
 
 export default handler

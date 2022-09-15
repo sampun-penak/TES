@@ -86,7 +86,7 @@ const listMessage = {
        chat.e90d = !isEnable
        break
     default:
-      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: fpayment })
+      if (!/[01]/.test(command)) return await conn.sendMessage(m.chat, listMessage, { quoted: fakes })
       throw false
   }
   
@@ -95,7 +95,7 @@ const listMessage = {
 📊 *Status:* Succes ✅
 🎚️ *Options:* ${isEnable ? 'Enable' : 'Disable'}
 📣 *For:* ${isAll ? 'This Bot' : isUser ? '' : 'This Chats'}
-`, author, `${isEnable ? '✖️ Disable' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`, '🎀 Menu', '.menu', fpayment, adReply)
+`, author, `${isEnable ? '✖️ Disable' : '✔️ Enable'}`, `${isEnable ? `.off ${type}` : `.on ${type}`}`, '🎀 Menu', '.menu', fakes, adReply)
 }
 handler.help = ['ephe'].map(v => v + ' <option>')
 handler.tags = ['group', 'owner']

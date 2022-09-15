@@ -13,6 +13,7 @@ let handler = async (m, { conn, args, usedPrefix, text, command }) => {
 	return conn.sendList(m.chat, htki + ' 📺 nightcafe Search 🔎 ' + htka, `⚡ Silakan pilih nightcafe Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ nightcafe Search Disini ☂️`, listSections, m)
     }
 handler.help = ['nightcafe']
+handler.tags = ['internet']
 handler.command = /^nightcafe$/i
 
 handler.rowner = true

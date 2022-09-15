@@ -9,7 +9,7 @@ let name = await conn.getName(who)
     let x = await res.json()
   conn.sendButtonVid(m.chat, x.result.link_dl, `*${htki} ShareChat ${htka}*
 *title:* ${x.result.title}
-    `, author, 'To mp3', '.tomp3', fpayment, adReply)
+    `, author, 'To mp3', '.tomp3', fakes, adReply)
   
 }
 handler.help = ['sharechat'].map(v => v + ' <url>')

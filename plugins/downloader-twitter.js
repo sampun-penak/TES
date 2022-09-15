@@ -12,7 +12,7 @@ try {
 	let res = await twitterDl(text)
 	for (let x = 0; x < res.media.length; x++) {
 		let caption = x === 0 ? res.caption.replace(/https:\/\/t.co\/[a-zA-Z0-9]+/gi, '').trim() : ''
-  conn.sendButtonVid(m.chat, res.media[x].url, caption, author, 'To mp3', '.tomp3', fpayment, adReply)
+  conn.sendButtonVid(m.chat, res.media[x].url, caption, author, 'To mp3', '.tomp3', fakes, adReply)
 	}
 	} catch {
 	try {
@@ -40,7 +40,7 @@ await hx.fbdown(`${text}`)
             let ten = `${G.HD}`
             conn.sendButtonVid(m.chat, ten, `*desc* : ${G.desc}
 ━━━━━•─────────────── 
-       ⇆ㅤ◁ㅤ ❚❚ㅤ ▷ㅤ↻`, author, 'To mp3', '.tomp3', fpayment, adReply)
+       ⇆ㅤ◁ㅤ ❚❚ㅤ ▷ㅤ↻`, author, 'To mp3', '.tomp3', fakes, adReply)
             })
 	}
 	

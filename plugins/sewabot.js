@@ -67,7 +67,7 @@ if (!text) throw `Teksnya?`
 	"forwardingScore": 9999,
 	"isForwarded": false
 }
-}},{quoted: ftroli})
+}},{quoted: fakes})
   
 }
 
@@ -78,7 +78,7 @@ await conn.relayMessage(m.chat,
 "message": text,
 "footerText": wm, 
 "thumbnail": Buffer.alloc(0),
-"surface": 'CATALOG' }},{quoted: ftroli})
+"surface": 'CATALOG' }},{quoted: fakes})
 }
 
 if (command == 'mengpay') {
@@ -106,7 +106,7 @@ await conn.relayMessage(m.chat,
 "footerText": wm,
 "jpegThumbnail": Buffer.alloc(0),
 "caption": 'Group: ' + text
-}},{quoted: ftroli})
+}},{quoted: fakes})
   
 }
 
@@ -127,7 +127,7 @@ if (tema == 'aud') {
 "directPath": m.quoted.directPath,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp.low,
 "jpegThumbnail": m.quoted.jpegThumbnail
-}},{quoted: ftroli})
+}},{quoted: fakes})
   
   }
   if (tema == 'vid') {
@@ -147,7 +147,7 @@ if (tema == 'aud') {
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"jpegThumbnail": m.quoted.jpegThumbnail,
 						"streamingSidecar": m.quoted.streamingSidecar
-}},{quoted: ftroli})
+}},{quoted: fakes})
     }
   if (tema == 'stick') {
  await conn.relayMessage(m.chat, 
@@ -163,7 +163,7 @@ if (tema == 'aud') {
 						"fileLength": filesize,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"isAnimated": m.quoted.isAnimated
-}},{quoted: ftroli})
+}},{quoted: fakes})
   
   }
   if (tema == 'img') {
@@ -181,7 +181,7 @@ if (tema == 'aud') {
 						"directPath": m.quoted.directPath,
 						"mediaKeyTimestamp": m.quoted.mediaKeyTimestamp,
 						"jpegThumbnail": m.quoted.jpegThumbnail
-}},{quoted: ftroli})
+}},{quoted: fakes})
   
   }
   }

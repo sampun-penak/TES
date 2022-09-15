@@ -5,14 +5,13 @@ import moment from 'moment-timezone'
 import knights from 'knights-canvas'
 export async function all(m) {
 	let name = await this.getName(m.sender)
-	let sap = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann']
-	let cur = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
-    let curr = cur.getRandom()
+	let sapa = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann'].getRandom()
+	let curr = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW'].getRandom()
     let pp
                     try {
                         pp = await this.profilePictureUrl(m.sender, 'image')
                     } catch {
-                    pp = hwaifu.getRandom()
+                    pp = logo
                     }
     // jpegThumbnail
     let _situm = await this.resize(thumbnailUrl.getRandom(), 450, 300)
@@ -27,17 +26,8 @@ export async function all(m) {
 		let datac = imagec.toBuffer();
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
-		let kn = [dataa, datab, datac, datad]
-		
-			// Mime Random
-		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
-		
-			// Fake Random
-		let pft = [global.fdocs, global.fgif, global.fkontak, global.fliveLoc, global.fpayment, global.fpoll, global.ftextt, global.ftoko, global.ftroli, global.fvid, global.fvn]
-		let _pdoc = pdoc.getRandom()
-		let _pft = pft.getRandom()
-		let _kn = kn.getRandom()
-		
+		let _kn = [dataa, datab, datac, datad].getRandom()
+
 	// Begin
 		global.ucapan = ucapkan()
 		global.ephemeral = '86400'
@@ -50,7 +40,7 @@ export async function all(m) {
 				externalAdReply: {
 					showAdAttribution: true,
 					title: author,
-					body: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					body: '👋 ' + sapa + ' Kak :> ' + name,
 					mediaUrl: sgc,
 					description: botdate,
 					previewType: 'PHOTO',
@@ -67,7 +57,7 @@ export async function all(m) {
 						mediaUrl: sig,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + sig,
-						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+						title: '👋 ' + sapa + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: sgc
@@ -82,7 +72,7 @@ export async function all(m) {
 						mediaUrl: sfb,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + sfb,
-						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+						title: '👋 ' + sapa + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: sfb
@@ -97,7 +87,7 @@ export async function all(m) {
 						mediaUrl: snh,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + snh,
-						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+						title: '👋 ' + sapa + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: snh
@@ -112,7 +102,7 @@ export async function all(m) {
 						mediaUrl: syt,
 						mediaType: 'VIDEO',
 						description: 'Follow: ' + syt,
-						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+						title: '👋 ' + sapa + ' Kak :> ' + name,
 						body: botdate,
 						thumbnailUrl: pp,
 						sourceUrl: syt
@@ -121,7 +111,7 @@ export async function all(m) {
 			}
 			
 	// Fake Reply
-		global.fpayment = {
+		let fpayment = {
 				key: {
 					participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 				},
@@ -144,7 +134,7 @@ export async function all(m) {
 					}
 				}
 			}
-			global.fpoll = {
+			let fpoll = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -154,7 +144,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.ftroli = {
+		let ftroli = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -169,7 +159,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fkontak = {
+		let fkontak = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -183,7 +173,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fvn = {
+		let fvn = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -195,7 +185,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fvid = {
+		let fvid = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -204,36 +194,36 @@ export async function all(m) {
 					title: author,
 					h: 'Hmm',
 					seconds: fsizedoc,
-					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					caption: '👋 ' + sapa + ' Kak :> ' + name,
 					jpegThumbnail: sipp
 				}
 			}
 		}
-		global.ftextt = {
+		let ftextt = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				extendedTextMessage: {
-					text: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					text: '👋 ' + sapa + ' Kak :> ' + name,
 					title: botdate,
 					jpegThumbnail: sipp
 				}
 			}
 		}
-		global.fliveLoc = {
+		let fliveLoc = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				liveLocationMessage: {
-					caption: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					caption: '👋 ' + sapa + ' Kak :> ' + name,
 					h: botdate,
 					jpegThumbnail: sipp
 				}
 			}
 		}
-		global.ftoko = {
+		let ftoko = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -244,7 +234,7 @@ export async function all(m) {
 							mimetype: 'image/jpeg',
 							jpegThumbnail: sipp
 						},
-						title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+						title: '👋 ' + sapa + ' Kak :> ' + name,
 						description: botdate,
 						currencyCode: 'IDR',
 						priceAmount1000: fsizedoc,
@@ -255,7 +245,7 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fdocs = {
+		let fdocs = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
@@ -266,13 +256,13 @@ export async function all(m) {
 				}
 			}
 		}
-		global.fgif = {
+		let fgif = {
 			key: {
 				participant: '0@s.whatsapp.net', remoteJid: 'status@broadcast'
 			},
 			message: {
 				videoMessage: {
-					title: '👋 ' + sap.getRandom() + ' Kak :> ' + name,
+					title: '👋 ' + sapa + ' Kak :> ' + name,
 					h: 'Hmm',
 					seconds: fsizedoc,
 					gifPlayback: true,
@@ -281,7 +271,8 @@ export async function all(m) {
 				}
 			}
 		}
-		
+		let _pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'].getRandom()
+		let _pft = [fdocs, fgif, fkontak, fliveLoc, fpayment, fpoll, ftextt, ftoko, ftroli, fvid, fvn].getRandom()
 		// Global Fake
 		global.doc = _pdoc
 		global.fakes = _pft

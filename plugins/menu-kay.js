@@ -88,17 +88,17 @@ switch (template) {
         let ix = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
         let ixn = await ix.json()
         let ixnnn = `*Result:*\n${ixn.image}`
-        await conn.sendButtonImg(m.chat, ixn.image, ixnnn, author, 'Video', '.kay img |meme', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, ixn.image, ixnnn, author, 'Video', '.kay img |meme', fakes, adReply)
         if (one == 'meme') {
         let gnn = `*Result:*\n${ixn.video}`
-        await conn.sendButtonImg(m.chat, ixn.video, gnn, author, 'To Sticker', '.s', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, ixn.video, gnn, author, 'To Sticker', '.s', fakes, adReply)
         }
             break
             case 'vid':
         let vx = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
         let vxn = await vx.json()
         let vxnnn = `*Result:*\n${vxn.video}`
-        await conn.sendButtonImg(m.chat, vxn.video, vxnnn, author, 'To Sticker', '.s', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, vxn.video, vxnnn, author, 'To Sticker', '.s', fakes, adReply)
             break
             case 'txt':
         let tx = await fetch(`https://api-kaysa.herokuapp.com/api/${one}?apikey=ltQh6BQN`)
@@ -107,17 +107,17 @@ switch (template) {
         await m.reply(txnn)
         if (one == 'asmaulhusna') {
         let ttx = `*Result:*\n${txn.number}\n${txn.latin}\n${txn.arab}\n${txn.translate_id}\n${txn.translate_en}\n`
-        await conn.sendButtonImg(m.chat, logo, ttx, author, 'M E N U', '.menu', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, logo, ttx, author, 'M E N U', '.menu', fakes, adReply)
         }
         if (one == 'quotes') {
         let tpx = `*Result:*\n${txn.quotes}\n${txn.author}\n`
-        await conn.sendButtonImg(m.chat, logo, tpx, author, 'M E N U', '.menu', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, logo, tpx, author, 'M E N U', '.menu', fakes, adReply)
         }
             break
             case 'tpro':
         let vpx = `https://api-kaysa.herokuapp.com/api/textpro/${one}?text=${two}&apikey=ltQh6BQN`
         let vpnn = `*Result:*\n`
-        await conn.sendButtonImg(m.chat, vpx, vpnn, author, 'To Sticker', '.s', fpayment, adReply)
+        await conn.sendButtonImg(m.chat, vpx, vpnn, author, 'To Sticker', '.s', fakes, adReply)
             break
             
 }

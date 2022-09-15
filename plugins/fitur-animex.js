@@ -7,7 +7,7 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
         let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
         let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
         let name = await conn.getName(who)
-                await conn.sendButton(m.chat, caption, wm, await(await fetch(images)).buffer(), [['➡️Next Image➡️', `.animex ${text}`]], m, { quoted: fgif, fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
+                await conn.sendButton(m.chat, caption, wm, await(await fetch(images)).buffer(), [['➡️Next Image➡️', `.animex ${text}`]], m, { quoted: fakes, fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {
           externalAdReply :{
           showAdAttribution: true,
     mediaUrl: sig,

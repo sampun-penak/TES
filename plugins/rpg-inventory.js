@@ -692,7 +692,7 @@ ${readMore}
 │🗑️ *Top Sampah:* ${userssampah.indexOf(m.sender) + 1} / ${userssampah.length}
 ╰──────────━⃝┅⃝━━────────┄⸙
 `
-    await conn.sendButton(m.chat, str, global.botdate, imgr + 'inventory', [[`${healt < 40 ? 'Heal' : 'Adventure'}`, `${healt < 40 ? '.heal' : '.adventure'}`], ['Shop', '.shop']], m, {quoted: ftroli})
+    await conn.sendButton(m.chat, str, global.botdate, imgr + 'inventory', [[`${healt < 40 ? 'Heal' : 'Adventure'}`, `${healt < 40 ? '.heal' : '.adventure'}`], ['Shop', '.shop']], m, {quoted: fakes})
 } else if (args[0] == '4') {
 // Inventory 4
 let health = global.db.data.users[m.sender].health

@@ -13,7 +13,7 @@ _*Saweria:*_ ${saweria}
 _*Trakteer:*_ ${trakteer}
 Setelah melakukan donasi kirim bukti pembayaran ke owner
 `
-await conn.send2ButtonDoc(m.chat, str, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
+await conn.send2ButtonDoc(m.chat, str, author, '🔖 Matikan Fitur', '.off detect', 'ℹ️ Menu', '.menu', fakes, adReply)
 
 }
 handler.help = ['donasi']

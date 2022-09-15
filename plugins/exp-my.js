@@ -117,7 +117,7 @@ let handler = async (m, { conn }) => {
 ▸ *ᴇxᴘɪʀᴇᴅ:*
 ${clockString(user.premiumTime - new Date() * 1)}`: ''}
 `.trim()
-  conn.send2ButtonDoc(m.chat, `${htki} ᴜ s ᴇ ʀ s ${htka}`, caption, `ɪɴᴠᴇɴᴛᴏʀʏ`, '.inv', 'ℹ️ Menu', '.menu', fpayment, adReply)
+  conn.send2ButtonDoc(m.chat, `${htki} ᴜ s ᴇ ʀ s ${htka}`, caption, `ɪɴᴠᴇɴᴛᴏʀʏ`, '.inv', 'ℹ️ Menu', '.menu', fakes, adReply)
 
 }
 handler.help = ['my']

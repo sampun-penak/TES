@@ -11,7 +11,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/smule?apikey=${global.lolkey
   if (args[1] == 'video') {
     await conn.sendButtonVid(m.chat, x.result.video, `*${htki} SMULE ${htka}*
 *title:* ${x.result.title}
-    `, author, 'To mp3', '.tomp3', fpayment, adReply)
+    `, author, 'To mp3', '.tomp3', fakes, adReply)
   }
   if (args[1] == 'audio') {
     await conn.sendFile(m.chat, x.result.audio, 'audio.mp3', '', m, null, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: {

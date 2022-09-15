@@ -23,7 +23,7 @@ try {
 *📊 filesize:* ${x.result.filesize}
 *📨 uploaded:* ${x.result.uploaded}
     `
-    conn.sendButtonImg(m.chat, logo, caption, author, 'G E T', '.get ' + x.result.link, fpayment, adReply)
+    conn.sendButtonImg(m.chat, logo, caption, author, 'G E T', '.get ' + x.result.link, fakes, adReply)
     }
 }
 handler.help = ['mediafire']

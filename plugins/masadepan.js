@@ -6,7 +6,7 @@ if (!text) return conn.reply(m.chat, 'Masukan Namamu Udin!', m)
   let caption = `*BISMILAH DULU BANG*`
   await conn.sendButton(m.chat, caption, wm, imgr + command, [
                 ['Aamiin', `${usedPrefix}masadepannya ${text}`]
-            ], m, { quoted: fgif })
+            ], m, { quoted: fakes })
 }
 
 handler.command = handler.help = ['masadepan']

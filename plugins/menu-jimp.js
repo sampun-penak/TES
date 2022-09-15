@@ -187,6 +187,8 @@ if (args[0] == 'sepia') {
 `, m)
 }
 }
+handler.help = ['hooh']
+handler.tags = ['fun']
 handler.command = /^(hooh)$/i
 
 export default handler
