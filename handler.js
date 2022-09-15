@@ -1380,11 +1380,11 @@ if (pilih == "ke9") {
             }
             break
             case 'promote':
-                text = (chat.sPromote || this.spromote || conn.spromote || '@user ```is now Admin```')
+                text = (chat.sPromote || this.spromote || conn.spromote || '@user *is now Admin*')
             case 'demote':
-                if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user ```is no longer Admin```')
+                if (!text) text = (chat.sDemote || this.sdemote || conn.sdemote || '@user *is no longer Admin*')
                 text = text.replace('@user', '@' + participants[0].split('@')[0])
-                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.disable detect', 'ℹ️ Menu', '.menu', fpayment, adReply)
+                if (chat.detect) this.send2ButtonDoc(id, text, author, '🔖 Matikan Fitur', '.disable detect', 'ℹ️ Menu', '.menu', fakes, adReply)
                 break
         
     }
@@ -1472,7 +1472,7 @@ ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan
         restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
-    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fpayment, adReply)
+    if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fakes, adReply)
 }
 
 let file = global.__filename(import.meta.url, true)
