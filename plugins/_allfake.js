@@ -6,13 +6,18 @@ import knights from 'knights-canvas'
 export async function all(m) {
 	let name = await this.getName(m.sender)
 	let sap = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann']
-	let a = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
-    let b = a.getRandom()
-    let pp = await this.profilePictureUrl(m.sender).catch(_ => hwaifu.getRandom())
-    
+	let cur = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW']
+    let curr = cur.getRandom()
+    let pp
+                    try {
+                        pp = await this.profilePictureUrl(m.sender, 'image')
+                    } catch {
+                    pp = hwaifu.getRandom()
+                    }
     // jpegThumbnail
-    let situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
-    let sipp = await this.resize(pp, 300, 300)
+    let _situm = await this.resize(thumbnailUrl.getRandom(), 450, 300)
+    let sipp = await this.resize(pp, 250, 250)
+    
     // Fake Knights
 		let imagea = await new knights.Jo().setImage(pp).toBuild();
 		let dataa = imagea.toBuffer();
@@ -23,10 +28,15 @@ export async function all(m) {
 		let imaged = await new knights.Burn().setAvatar(pp).toAttachment();
 		let datad = imaged.toBuffer();
 		let kn = [dataa, datab, datac, datad]
+		
 			// Mime Random
 		let pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf']
+		
 			// Fake Random
 		let pft = [global.fdocs, global.fgif, global.fkontak, global.fliveLoc, global.fpayment, global.fpoll, global.ftextt, global.ftoko, global.ftroli, global.fvid, global.fvn]
+		let _pdoc = pdoc.getRandom()
+		let _pft = pft.getRandom()
+		let _kn = kn.getRandom()
 		
 	// Begin
 		global.ucapan = ucapkan()
@@ -117,7 +127,7 @@ export async function all(m) {
 				},
 				message: {
 					requestPaymentMessage: {
-						currencyCodeIso4217: b,
+						currencyCodeIso4217: curr,
 						amount1000: fsizedoc,
 						requestFrom: '0@s.whatsapp.net',
 						noteMessage: {
@@ -129,7 +139,7 @@ export async function all(m) {
 						amount: {
 							value: fsizedoc,
 							offset: fsizedoc,
-							currencyCode: b
+							currencyCode: curr
 						}
 					}
 				}
@@ -271,11 +281,13 @@ export async function all(m) {
 				}
 			}
 		}
+		
 		// Global Fake
-		global.doc = pdoc.getRandom()
-		global.fakes = pft.getRandom()
-		global.knimg = kn.getRandom()
-		global.tumhiho = situm
+		global.doc = _pdoc
+		global.fakes = _pft
+		global.knimg = _kn
+		global.tumhiho = _situm
+		
 	// Ends
 }
 
