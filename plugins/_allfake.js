@@ -11,7 +11,7 @@ export async function all(m) {
                     try {
                         pp = await this.profilePictureUrl(m.sender, 'image')
                     } catch {
-                    pp = logo
+                    pp = hwaifu.getRandom()
                     }
     // jpegThumbnail
     let _situm = await this.resize(thumbnailUrl.getRandom(), 450, 300)
