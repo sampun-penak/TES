@@ -1,13 +1,14 @@
 import Canvas from 'canvas'
 import { sticker } from '../lib/sticker.js'
+import uploadImage from '../lib/uploadImage.js'
 import fs from 'fs'
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
-	if (!text) return 'Teks?'
+	let teks = m.quoted ? m.quoted.text : text
 var files = fs.readdirSync('./src/font/')
 let chosenFile = files[Math.floor(Math.random() * files.length)]
 
-	Canvas.registerFont(chosenFile, { family: chosenFile })
-	let length = text.length
+	Canvas.registerFont('./src/font/' + chosenFile, { family: chosenFile.toString() })
+	let length = teks.length
 		
 	var font = 90
 	if (length>12){ font = 68}
@@ -26,15 +27,16 @@ let chosenFile = files[Math.floor(Math.random() * files.length)]
 	var ttp = {}
 	ttp.create = Canvas.createCanvas(576, 576)
 	ttp.context = ttp.create.getContext('2d')
-	ttp.context.font =`${font}px Kempton-Demo-Handwritting`
+	ttp.context.font =`${font}px ${chosenFile}`
 	ttp.context.strokeStyle = 'black'
 	ttp.context.lineWidth = 3
 	ttp.context.textAlign = 'center'
-	ttp.context.strokeText(text, 290,300)
+	ttp.context.strokeText(teks, 290,300)
 	ttp.context.fillStyle = 'white'
-	ttp.context.fillText(text, 290,300)
+	ttp.context.fillText(teks, 290,300)
 	let img = ttp.create.toBuffer()
-    let stiker = await sticker(false, img, global.packname, global.author)
+	let gds = await uploadImage(img)
+    let stiker = await sticker(false, gds, global.packname, global.author)
     if (stiker) await conn.sendFile(m.chat, stiker, 'sticker.webp', '', m, null, adReply)
     }
 handler.command = /^(woah)$/i

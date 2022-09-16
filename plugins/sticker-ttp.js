@@ -1,36 +1,15 @@
 import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text }) => {
-    let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
+    let teks = m.quoted ? m.quoted.text : text
+    let links
     try {
-    let stiker = await sticker(null, global.API('xteam', '/ttp', { file: '', text: teks }), global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', fakes, null, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { externalAdReply :{
-    showAdAttribution: true,
-    mediaUrl: sfb,
-    mediaType: 2,
-    description: wm,
-    title: 'Hai, ' + ucapan,
-    body: botdate,
-    thumbnail: tumhiho,
-    sourceUrl: sfb
-     }}
-  })
-    throw stiker.toString()
+    links = global.API('xteam', '/ttp', { file: '', text: teks })
     } catch {
-    let stimker = await sticker(null, global.API(`https://anabotofc.herokuapp.com/api/maker/ttp?apikey=AnaBot&text=${teks}`), global.packname, global.author)
-    if (stiker) return conn.sendFile(m.chat, stimker, 'sticker.webp', '', fakes, null, { fileLength: fsizedoc, seconds: fsizedoc, contextInfo: { externalAdReply :{
-    showAdAttribution: true,
-    mediaUrl: sfb,
-    mediaType: 2,
-    description: wm,
-    title: 'Hai, ' + ucapan,
-    body: botdate,
-    thumbnail: tumhiho,
-    sourceUrl: sfb
-     }}
-  })
-    throw stiker.toString()
+    links = global.API(`https://anabotofc.herokuapp.com/api/maker/ttp?apikey=AnaBot&text=${teks}`)
     }
+    let stiker = await sticker(null, links, global.packname, global.author)
+    if (stiker) await conn.sendFile(m.chat, stiker, 'sticker.webp', '', fakes, null, adReply)
 }
 handler.help = ['ttp <teks>']
 handler.tags = ['sticker']
