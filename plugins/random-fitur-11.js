@@ -76,11 +76,9 @@ if (command == 'odesusche') {
 let f = await fetch(`https://otakudesu-api.herokuapp.com/api/schedule`)
 let x = await f.json()
 let dapet = x.scheduleList
-let dapets = Object.values(x.scheduleList.animeList).map(v => ({
-		description: '\n⌚ id: ' + v.id + '\n⏲️ link: ' + v.link }))
 	let row = Object.values(dapet).map((v, index) => ({
 		title: 'Hari ' + v.day,
-		dapets,
+		description: '\n⌚ id: ' + Object.values(v.animeList).map(i => i.id).join('\n\n') + '\n⏲️ link: ' + Object.values(v.animeList).map(l => l.link).join('\n\n'),
 		rowId: usedPrefix + 'ss ' + dapet[0].animeList[0].link
 	}))
 	let button = {
@@ -113,8 +111,8 @@ let f = await fetch(`https://otakudesu-api.herokuapp.com/api/search/${text}`)
 let x = await f.json()
 let dapet = x.search_results.genre_list
 	let row = Object.values(dapet).map((v, index) => ({
-		title: x.search_results.title,
-		description: '\n⌚ link: ' + x.search_results.link + '\n⌚ thumb: ' + x.search_results.thumb + '\n⌚ id: ' + x.search_results.id + '\n⌚ status: ' + x.search_results.status + '\n⌚ score: ' + x.search_results.score + '\n⌚ genre_title: ' + v.genre_title +  '\n⌚ genre_link: ' + v.genre_link +  '\n⌚ genre_id: ' + v.genre_id,
+		title: v.title,
+		description: '\n⌚ link: ' + v.link + '\n⌚ thumb: ' + v.thumb + '\n⌚ id: ' + v.id + '\n⌚ status: ' + v.status + '\n⌚ score: ' + v.score + '\n⌚ genre_title: ' + v.genre_title +  '\n⌚ genre_link: ' + v.genre_link +  '\n⌚ genre_id: ' + v.genre_id,
 		rowId: usedPrefix + 'get ' + v.image_link
 	}))
 	let button = {
