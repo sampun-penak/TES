@@ -10,9 +10,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 *filesize:* ${res.filesize}
 *upload:* ${res.upload}
 *link:* ${res.link}`
- return conn.reply(m.chat, done, fakes, adReply)
-if (res.link) return conn.sendFile(m.chat, res.link, res.title, `🔗 *Url:* ${res.link}`, m, null, { asDocument: true })
-else throw 'cant download'
+ if (res.link) return conn.send2ButtonDoc(m.chat, done, author, '🔖 Get', usedPrefix + 'get ' + res.link, 'ℹ️ Menu', '.menu', fakes, adReply)
+ else throw eror
 }
 handler.help = ['zippyshare'].map(v => v + ' <url>')
 handler.tags = ['downloader']
