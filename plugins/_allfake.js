@@ -151,6 +151,7 @@ export async function all(m) {
 					surface: 1,
 					message: botdate,
 					orderTitle: author,
+					thumbnail: sipp,
 					sellerJid: '0@s.whatsapp.net'
 				}
 			}
