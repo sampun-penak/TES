@@ -66,7 +66,7 @@ global.APIKeys = {
 }
 
 /*Lolhuman*/
-global.lolkey = '85faf717d0545d14074659ad'
+global.lolkey = 'ed78c137a46873c5b8e5fe3b'
 /*Xteam*/
 global.xteamkey = 'NezukoTachibana281207'
 /*Xcoders*/
