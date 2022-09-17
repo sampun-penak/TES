@@ -16,8 +16,8 @@ let who = m.sender ? m.sender : this.user.jid
      pp = hwaifu.getRandom()
     } finally {
     // jpegThumbnail
-    let _situm = await this.resize(thumbnailUrl.getRandom(), 450, 300)
-    let sipp = await this.resize(pp, 250, 250)
+    let _situm = await this.resize(thumbnailUrl.getRandom(), 300, 150)
+    let sipp = await this.resize(pp, 150, 150)
     
     // Fake Knights
 		let imagea = await new knights.Jo().setImage(pp).toBuild();
