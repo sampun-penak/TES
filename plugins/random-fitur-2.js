@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 if (command == 'ceritahoror') {
 let res = await fetch(`https://api.lolhuman.xyz/api/ceritahoror?apikey=${global.lolkey}`)
@@ -11,7 +10,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/ceritahoror?apikey=${global.
   *Desc:* ${has.desc}
   *Story:* ${has.story}`, author, has.thumbnail, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'growiki') {
@@ -27,7 +26,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/growiki?apikey=${global.lolk
   *Story:* ${has.prop}
 `, author, has.img, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'growstocks') {
@@ -44,7 +43,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/growstocks?apikey=${global.l
   *edited:* ${has.edited}
 `, author, has.img, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'gsearch') {
@@ -58,7 +57,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/gsearch?apikey=${global.lolk
   *price status:* ${has.link}
 `, author, null, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'gsmarena') {
@@ -79,7 +78,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/gsmarena?apikey=${global.lol
   *Batre:* ${has.specification.battery.batdescription1}
 `, author, has.phone_image, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'jadwalbola') {
@@ -98,7 +97,7 @@ return `
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'jadwaltv') {
@@ -121,7 +120,7 @@ let json = await fetch(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=${globa
   *tvri:* ${has.result.tvri}
   `, author, has.phone_image, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'jalantikus') {
@@ -139,7 +138,7 @@ return `
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'jaraktempuh') {
@@ -163,7 +162,7 @@ return `
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, null, [
                 ['Search!', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             
 }
 

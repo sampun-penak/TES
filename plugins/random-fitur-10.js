@@ -5,7 +5,6 @@ let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command })
 
 // Fake 🤥
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hoppai.getRandom())
 let name = await conn.getName(who)
@@ -17,7 +16,7 @@ let res = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${text}
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, res, [
                 ['Get Picture', `${usedPrefix}get ${res}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'catboys') {
@@ -41,7 +40,7 @@ let f = await fetch(`https://api.catboys.com/catboy`)
 let x = await f.json()
 await conn.sendButton(m.chat, `*Pencet untuk mendengar hasil:*`, wm, null, [
                 ['Awkawk', `${usedPrefix}tts ${x.response}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
 ${usedPrefix + command} img
@@ -50,7 +49,7 @@ ${usedPrefix + command} catboy
 `, wm, null, [
                 ['IMG', `${usedPrefix + command} img`],
                 ['8BALL', `${usedPrefix + command} 8ball`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'animals') {
@@ -72,7 +71,7 @@ await conn.sendButton(m.chat, `*Result:*
 *ID:* ${x.id}
 `, wm, x.image_link, [
                 ['Get Picture', `${usedPrefix}get ${x.image_link}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'nekos') {
@@ -130,7 +129,7 @@ await conn.sendFile(m.chat, x.results[0].url, 'out.gif', m, false, { mimetype: '
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${args[0]}`, wm, null, [
                 ['Next Picture', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'avatar') {
@@ -233,7 +232,7 @@ ${arab}
 ${id}`
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Menu', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], fakes, adReply)
 
 		} catch (e) {
 		m.reply(`Hadith Not Found !`)

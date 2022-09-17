@@ -3,8 +3,7 @@ import uploadFile from '../lib/uploadFile.js'
 import uploadImage from '../lib/uploadImage.js'
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-	let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
-
+	
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!text) return m.reply(`Balas gambar dengan perintah
@@ -35,7 +34,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
   await conn.sendButton(m.chat, caption, wm, images, [
                 ['Next', `${usedPrefix + command}`],
                 ['Menu', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
 //lo mau apa??
 handler.help = ['jimp'].map(v => v + ' <efek>')

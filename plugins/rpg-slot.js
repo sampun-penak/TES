@@ -4,7 +4,6 @@ import fs from "fs"
 
 let handler = async (m, { conn, args, text, usedPrefix, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
   
     conn.slots = conn.slots ? conn.slots : {}
     if (m.chat in conn.slots) return m.reply('Masih ada Yang Melakukan Slots Disini, Tunggu Sampai selesai!!')

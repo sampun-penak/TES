@@ -3,7 +3,6 @@ import fs from 'fs'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 let imgr = flaaa.getRandom()
 
 if (command == 'urlscan') {
@@ -36,7 +35,7 @@ if (command == 'fotoduck') {
   await conn.sendButton(m.chat, `*Duck:*
   ${x.message}`, wm, x.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'fotobear') {
@@ -46,7 +45,7 @@ if (!args[1]) throw `Contoh:\n${usedPrefix + command} 600 600`
   await conn.sendButton(m.chat, `*Bear:*
   ${args[0]}`, wm, res, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'fotodog') {
@@ -56,7 +55,7 @@ if (!args[1]) throw `Contoh:\n${usedPrefix + command} 600 600`
   await conn.sendButton(m.chat, `*Dog:*
   ${args[0]}`, wm, res, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'fotodog2') {
@@ -65,7 +64,7 @@ if (command == 'fotodog2') {
   await conn.sendButton(m.chat, `*Dog:*
   ${command}`, wm, x.url, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'fotofox') {
@@ -74,7 +73,7 @@ if (command == 'fotofox') {
   await conn.sendButton(m.chat, `*Fox:*
   ${x.link}`, wm, x.image, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'fotoshibe') {
@@ -83,7 +82,7 @@ if (command == 'fotoshibe') {
   await conn.sendButton(m.chat, `*Shibe:*
   ${command}`, wm, x.getRandom(), [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'drinks') {
@@ -96,7 +95,7 @@ if (command == 'drinks') {
   *Glass:* ${x.drinks[0].strGlass}
   *Instructions:* ${x.drinks[0].strInstructions}`, wm, x.drinks[0].strDrinkThumb, [
                 ['Next', `${usedPrefix + command}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'rules') {
@@ -145,7 +144,7 @@ _Cara penggunaan ${namebot} Agar terhindar dari Suspand_
 `
 await conn.sendButton(m.chat, caption, wm, `${imgr + command}`, [
                 ['Ok!', `${usedPrefix}tts id Oke`]
-            ], m, fdoc)
+            ], fakes, adReply)
          }
          
 if (command == 'repeat') {
@@ -186,7 +185,7 @@ let v = xx.data
   //m.reply(teks)
   await conn.sendButton(m.chat, teks, wm, imgr + 'Dmp', [
                 ['dmpdown!', `${usedPrefix}dmpdown`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'dmpdown') {
@@ -217,36 +216,36 @@ ${usedPrefix + command} indo
             if (args[0] == 'ppc') {
 let jsn = await fetch(`https://ziy.herokuapp.com/api/gacha/ppcouple?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'Cewe', wm, json.result.female, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
-conn.sendButton(m.chat, 'Cowo', wm, json.result.male, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'Cewe', wm, json.result.female, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
+conn.sendButton(m.chat, 'Cowo', wm, json.result.male, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'indo') {
             let json = `https://ziy.herokuapp.com/api/gacha/indonesia?apikey=xZiyy`
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
             if (args[0] == 'korea') {
             let json = `https://ziy.herokuapp.com/api/gacha/korea?apikey=xZiyy`
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
             if (args[0] == 'china') {
             let json = `https://ziy.herokuapp.com/api/gacha/china?apikey=xZiyy`
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
             if (args[0] == 'malay') {
             let json = `https://ziy.herokuapp.com/api/gacha/malaysia?apikey=xZiyy`
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
 }
 
@@ -276,39 +275,39 @@ ${usedPrefix + command} ghea
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
             if (args[0] == 'cecan2k') {
             let json = `https://ziy.herokuapp.com/api/cecan2k?apikey=xZiyy`
         let caption = `*Result:*`
         await conn.sendButton(m.chat, caption, wm, json, [
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
             if (args[0] == 'ghea') {
             let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/ghea?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'ghea', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'ghea', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'bocil') {
             let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/bocil?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'bocil', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'bocil', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'ukty') {
             let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/ukty?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'ukty', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'ukty', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'asupan') {
             let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'asupan', wm, json.result.result, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'asupan', wm, json.result.result, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'rika') {
             let jsn = await fetch(`https://ziy.herokuapp.com/api/asupan/rikagusriani?apikey=xZiyy`)
 let json = await jsn.json()
-conn.sendButton(m.chat, 'rikagusriani', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'rikagusriani', wm, json.result.url, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             
             //Maker
@@ -317,26 +316,26 @@ conn.sendButton(m.chat, 'rikagusriani', wm, json.result.url, [['🔄 Next 🔄',
   let text1 = urut[1]
   let text2 = urut[2]
             let jsn = `https://ziy.herokuapp.com/api/maker/girlneko?text1=${text1}&text2=${text2}&apikey=xZiyy`
-conn.sendButton(m.chat, 'girlneko', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'girlneko', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'sadboy') {
             let urut = text.split`|`
   let text1 = urut[1]
   let text2 = urut[2]
             let jsn = `https://ziy.herokuapp.com/api/maker/sadboy?text1=${text1}&text2=${text2}&apikey=xZiyy`
-conn.sendButton(m.chat, 'sadboy', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'sadboy', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'kaneki') {
             let jsn = `https://ziy.herokuapp.com/api/maker/kaneki?nama=${text}&apikey=xZiyy`
-conn.sendButton(m.chat, 'kaneki', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'kaneki', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'rem') {
             let jsn = `https://ziy.herokuapp.com/api/maker/rem?nama=${text}&apikey=xZiyy`
-conn.sendButton(m.chat, 'rem', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'rem', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
             if (args[0] == 'lolimaker') {
             let jsn = `https://ziy.herokuapp.com/api/maker/lolimaker?nama=${text}&apikey=xZiyy`
-conn.sendButton(m.chat, 'lolimaker', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], m, fdoc)
+conn.sendButton(m.chat, 'lolimaker', wm, jsn, [['🔄 Next 🔄', `${usedPrefix + command} ${args[0]}`]], fakes, adReply)
             }
 }
 

@@ -5,7 +5,6 @@ import fs from 'fs'
 let toM = a => '@' + a.split('@')[0]
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 let imgr = flaaa.getRandom()
 
 if (command == 'kapankah') {
@@ -70,7 +69,7 @@ await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
                 ['Ngechit', `${usedPrefix}ngechit`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'lumayan') {
 let angka1 = Math.floor(Math.random() * 1000)
@@ -85,7 +84,7 @@ await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
                 ['Ngechit', `${usedPrefix}ngechit`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'besar') {
 let angka1 = Math.floor(Math.random() * 10000)
@@ -100,14 +99,14 @@ await conn.sendButton(m.chat, `*Result : ${args[0]}*
 + *${angka2}* Limit Banh
 + *${angka3}* Money Banh`, wm, null, [
                 ['Ngechit', `${usedPrefix}ngechit`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 await conn.sendButton(m.chat, `*Silahkan pilih di bawah:*
   ${command}`, wm, null, [
                 ['🎁 Box A', `${usedPrefix + command} ${klb}`],
                 ['🎁 Box B', `${usedPrefix + command} ${klb1}`],
                 ['🎁 Box C', `${usedPrefix + command} ${klb2}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 }

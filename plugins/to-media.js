@@ -5,7 +5,6 @@ import { webp2png } from '../lib/webp2mp4.js'
 import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 if (command == 'towebp') {
     let q = m.quoted ? m.quoted : m

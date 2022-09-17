@@ -1,5 +1,4 @@
 let handler = async(m, { conn, text, args, usedPrefix, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
   if (!args[0]) return m.reply(`Example : ${usedPrefix + command} bevel helo
   *List Efek:*
@@ -71,7 +70,7 @@ yellowroses`)
   await conn.sendButton(m.chat, caption, wm, images, [
                 ['Next', `${usedPrefix + command}`],
                 ['Menu', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], fakes, adReply)
             }
 
 handler.command = /^(oxyx|photooxyx)$/i

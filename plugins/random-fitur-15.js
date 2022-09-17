@@ -8,7 +8,6 @@ import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command, isPrems, isOwner }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 let imgr = flaaa.getRandom()
 let urut = text.split`|`
@@ -37,7 +36,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, `${v.manhwas[0].thumbnail}`, [
                 ['Picture', `${usedPrefix}get ${v.manhwas[0].thumbnail}`],
                 ['Detail', `${usedPrefix}manhwa detail |${v.manhwas[0].endpoint}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'all') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |9`)
@@ -51,7 +50,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, `${v.manhwas[0].thumbnail}`, [
                 ['Picture', `${usedPrefix}get ${v.manhwas[0].thumbnail}`],
                 ['Detail', `${usedPrefix}manhwa detail |${v.manhwas[0].endpoint}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'popular') {
 let res = await fetch(`https://manhwaindo-api.herokuapp.com/popular`)
@@ -63,7 +62,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, `${v.manhwas[0].thumbnail}`, [
                 ['Picture', `${usedPrefix}get ${v.manhwas[0].thumbnail}`],
                 ['Detail', `${usedPrefix}manhwa detail |${v.manhwas[0].endpoint}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'search') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -78,7 +77,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, `${v.manhwas[0].thumbnail}`, [
                 ['Picture', `${usedPrefix}get ${v.manhwas[0].thumbnail}`],
                 ['Detail', `${usedPrefix}manhwa detail |${v.manhwas[0].endpoint}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'detail') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |query`)
@@ -94,7 +93,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, `${v.manhwa[0].thumbnail}`, [
                 ['Picture', `${usedPrefix}get ${v.manhwa[0].thumbnail}`],
                 ['Detail', `${usedPrefix}manhwa detail |${v.manhwa[0].endpoint}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 }
 
@@ -108,7 +107,7 @@ let r = await ras.json()
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Ok', `${usedPrefix}tts id oke`]
-            ], m, fdoc)
+            ], fakes, adReply)
 	} else if (m.quoted && m.quoted.text) {
 		let ras = await fetch(`https://ramnaufal.herokuapp.com/sentiment/simple?sentence=${m.quoted.text}`)
 let r = await ras.json()
@@ -118,7 +117,7 @@ let r = await ras.json()
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Ok', `${usedPrefix}tts id oke`]
-            ], m, fdoc)
+            ], fakes, adReply)
 	} else throw `Ex: ${usedPrefix + command} id hello world`
 }
 
@@ -150,7 +149,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, `https://www.google.com${Array.from(v.result)}`, [
                 ['Picture', `${usedPrefix}get https://www.google.com${Array.from(v.result)}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'shortenlink') {
@@ -163,7 +162,7 @@ ${v.result}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Ok', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'anonyzoom') {
@@ -178,7 +177,7 @@ Duration: ${v.Duration}
 `
 await conn.sendButton(m.chat, caption, wm, null, [
                 ['Ok', `${usedPrefix}menu`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 
@@ -225,7 +224,7 @@ await conn.sendButton(m.chat, caption, wm, null, [
                 [`${x.recitations[0].name}`, `${usedPrefix}get ${x.recitations[0].audio_url}`],
                 [`${x.recitations[1].name}`, `${usedPrefix}get ${x.recitations[1].audio_url}`],
                 [`${x.recitations[2].name}`, `${usedPrefix}get ${x.recitations[2].audio_url}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'likeedl') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |https://likee.video/@vicky_marpaung/video/7006676628722311449`)
@@ -244,7 +243,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, `${v.thumbnail}`, [
                 ['Get', `${usedPrefix}get ${v.medias[0].url}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (args[0] == 'storysad') {
@@ -254,7 +253,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, res, [
                 ['Menu', `${usedPrefix}menu`],
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'textpro') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |teks|link`)
@@ -266,7 +265,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, v.respon, [
                 ['Picture', `${usedPrefix}get ${v.respon}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'textpro2') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |teks|teks|link`)
@@ -278,7 +277,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, v.respon, [
                 ['Picture', `${usedPrefix}get ${v.respon}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'ephoto') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |teks|link`)
@@ -290,7 +289,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, v.respon, [
                 ['Picture', `${usedPrefix}get ${v.respon}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'ephoto2') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |teks|teks|link`)
@@ -302,7 +301,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, v.respon, [
                 ['Picture', `${usedPrefix}get ${v.respon}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'asupan') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |bocil
@@ -323,7 +322,7 @@ let caption = `*Result:*
 `
 await conn.sendButton(m.chat, caption, wm, v.respon, [
                 ['Get', `${usedPrefix}get ${v.respon}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'rimage') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |darkmeme17
@@ -339,7 +338,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, res, [
                 ['Menu', `${usedPrefix}menu`],
                 ['Next', `${usedPrefix + command} ${args[0]}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'alpha') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |genshin`)
@@ -349,7 +348,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, res, [
                 ['Menu', `${usedPrefix}menu`],
                 ['Next', `${usedPrefix + command} ${args[0]} |${one}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 if (args[0] == 'konachan') {
 if (!one) return m.reply(`Example: ${usedPrefix + command} ${args[0]} |azur_lane`)
@@ -359,7 +358,7 @@ let caption = `*Result:*
 await conn.sendButton(m.chat, caption, wm, res, [
                 ['Menu', `${usedPrefix}menu`],
                 ['Next', `${usedPrefix + command} ${args[0]} |${one}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 }
 
@@ -391,7 +390,7 @@ let caption = `*birthday:* ${x.birthday}
 `
 await conn.sendButton(m.chat, caption, wm, x.image, [
                 ['Next', `${usedPrefix}${command} ${text}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 if (command == 'ytreels') {
@@ -404,7 +403,7 @@ let caption = `*title:* ${x.result.title}
 `
 await conn.sendButton(m.chat, caption, wm, x.resukt.thumbnail, [
                 ['Get', `${usedPrefix}get ${x.result.link}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 
 }

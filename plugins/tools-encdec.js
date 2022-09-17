@@ -3,7 +3,6 @@ import fs from 'fs'
 
 let handler = async (m, { conn, text, command, usedPrefix }) => {
 let frep = { contextInfo: { externalAdReply: {title: global.wm, body: global.author, sourceUrl: snh, thumbnail: fs.readFileSync('./thumbnail.jpg')}}}
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
 if (command == 'dec32') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
@@ -14,7 +13,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
     `.trim()
         await conn.sendButton(m.chat, caption, author, null, [
         ['Next', `${usedPrefix}enc32 ${text}`]
-    ], m, fdoc)
+    ], fakes, adReply)
 }
 
 if (command == 'enc32') {
@@ -26,7 +25,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
     `.trim()
         await conn.sendButton(m.chat, caption, author, null, [
         ['Next', `${usedPrefix}dec32 ${text}`]
-    ], m, fdoc)
+    ], fakes, adReply)
 }
 
 if (command == 'dec64') {
@@ -38,7 +37,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
     `.trim()
         await conn.sendButton(m.chat, caption, author, null, [
         ['Next', `${usedPrefix}enc64 ${text}`]
-    ], m, fdoc)
+    ], fakes, adReply)
 }
 
 if (command == 'enc64') {
@@ -50,7 +49,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing`
     `.trim()
         await conn.sendButton(m.chat, caption, author, null, [
         ['Next', `${usedPrefix}dec64 ${text}`]
-    ], m, fdoc)
+    ], fakes, adReply)
 }
 
 

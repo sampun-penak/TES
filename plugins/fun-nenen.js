@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
     if (command == 'nenen2') {
     if (!text) throw `Masukkan query!`
@@ -23,7 +22,7 @@ link: ${v.link}
     }).join('\n\n')
     await conn.sendButton(m.chat, str, wm, null, [
                 ['SS!', `${usedPrefix}ssweb ${xx.result[0].link}`]
-            ], m, fdoc)
+            ], fakes, adReply)
 }
 }
 handler.command = handler.help = ['nenen2', 'lastanime']

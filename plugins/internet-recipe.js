@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-let fdoc = {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: `${command}`}}}}
 
     if (command == 'food') {
     if (!text) throw `Contoh penggunaan ${usedPrefix}${command} burger`
