@@ -32,7 +32,7 @@ const listMessage = {
   sections
 }
 
-return conn.sendMessage(m.chat, listMessage, { quoted: fgif  })
+return conn.sendMessage(m.chat, listMessage, { quoted: fakes  })
 }
 
 handler.help = ['ytd']
