@@ -4,10 +4,11 @@ import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 import knights from 'knights-canvas'
 export async function all(m) {
-	let name = await this.getName(m.sender)
+let who = m.sender ? m.sender : this.user.jid
+	let name = await this.getName(who)
 	let sapa = ['Hai', 'Ohayo', 'Kyaa', 'Halo', 'Nyann'].getRandom()
 	let curr = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF','BMD','BND','BOB','BOV','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHE','CHF','CHW','CLF','CLP','CNY','COP','COU','CRC','CUC','CUP','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ERN','ETB','EUR','FJD','FKP','GBP','GEL','GHS','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','IQD','IRR','ISK','JMD','JOD','JPY','KES','KGS','KHR','KMF','KPW','KRW','KWD','KYD','KZT','LAK','LBP','LKR','LRD','LSL','LTL','LVL','LYD','MAD','MDL','MGA','MKD','MMK','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MXV','MYR','MZN','NAD','NGN','NIO','NOK','NPR','NZD','OMR','PAB','PEN','PGK','PHP','PKR','PLN','PYG','QAR','RON','RSD','RUB','RWF','SAR','SBD','SCR','SDG','SEK','SGD','SHP','SLL','SOS','SRD','SSP','STD','SYP','SZL','THB','TJS','TMT','TND','TOP','TRY','TTD','TWD','TZS','UAH','UGX','USD','USN','USS','UYI','UYU','UZS','VEF','VND','VUV','WST','XAF','XAG','XAU','XBA','XBB','XBC','XBD','XCD','XDR','XFU','XOF','XPD','XPF','XPT','XTS','XXX','YER','ZAR','ZMW'].getRandom()
-    let pp = await this.profilePictureUrl(m.sender, 'image').catch(_ => 'https://www.seekpng.com/png/full/228-2289964_collection-of-free-hinata-drawing-naruto-girl-download.png')
+    let pp = await this.profilePictureUrl(who, 'image').catch(_ => 'https://www.seekpng.com/png/full/228-2289964_collection-of-free-hinata-drawing-naruto-girl-download.png')
     
     // jpegThumbnail
     let _situm = await this.resize(thumbnailUrl.getRandom(), 450, 300)
@@ -151,7 +152,6 @@ export async function all(m) {
 					surface: 1,
 					message: botdate,
 					orderTitle: author,
-					thumbnail: sipp,
 					sellerJid: '0@s.whatsapp.net'
 				}
 			}
@@ -163,7 +163,7 @@ export async function all(m) {
 			message: {
 				contactMessage: {
 					displayName: author,
-					vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${author},;;;\nFN:${author},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
+					vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${author},;;;\nFN:${author},\nitem1.TEL;waid=${who.split('@')[0]}:${who.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`,
 					jpegThumbnail: sipp,
 					thumbnail: sipp,
 					sendEphemeral: true
