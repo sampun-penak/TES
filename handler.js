@@ -673,7 +673,6 @@ export async function handler(chatUpdate) {
                     lastclaim: 0,
                     lastcode: 0,
                     lastcrusade: 0,
-                    lastdaang: 0,
                     lastdagang: 0,
                     lastduel: 0,
                     lastdungeon: 0,
@@ -1447,29 +1446,29 @@ dfail
 global.dfail = (type, m, conn) => {
     let nmsr = `👋 Hai *@${m.sender.split("@")[0]}*, `
     let msg = {
-        rowner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        rowner: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan oleh *OWWNER* !`,
-        owner: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        owner: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan oleh *Owner Bot* !`,
-        mods: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        mods: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan oleh *Moderator* !`,
-        premium: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        premium: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya untuk member *Premium* !`,
-        group: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        group: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan di grup !`,
-        private: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        private: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya dapat digunakan di Chat Pribadi !`,
-        admin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        admin: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Perintah ini hanya untuk *Admin* grup !`,
-        botAdmin: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        botAdmin: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Jadikan bot sebagai *Admin* untuk menggunakan perintah ini !`,
-        unreg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        unreg: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Hinata.18* !`,
-        nsfw: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        nsfw: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} NSFW tidak aktif, Silahkan hubungi Team Bot Discussion untuk mengaktifkan fitur ini !`,
-        rpg: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        rpg: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} RPG tidak aktif, Silahkan hubungi Team Bot Discussion Untuk mengaktifkan fitur ini !`,
-        restrict: `*${htki} 𝐀𝐋𝐄𝐑𝐓 ${htka}*\n
+        restrict: `*${htki} ᴘᴇʀʜᴀᴛɪᴀɴ ${htka}*\n
 ${nmsr} Fitur ini di *disable* !`
     }[type]
     if (msg) return conn.send2ButtonDoc(m.chat, msg, author, '🔖 Ok', 'Huuu', 'ℹ️ Menu', '.menu', fakes, adReply)
