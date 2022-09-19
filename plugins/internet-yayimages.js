@@ -9,9 +9,10 @@ let name = await conn.getName(who)
     if (!text) throw `Penggunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} car`
     let res = await fetch(`https://api.yayimages.com/search/ea990627-3429-4819-bfe7-9ba03a0c0f71/${text}`)
     let f = await res.json()
-let str = f.images.map((v, index) => {
-        return `${1 + index}. Judul *${v.title}*
-id: ${v.id}
+    let listSections = []
+	Object.values(f.images).map((v, index) => {
+	listSections.push([index + ' ' + cmenub + ' ' + v.title, [
+          ['Get Photo', usedPrefix + 'get ' + v.thumb_url, `${1 + index}. id: ${v.id}
 description: ${v.description}
 thumb_url: ${v.thumb_url}
 username: ${v.username}
@@ -20,25 +21,10 @@ height: ${v.height}
 model_count: ${v.model_count}
 vector: ${v.vector}
 category: ${v.category}
-`.trim()
-    }).join(`\n\n ${htki} YAY ${htka} \n\n`)
-    await conn.sendButton(m.chat, str, wm, f.images[0].thumb_url, [
-                ['Search In Pinterest', '/pinterest ' + text],
-                ['\n\n\n Gw wibu bang', 'Huuu']
-            ], m, {
-            fileLength: fsizedoc,
-            seconds: fsizedoc,
-            jpegThumbnail: Buffer.alloc(0), contextInfo: {
-          externalAdReply :{
-    mediaUrl: sig,
-    mediaType: 2,
-    description: wm, 
-    title: '👋 Hai, ' + name + ' ' + ucapan,
-    body: botdate,
-    thumbnail: await(await fetch(pp)).buffer(),
-    sourceUrl: sgc
-     }}
-  })
+`]
+]])
+	})
+	return conn.sendList(m.chat, htki + ' 📺 Yayimages 🔎 ' + htka, `⚡ Hai ${name} Silakan pilih Yayimages Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Yayimages Disini ☂️`, listSections, m)
 }
 handler.help = ['yay <teks>']
 handler.tags = ['sticker']
