@@ -11,8 +11,7 @@ export async function before(m) {
     if (!(id in this.skata)) return await this.send1Button(m.chat, `Mulai lagi?`, wm, 'Sambung Kata', '.skata', m)
     if (m.quoted.id == this.skata[id][0].id) {
         let answerF = (m.text.toLowerCase().split` `[0]).trim()
-        let res = await fetch(API('amel', '/ceksambungkata', { kata: m.text.toLowerCase().split` `[0] }, 'apikey'))
-        if (!res.ok) throw eror
+        let res = await fetch('https://restapi.frteam.xyz/ceksambungkata?kata=' + m.text.toLowerCase().split(' ')[0] + '&apikey=Hrbot')
         let json = await res.json()
         if (!answerF.startsWith(this.filter(this.skata[id][1]))) {
             return m.reply(`👎🏻 *Salah!*\nJawaban harus dimulai dari kata *${this.filter(this.skata[id][1]).toUpperCase()}*`)

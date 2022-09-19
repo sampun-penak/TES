@@ -21,10 +21,8 @@ let handler = async (m, { conn, text }) => {
 └────`.trim())
     conn.skata = conn.skata ? conn.skata : {}
     let id = m.chat
-    let res = await fetch(API('amel', '/sambungkata', {}, 'apikey'))
-    if (!res.ok) throw eror
+    let res = await fetch('https://restapi.frteam.xyz/sambungkata?&apikey=Hrbot')
     let json = await res.json()
-    if (!json.status) throw json
     if (id in conn.skata) return await conn.send1Button(m.chat, `^ soal ini belum terjawab!`, wm, 'Nyerah', 'nyerah', conn.skata[id][0])
     let kata = json.kata
     conn.skata[id] = [
