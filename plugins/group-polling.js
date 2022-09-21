@@ -1,21 +1,22 @@
 
 let handler = async (m, { conn, text, args, usedPrefix, command }) => {
-let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-let name = await conn.getName(who)
-if (!text.split('|')[1]) throw 'Gunakan Format\n' + usedPrefix + command + ' halo |ya|gak'
 
+let name = await conn.getName(m.sender)
 let a = []
 let b = text.split('|')
-for (let c = 1 || 0; c < b.length; c++) {
+if (!b[1]) throw 'Format\n' + usedPrefix + command + ' halo |ya|gak'
+if (b[12]) throw 'Kebanyakan pilihan, Format\n' + usedPrefix + command + ' halo |ya|gak'
+
+for (let c = 1; c < b.length; c++) {
 a.push([b[c]])
 			}
 			
 			let cap = `*Polling Request By* ${name}\n*Pesan:* ${text.split('|')[0]}`
 			return conn.sendPoll(m.chat, cap, a, m)
-}
 
-handler.help = ['poll text|text|text']
+}
+handler.help = ['poll pertanyaan|pilihan|pilihan']
 handler.tags = ['group'] 
-handler.command = /^poll(ing|s)?$/i
+handler.command = /^po(l((l?ing|ls)|l)|ols?)$/i
 
 export default handler
