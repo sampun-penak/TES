@@ -10,8 +10,8 @@ let kys = x.nsfw
 					let arr = []
 					Object.keys(ky, kys).map((v, index) => {
 						arr.push(['Result: ' + ++index, [
-							['Versatile' + ky[v], usedPrefix + command + ' waifuimget ' + 'https://api.waifu.im/random/?selected_tags=' + ky[v], '\n⌚ *Request:* ' + name],
-							['NSFW' + kys[v], usedPrefix + command + ' waifuimget ' + 'https://api.waifu.im/random/?selected_tags=' + kys[v], '\n⌚ *Request:* ' + name]
+							['Versatile: ' + ky[v], usedPrefix + command + ' waifuimget ' + 'https://api.waifu.im/random/?selected_tags=' + ky[v], '\n⌚ *Request:* ' + name],
+							['NSFW: ' + kys[v], usedPrefix + command + ' waifuimget ' + 'https://api.waifu.im/random/?selected_tags=' + kys[v], '\n⌚ *Request:* ' + name]
 						]])
 					})
 					if (!args[0]) return conn.sendList(m.chat, htki + ' 📺 Search 🔎 ' + htka, `⚡Hai ${name} Silakan pilih Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Search Disini ☂️`, arr, m)

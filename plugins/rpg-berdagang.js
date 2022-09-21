@@ -1,7 +1,6 @@
 const cooldown = 28800000
 let handler = async(m, { conn, text, usedPrefix, command }) => {
-  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
-  let user = global.db.data.users[who]
+  let user = global.db.data.users[m.sender]
   let dapat = (Math.floor(Math.random() * 5000))
   if (!who) throw 'Tag salah satu lah, yang kamu ingin berdagang bareng'
   let ctimer = (new Date - user.lastdagang)

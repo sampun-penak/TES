@@ -12,15 +12,16 @@ let name = await conn.getName(who)
     let listSections = []
 	Object.values(f.images).map((v, index) => {
 	listSections.push([index + ' ' + cmenub + ' ' + v.title, [
-          ['Get Photo', usedPrefix + 'get ' + v.thumb_url, `${1 + index}. id: ${v.id}
-description: ${v.description}
-thumb_url: ${v.thumb_url}
-username: ${v.username}
-width: ${v.width}
-height: ${v.height}
-model_count: ${v.model_count}
-vector: ${v.vector}
-category: ${v.category}
+          ['Get Photo', usedPrefix + 'get ' + v.thumb_url, `
+          ${1 + index}. *id:* ${v.id}
+*description:* ${v.description}
+*thumb_url:* ${v.thumb_url}
+*username:* ${v.username}
+*width:* ${v.width}
+*height:* ${v.height}
+*model_count:* ${v.model_count}
+*vector:* ${v.vector}
+*category:* ${v.category}
 `]
 ]])
 	})
