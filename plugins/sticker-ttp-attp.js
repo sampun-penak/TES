@@ -21,8 +21,7 @@ let urls = [
 	let listSections = []
 	Object.keys(urls, lisn).map((v, index) => {
 	listSections.push(['Result: ' + ++index, [
-          [htjava + ' ' + lisn[v] + ' Lib Sticker', usedPrefix + 'get ' + urls[v], 'By ' + author],
-          [htjava + ' ' + lisn[v] + ' Wsf Sticker', usedPrefix + 'get ' + urls[v], 'By ' + author]
+          [htjava + ' ' + lisn[v] + ' Sticker', usedPrefix + 'get ' + urls[v], 'By ' + author]
         ]])
 	})
 	return conn.sendList(m.chat, htki + ' 📺 Sticker Search 🔎 ' + htka, `⚡ Silakan pilih Sticker Search di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`, author, `☂️ Sticker Search Disini ☂️`, listSections, m)
