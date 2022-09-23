@@ -7,7 +7,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 	let listSections = []
 	Object.values(msg).map((v, index) => {
 	listSections.push([htki + ' ' + ++index + ' ' + htka, [
-          ['Pesan: ' + v.nama, usedPrefix + 'getmsg ' + v.nama, '\n\n' + htjava + '\n' + dmenub + ' *ID:* ' + v.key.id + '\n' + dmenub + ' *Type:* ' + Object.keys(v.message) + '\n' + dmenub + ' *Sender:* ' + (v.participant || v.key.participant).replace(/@.+/, '') + '\n' + dmenub + ' *Jid:* ' + (v.key.remoteJid).replace(/@.+/, '') + '\n' + dmenuf]
+          ['Pesan: ' + v.nama, usedPrefix + 'getmsg ' + v.nama, '\n\n' + htjava + '\n' + dmenub + ' *ID:* ' + v.key.id + '\n' + dmenub + ' *Type:* ' + Object.keys(v.message) + '\n' + dmenub + ' *Jid:* ' + (v.key.remoteJid).replace(/@.+/, '') + '\n' + dmenuf]
         ]])
 	})
 	if (chat.getmsg === false) return conn.sendButton(m.chat, `kamu harus mengaktifkan getmsg dengan mengklik tombol di bawah`, wm, null, [['Nyalakan getmsg', '.on getmsg']], m)
