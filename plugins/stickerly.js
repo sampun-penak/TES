@@ -4,14 +4,14 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let pp = await conn.profilePictureUrl(who).catch(_ => hwaifu.getRandom())
 let name = await conn.getName(who)
-
+try {
     if (!text) throw `Penggunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} spongebob`
-    let res = await fetch(API('lolhuman', '/api/stickerwa', { query: text }, 'apikey'))
+    let res = await fetch(global.API('lolhuman', '/api/stickerwa', { query: text }, 'apikey'))
     let json = await res.json()
     let ha = json.result
 	let row = Object.values(ha).map((v, index) => ({
 		title: index + ' ' + v.title,
-		description: '\nAuthor: ' + v.author + '\nUrl: ' + v.url,
+		description: '\nAuthor: ' + v.author + '\nUrl: ' + v.url + '\nUrl: ' + Array.from(v.stickers),
 		rowId: usedPrefix + 'fetchsticker ' + (v.stickers).getRandom() + ' wsf'
 	}))
 	let button = {
@@ -20,6 +20,9 @@ let name = await conn.getName(who)
 		footerText: wm
 	}
 	return await conn.sendListM(m.chat, button, row, m)
+	} catch (e) {
+	throw eror
+	}
 }
 handler.help = ['stickerly <teks>']
 handler.tags = ['sticker']

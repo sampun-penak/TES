@@ -19,7 +19,7 @@ Your ❤️health is full!
 'ʙᴜʏ🥤ᴩᴏᴛɪᴏɴ' | 'ᴀsᴋ ᴛᴏ ᴀʟʟ'
 `.trim(), imgr + 'lowpotion', [
 [`ʙᴜʏ ᴩᴏᴛɪᴏɴ`, `${usedPrefix}buy potion ${count - user.potion}`],
-[`ᴀsᴋ ᴛᴏ ᴀʟʟ`, `${usedPrefix}tagall *sᴏᴍᴇʙᴏᴅʏ ᴩʟᴇᴀsᴇ sᴇɴᴅ ${count - user.potion} ᴩᴏᴛɪᴏɴ* ᴛᴏ ᴍᴇ.
+[`ᴀsᴋ ᴛᴏ ᴀʟʟ`, `${usedPrefix}say *sᴏᴍᴇʙᴏᴅʏ ᴩʟᴇᴀsᴇ sᴇɴᴅ ${count - user.potion} ᴩᴏᴛɪᴏɴ* ᴛᴏ ᴍᴇ.
 ⮕ ᴛᴏ ᴛʀᴀɴsғᴇʀ ᴩᴏᴛɪᴏɴ:
 ${usedPrefix}transfer potion ${count - user.potion} @${conn.getName(m.sender)}`]
 ], m)

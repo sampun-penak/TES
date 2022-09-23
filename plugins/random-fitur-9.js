@@ -155,7 +155,14 @@ let count = urut[0]
 let caption = string.repeat(count);
 await conn.reply(m.chat, caption, m, frep)
          }
-         
+
+if (command == 'say') {
+if (!args[0]) throw `Use example .${command} halo`
+  m.reply(`${text}`.trim(), null, m.mentionedJid ? {
+  mentions: m.mentionedJid
+} : {})
+         }
+                  
 if (command == 'repeat2') {
 if (!args[0]) throw `Cth. .repeat2 7|Hai`
 let urut = text.split`|`
@@ -341,7 +348,7 @@ conn.sendButton(m.chat, 'lolimaker', wm, jsn, [['🔄 Next 🔄', `${usedPrefix 
 
 
 }
-handler.command = handler.help = ['urlscan', 'fotoduck', 'fotobear', 'fotodog', 'fotodog2', 'fotofox', 'fotoshibe', 'drinks', 'rules', 'repeat', 'repeat2', 'dmpsearch', 'dmpdown', 'gacha', 'ziy']
+handler.command = handler.help = ['urlscan', 'fotoduck', 'fotobear', 'fotodog', 'fotodog2', 'fotofox', 'fotoshibe', 'drinks', 'rules', 'say', 'repeat', 'repeat2', 'dmpsearch', 'dmpdown', 'gacha', 'ziy']
 handler.tags = ['random']
 
 export default handler
